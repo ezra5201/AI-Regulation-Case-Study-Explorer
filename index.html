@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colorado SB24-205 Service Blueprint: CareAI Healthcare Workforce Management System</title>
+    <title>Colorado SB24-205 Service Blueprint & Compliance Assessment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,374 +91,625 @@
         .organization {
             background-color: #e8f4f8;
         }
+
+        /* Styles for React component */
+        .heatmap-container {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .compliance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .compliance-table th,
+        .compliance-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .compliance-table th:first-child,
+        .compliance-table td:first-child {
+            text-align: left;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border: 1px solid #999;
+        }
+
+        .note-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .observations {
+            margin-top: 30px;
+        }
+
+        .observations h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .observations ul {
+            padding-left: 20px;
+        }
+
+        .observations li {
+            margin-bottom: 8px;
+        }
+
+        .improvement-section {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        #toggle-section-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        #toggle-section-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .tab-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-button {
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: 0.3s;
+            font-size: 16px;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+
+        .tab-button.active {
+            background-color: #3498db;
+            color: white;
+            border: 1px solid #3498db;
+            border-bottom: none;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <h1>Colorado SB24-205 Service Blueprint</h1>
-    <h2>CareAI Healthcare Workforce Management System Scenario</h2>
+    <h1>Colorado SB24-205 Service Blueprint & Compliance Assessment</h1>
+    <h2>CareAI Healthcare Workforce Management System Case Study</h2>
     
-    <p>This service blueprint maps the journey of key stakeholders through significant events that trigger Colorado's SB24-205 AI regulations, focusing on the CareAI healthcare workforce management system developed by HealthSync Technologies.</p>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Stakeholder</th>
-                <th>Context & Parameters</th>
-                <th>Initial Deployment</th>
-                <th>Wellness Non-Compliance</th>
-                <th>Adverse Employment Decision</th>
-                <th>Discovery of Bias</th>
-                <th>Regulatory Action</th>
-                <th>Resolution</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="stakeholder">Dr. Sarah Johnson<br>(Emergency Physician)</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Years of Service: 15</li>
-                        <li>Role: Senior Emergency Physician</li>
-                        <li>Health Condition: Chronic insomnia</li>
-                        <li>Shift Pattern: Rotating shifts including nights</li>
-                        <li>Knowledge of AI Systems: Limited</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Onboarded to CareAI with biometric monitoring</li>
-<li>Wears smart device to track health metrics</li>
-</ul></td>
-                <td><ul>
-<li>Consistently ignores system's wellness recommendations (78% dismissal rate)</li>
-<li>Shows elevated cortisol and sleep deficiency</li>
-</ul></td>
-                <td><ul>
-<li>Placed on "wellness improvement plan"</li>
-<li>Scheduling preferences and leadership eligibility made contingent on compliance with AI recommendations</li>
-</ul></td>
-                <td><ul>
-<li>Files complaint alleging discrimination</li>
-<li>Claims chronic insomnia condition makes compliance difficult</li>
-</ul></td>
-                <td><ul>
-<li>Provides documentation and testimony</li>
-<li>Details how CareAI affected her employment opportunities</li>
-</ul></td>
-                <td><ul>
-<li>Granted opportunity to correct medical data in system</li>
-<li>Hospital implements reasonable accommodation for her condition</li>
-</ul></td>
-            </tr>
-            <tr class="organization">
-                <td class="stakeholder">Lakewood Medical Center<br>(Implementor/Deployer)</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Facility Size: 350-bed hospital</li>
-                        <li>AI Governance Framework: None</li>
-                        <li>Risk Assessment Process: Traditional</li>
-                        <li>Staff Size: 1200+ employees</li>
-                        <li>AI Implementation Priority: Cost reduction, staff retention, burnout prevention</li>
-                        <li>Compliance Resources: Limited</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Contracts with HealthSync Technologies</li>
-<li>Approves CareAI implementation</li>
-<li>Establishes implementation committee</li>
-<li>Develops initial risk assessment</li>
-<li>Onboards staff with minimal AI training</li>
-</ul></td>
-                <td><ul>
-<li>Aggregates wellness compliance data</li>
-<li>Establishes quarterly performance review process that includes AI metrics</li>
-<li>Uses system to identify "at-risk" employees</li>
-</ul></td>
-                <td><ul>
-<li>Implements CareAI recommendations in personnel decisions without adequate human oversight</li>
-<li>Ties advancement opportunities to wellness metrics</li>
-<li>Fails to consider accommodation needs</li>
-</ul></td>
-                <td><ul>
-<li>Receives discrimination complaint</li>
-<li>Conducts internal investigation</li>
-<li>Identifies potential SB24-205 compliance issues</li>
-<li>Notifies developer about algorithmic bias concerns</li>
-</ul></td>
-                <td><ul>
-<li>Self-reports to Attorney General</li>
-<li>Cooperates with investigation</li>
-<li>Provides documentation of impact assessments and risk management policies</li>
-<li>Acknowledges compliance gaps</li>
-</ul></td>
-                <td><ul>
-<li>Develops comprehensive SB24-205 compliance framework</li>
-<li>Establishes human review requirements for all AI-influenced decisions</li>
-<li>Creates appeals process</li>
-<li>Implements reasonable accommodation protocols</li>
-<li>Conducts organization-wide AI governance training</li>
-</ul></td>
-            </tr>
-            <tr>
-                <td class="stakeholder">Lakewood Medical Center - Department Chair</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Management Style: Performance-driven</li>
-                        <li>Tech Adoption: Enthusiastic early adopter</li>
-                        <li>Staff Oversight: 42 clinicians</li>
-                        <li>Burnout Management Priority: High</li>
-                        <li>AI Decision Reliance: High</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Endorses CareAI adoption for Emergency Department</li>
-<li>Encourages staff participation</li>
-</ul></td>
-                <td><ul>
-<li>Reviews individual wellness compliance reports</li>
-<li>Addresses concerning patterns with staff</li>
-</ul></td>
-                <td><ul>
-<li>Uses CareAI data to place Dr. Johnson on wellness improvement plan</li>
-<li>Ties scheduling and advancement to improved metrics</li>
-</ul></td>
-                <td><ul>
-<li>Defends decision based on correlation between wellness non-compliance and medication errors</li>
-</ul></td>
-                <td><ul>
-<li>Participates in investigation</li>
-<li>Explains decision-making process</li>
-</ul></td>
-                <td><ul>
-<li>Implements new human oversight protocols</li>
-<li>Modifies how AI recommendations inform personnel decisions</li>
-</ul></td>
-            </tr>
-            <tr>
-                <td class="stakeholder">Lakewood Medical Center - HR Team</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Staff Size: 12 HR professionals</li>
-                        <li>AI Training Level: Basic</li>
-                        <li>Risk Assessment Expertise: Limited</li>
-                        <li>Employment Decision Process: Traditional</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Leads day-to-day CareAI implementation</li>
-<li>Develops employee onboarding materials</li>
-<li>Coordinates staff training</li>
-</ul></td>
-                <td><ul>
-<li>Monitors wellness compliance metrics</li>
-<li>Establishes review process</li>
-<li>Lacks expertise to identify potential algorithmic bias</li>
-</ul></td>
-                <td><ul>
-<li>Reviews CareAI-generated report on Dr. Johnson</li>
-<li>Recommends performance improvement plan based on AI-identified patterns without adequate scrutiny</li>
-</ul></td>
-                <td><ul>
-<li>Processes discrimination complaint</li>
-<li>Conducts preliminary investigation</li>
-<li>Escalates to legal team</li>
-</ul></td>
-                <td><ul>
-<li>Assists with documentation preparation</li>
-<li>Updates employee notification policies</li>
-</ul></td>
-                <td><ul>
-<li>Develops new guidelines for AI-influenced decisions</li>
-<li>Implements training on reasonable accommodations</li>
-<li>Manages new appeal process</li>
-</ul></td>
-            </tr>
-            <tr>
-                <td class="stakeholder">Lakewood Medical Center - Legal Team</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Team Size: 3 attorneys</li>
-                        <li>AI Law Expertise: Minimal</li>
-                        <li>Regulatory Compliance Focus: Healthcare regulations</li>
-                        <li>Pre-implementation Involvement: Contract review only</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Reviews CareAI contract and implementation plan</li>
-<li>Identifies potential liability concerns</li>
-</ul></td>
-                <td><ul>
-<li>Minimally involved in ongoing monitoring</li>
-<li>Advises on data privacy compliance</li>
-</ul></td>
-                <td><ul>
-<li>Not consulted before wellness improvement plan implementation</li>
-</ul></td>
-                <td><ul>
-<li>Evaluates discrimination complaint</li>
-<li>Identifies potential SB24-205 implications</li>
-</ul></td>
-                <td><ul>
-<li>Leads Attorney General notification process</li>
-<li>Advises on legal exposure</li>
-</ul></td>
-                <td><ul>
-<li>Develops compliance protocols for SB24-205</li>
-<li>Creates legal framework for human review of AI recommendations</li>
-<li>Updates employment policies</li>
-</ul></td>
-            </tr>
-            <tr>
-                <td class="stakeholder">HealthSync Technologies<br>(Developer)</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Company Age: 4 years</li>
-                        <li>AI Governance Maturity: Medium</li>
-                        <li>Regulatory Compliance Team: 2 FTEs</li>
-                        <li>Number of Deployments: 5 facilities</li>
-                        <li>Documentation Quality: General, not customized</li>
-                        <li>Testing for Bias: Limited</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Provides implementation support and training</li>
-<li>Delivers standard documentation on system capabilities</li>
-</ul></td>
-                <td><ul>
-<li>Continues to refine algorithms based on user data</li>
-<li>No substantial modifications made</li>
-</ul></td>
-                <td><ul>
-<li>Unaware that deployer is using wellness compliance metrics for employment decisions beyond intended use case</li>
-</ul></td>
-                <td><ul>
-<li>Receives report from Lakewood about potential discrimination issue in sleep monitoring algorithm</li>
-</ul></td>
-                <td><ul>
-<li>Investigates algorithm</li>
-<li>Discovers bias against night shift workers and those with sleep disorders</li>
-</ul></td>
-                <td><ul>
-<li>Updates algorithms to prevent bias</li>
-<li>Enhances documentation about appropriate uses</li>
-<li>Notifies all deployers of issue</li>
-</ul></td>
-            </tr>
-            
-            <tr>
-                <td class="stakeholder">Technical Compliance Team<br>(at HealthSync)</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Team Size: 3 engineers</li>
-                        <li>Demographic Testing Scenarios: Limited</li>
-                        <li>Healthcare Domain Expertise: Moderate</li>
-                        <li>Compliance Documentation Process: Standardized</li>
-                        <li>User Monitoring Capabilities: Limited</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Develops documentation for deployers</li>
-<li>Conducts initial algorithmic risk assessment</li>
-</ul></td>
-                <td><ul>
-<li>Monitors system performance</li>
-<li>Doesn't identify bias in wellness recommendations</li>
-</ul></td>
-                <td><ul>
-<li>Not directly involved in employment decisions</li>
-</ul></td>
-                <td><ul>
-<li>Analyzes reported discrimination</li>
-<li>Identifies potential bias in sleep metrics</li>
-</ul></td>
-                <td><ul>
-<li>Develops algorithm fixes</li>
-<li>Updates SB24-205 compliance documentation</li>
-</ul></td>
-                <td><ul>
-<li>Implements enhanced testing protocols for various medical conditions</li>
-<li>Improves impact assessment methodology</li>
-</ul></td>
-            </tr>
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'service-blueprint')">Service Blueprint</button>
+            <button class="tab-button" onclick="openTab(event, 'compliance-heatmap')">Compliance Assessment</button>
+        </div>
 
-            <tr>
-                <td class="stakeholder">Colorado Attorney General's Office</td>
-                <td class="parameters">
-                    <ul>
-                        <li>Enforcement Priority for AI Law: High</li>
-                        <li>AI Technical Expertise: Developing</li>
-                        <li>Case Monitoring Resources: Limited</li>
-                        <li>Enforcement Approach: Education-first</li>
-                    </ul>
-                </td>
-                <td><ul>
-<li>Not involved</li>
-</ul></td>
-                <td>Not involved</td>
-                <td>Not involved</td>
-                <td><ul>
-<li>Receives discrimination notification from Lakewood Medical Center</li>
-</ul></td>
-                <td><ul>
-<li>Opens investigation into algorithmic discrimination</li>
-<li>Reviews impact assessments and risk management documentation</li>
-</ul></td>
-                <td><ul>
-<li>Issues compliance guidance</li>
-<li>Requires updates to risk management protocols</li>
-<li>Monitors implementation</li>
-</ul></td>
-            </tr>
-           
+        <div id="service-blueprint" class="tab-content active">
+            <p>This service blueprint maps the journey of key stakeholders through significant events that trigger Colorado's SB24-205 AI regulations, focusing on the CareAI healthcare workforce management system developed by HealthSync Technologies.</p>
             
-        </tbody>
-    </table>
-    
-    <div class="section-header">
-        <h3>Key Colorado SB24-205 Requirements Triggered</h3>
-    </div>
-    
-    <div class="requirement">
-        <h4>1. Initial Deployment</h4>
-        <ul>
-            <li>Developer obligation to provide documentation <span class="citation">(§6-1-1702(2))</span></li>
-            <li>Deployer requirement to implement risk management policy <span class="citation">(§6-1-1703(2))</span></li>
-            <li>Impact assessment requirement <span class="citation">(§6-1-1703(3))</span></li>
-        </ul>
-    </div>
-    
-    <div class="requirement">
-        <h4>2. Wellness Non-Compliance</h4>
-        <ul>
-            <li>High-risk AI system collecting sensitive health data <span class="citation">(§6-1-1701(9))</span></li>
-            <li>Ongoing monitoring requirements <span class="citation">(§6-1-1703(3)(g))</span></li>
-        </ul>
-    </div>
-    
-    <div class="requirement">
-        <h4>3. Adverse Employment Decision</h4>
-        <ul>
-            <li>Consequential decision affecting employment <span class="citation">(§6-1-1701(3)(b))</span></li>
-            <li>Consumer right to human review of decisions <span class="citation">(§6-1-1703(4)(b))</span></li>
-            <li>Notice requirements before consequential decisions <span class="citation">(§6-1-1703(4)(a))</span></li>
-        </ul>
-    </div>
-    
-    <div class="requirement">
-        <h4>4. Discovery of Bias</h4>
-        <ul>
-            <li>Algorithmic discrimination identification <span class="citation">(§6-1-1701(1))</span></li>
-            <li>Mandatory reporting to Attorney General <span class="citation">(§6-1-1703(7))</span></li>
-            <li>Developer notification to deployers <span class="citation">(§6-1-1702(5))</span></li>
-        </ul>
-    </div>
-    
-    <div class="requirement">
-        <h4>5. Resolution</h4>
-        <ul>
-            <li>Opportunity to correct personal data <span class="citation">(§6-1-1703(4)(b)(II))</span></li>
-            <li>Appeal via human review <span class="citation">(§6-1-1703(4)(b)(III))</span></li>
-            <li>Implementation of reasonable care standards <span class="citation">(§6-1-1702(1) and §6-1-1703(1))</span></li>
-        </ul>
-    </div>
-</body>
-</html>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stakeholder</th>
+                        <th>Context & Parameters</th>
+                        <th>Initial Deployment</th>
+                        <th>Wellness Non-Compliance</th>
+                        <th>Adverse Employment Decision</th>
+                        <th>Discovery of Bias</th>
+                        <th>Regulatory Action</th>
+                        <th>Resolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stakeholder">Dr. Sarah Johnson<br>(Emergency Physician)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Years of Service: 15</li>
+                                <li>Role: Senior Emergency Physician</li>
+                                <li>Health Condition: Chronic insomnia</li>
+                                <li>Shift Pattern: Rotating shifts including nights</li>
+                                <li>Knowledge of AI Systems: Limited</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Onboarded to CareAI with biometric monitoring</li>
+        <li>Wears smart device to track health metrics</li>
+        </ul></td>
+                        <td><ul>
+        <li>Consistently ignores system's wellness recommendations (78% dismissal rate)</li>
+        <li>Shows elevated cortisol and sleep deficiency</li>
+        </ul></td>
+                        <td><ul>
+        <li>Placed on "wellness improvement plan"</li>
+        <li>Scheduling preferences and leadership eligibility made contingent on compliance with AI recommendations</li>
+        </ul></td>
+                        <td><ul>
+        <li>Files complaint alleging discrimination</li>
+        <li>Claims chronic insomnia condition makes compliance difficult</li>
+        </ul></td>
+                        <td><ul>
+        <li>Provides documentation and testimony</li>
+        <li>Details how CareAI affected her employment opportunities</li>
+        </ul></td>
+                        <td><ul>
+        <li>Granted opportunity to correct medical data in system</li>
+        <li>Hospital implements reasonable accommodation for her condition</li>
+        </ul></td>
+                    </tr>
+                    <tr class="organization">
+                        <td class="stakeholder">Lakewood Medical Center<br>(Implementor/Deployer)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Facility Size: 350-bed hospital</li>
+                                <li>AI Governance Framework: None</li>
+                                <li>Risk Assessment Process: Traditional</li>
+                                <li>Staff Size: 1200+ employees</li>
+                                <li>AI Implementation Priority: Cost reduction, staff retention, burnout prevention</li>
+                                <li>Compliance Resources: Limited</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Contracts with HealthSync Technologies</li>
+        <li>Approves CareAI implementation</li>
+        <li>Establishes implementation committee</li>
+        <li>Develops initial risk assessment</li>
+        <li>Onboards staff with minimal AI training</li>
+        </ul></td>
+                        <td><ul>
+        <li>Aggregates wellness compliance data</li>
+        <li>Establishes quarterly performance review process that includes AI metrics</li>
+        <li>Uses system to identify "at-risk" employees</li>
+        </ul></td>
+                        <td><ul>
+        <li>Implements CareAI recommendations in personnel decisions without adequate human oversight</li>
+        <li>Ties advancement opportunities to wellness metrics</li>
+        <li>Fails to consider accommodation needs</li>
+        </ul></td>
+                        <td><ul>
+        <li>Receives discrimination complaint</li>
+        <li>Conducts internal investigation</li>
+        <li>Identifies potential SB24-205 compliance issues</li>
+        <li>Notifies developer about algorithmic bias concerns</li>
+        </ul></td>
+                        <td><ul>
+        <li>Self-reports to Attorney General</li>
+        <li>Cooperates with investigation</li>
+        <li>Provides documentation of impact assessments and risk management policies</li>
+        <li>Acknowledges compliance gaps</li>
+        </ul></td>
+                        <td><ul>
+        <li>Develops comprehensive SB24-205 compliance framework</li>
+        <li>Establishes human review requirements for all AI-influenced decisions</li>
+        <li>Creates appeals process</li>
+        <li>Implements reasonable accommodation protocols</li>
+        <li>Conducts organization-wide AI governance training</li>
+        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Lakewood Medical Center - Department Chair</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Management Style: Performance-driven</li>
+                                <li>Tech Adoption: Enthusiastic early adopter</li>
+                                <li>Staff Oversight: 42 clinicians</li>
+                                <li>Burnout Management Priority: High</li>
+                                <li>AI Decision Reliance: High</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Endorses CareAI adoption for Emergency Department</li>
+        <li>Encourages staff participation</li>
+        </ul></td>
+                        <td><ul>
+        <li>Reviews individual wellness compliance reports</li>
+        <li>Addresses concerning patterns with staff</li>
+        </ul></td>
+                        <td><ul>
+        <li>Uses CareAI data to place Dr. Johnson on wellness improvement plan</li>
+        <li>Ties scheduling and advancement to improved metrics</li>
+        </ul></td>
+                        <td><ul>
+        <li>Defends decision based on correlation between wellness non-compliance and medication errors</li>
+        </ul></td>
+                        <td><ul>
+        <li>Participates in investigation</li>
+        <li>Explains decision-making process</li>
+        </ul></td>
+                        <td><ul>
+        <li>Implements new human oversight protocols</li>
+        <li>Modifies how AI recommendations inform personnel decisions</li>
+        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Lakewood Medical Center - HR Team</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Staff Size: 12 HR professionals</li>
+                                <li>AI Training Level: Basic</li>
+                                <li>Risk Assessment Expertise: Limited</li>
+                                <li>Employment Decision Process: Traditional</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Leads day-to-day CareAI implementation</li>
+        <li>Develops employee onboarding materials</li>
+        <li>Coordinates staff training</li>
+        </ul></td>
+                        <td><ul>
+        <li>Monitors wellness compliance metrics</li>
+        <li>Establishes review process</li>
+        <li>Lacks expertise to identify potential algorithmic bias</li>
+        </ul></td>
+                        <td><ul>
+        <li>Reviews CareAI-generated report on Dr. Johnson</li>
+        <li>Recommends performance improvement plan based on AI-identified patterns without adequate scrutiny</li>
+        </ul></td>
+                        <td><ul>
+        <li>Processes discrimination complaint</li>
+        <li>Conducts preliminary investigation</li>
+        <li>Escalates to legal team</li>
+        </ul></td>
+                        <td><ul>
+        <li>Assists with documentation preparation</li>
+        <li>Updates employee notification policies</li>
+        </ul></td>
+                        <td><ul>
+        <li>Develops new guidelines for AI-influenced decisions</li>
+        <li>Implements training on reasonable accommodations</li>
+        <li>Manages new appeal process</li>
+        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Lakewood Medical Center - Legal Team</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Team Size: 3 attorneys</li>
+                                <li>AI Law Expertise: Minimal</li>
+                                <li>Regulatory Compliance Focus: Healthcare regulations</li>
+                                <li>Pre-implementation Involvement: Contract review only</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Reviews CareAI contract and implementation plan</li>
+        <li>Identifies potential liability concerns</li>
+        </ul></td>
+                        <td><ul>
+        <li>Minimally involved in ongoing monitoring</li>
+        <li>Advises on data privacy compliance</li>
+        </ul></td>
+                        <td><ul>
+        <li>Not consulted before wellness improvement plan implementation</li>
+        </ul></td>
+                        <td><ul>
+        <li>Evaluates discrimination complaint</li>
+        <li>Identifies potential SB24-205 implications</li>
+        </ul></td>
+                        <td><ul>
+        <li>Leads Attorney General notification process</li>
+        <li>Advises on legal exposure</li>
+        </ul></td>
+                        <td><ul>
+        <li>Develops compliance protocols for SB24-205</li>
+        <li>Creates legal framework for human review of AI recommendations</li>
+        <li>Updates employment policies</li>
+        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">HealthSync Technologies<br>(Developer)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Company Age: 4 years</li>
+                                <li>AI Governance Maturity: Medium</li>
+                                <li>Regulatory Compliance Team: 2 FTEs</li>
+                                <li>Number of Deployments: 5 facilities</li>
+                                <li>Documentation Quality: General, not customized</li>
+                                <li>Testing for Bias: Limited</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Provides implementation support and training</li>
+        <li>Delivers standard documentation on system capabilities</li>
+        </ul></td>
+                        <td><ul>
+        <li>Continues to refine algorithms based on user data</li>
+        <li>No substantial modifications made</li>
+        </ul></td>
+                        <td><ul>
+        <li>Unaware that deployer is using wellness compliance metrics for employment decisions beyond intended use case</li>
+        </ul></td>
+                        <td><ul>
+        <li>Receives report from Lakewood about potential discrimination issue in sleep monitoring algorithm</li>
+        </ul></td>
+                        <td><ul>
+        <li>Investigates algorithm</li>
+        <li>Discovers bias against night shift workers and those with sleep disorders</li>
+        </ul></td>
+                        <td><ul>
+        <li>Updates algorithms to prevent bias</li>
+        <li>Enhances documentation about appropriate uses</li>
+        <li>Notifies all deployers of issue</li>
+        </ul></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="stakeholder">Technical Compliance Team<br>(at HealthSync)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Team Size: 3 engineers</li>
+                                <li>Demographic Testing Scenarios: Limited</li>
+                                <li>Healthcare Domain Expertise: Moderate</li>
+                                <li>Compliance Documentation Process: Standardized</li>
+                                <li>User Monitoring Capabilities: Limited</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Develops documentation for deployers</li>
+        <li>Conducts initial algorithmic risk assessment</li>
+        </ul></td>
+                        <td><ul>
+        <li>Monitors system performance</li>
+        <li>Doesn't identify bias in wellness recommendations</li>
+        </ul></td>
+                        <td><ul>
+        <li>Not directly involved in employment decisions</li>
+        </ul></td>
+                        <td><ul>
+        <li>Analyzes reported discrimination</li>
+        <li>Identifies potential bias in sleep metrics</li>
+        </ul></td>
+                        <td><ul>
+        <li>Develops algorithm fixes</li>
+        <li>Updates SB24-205 compliance documentation</li>
+        </ul></td>
+                        <td><ul>
+        <li>Implements enhanced testing protocols for various medical conditions</li>
+        <li>Improves impact assessment methodology</li>
+        </ul></td>
+                    </tr>
+        
+                    <tr>
+                        <td class="stakeholder">Colorado Attorney General's Office</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Enforcement Priority for AI Law: High</li>
+                                <li>AI Technical Expertise: Developing</li>
+                                <li>Case Monitoring Resources: Limited</li>
+                                <li>Enforcement Approach: Education-first</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+        <li>Not involved</li>
+        </ul></td>
+                        <td>Not involved</td>
+                        <td>Not involved</td>
+                        <td><ul>
+        <li>Receives discrimination notification from Lakewood Medical Center</li>
+        </ul></td>
+                        <td><ul>
+        <li>Opens investigation into algorithmic discrimination</li>
+        <li>Reviews impact assessments and risk management documentation</li>
+        </ul></td>
+                        <td><ul>
+        <li>Issues compliance guidance</li>
+        <li>Requires updates to risk management protocols</li>
+        <li>Monitors implementation</li>
+        </ul></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="section-header">
+                <h3>Key Colorado SB24-205 Requirements Triggered</h3>
+            </div>
+            
+            <div class="requirement">
+                <h4>1. Initial Deployment</h4>
+                <ul>
+                    <li>Developer obligation to provide documentation <span class="citation">(§6-1-1702(2))</span></li>
+                    <li>Deployer requirement to implement risk management policy <span class="citation">(§6-1-1703(2))</span></li>
+                    <li>Impact assessment requirement <span class="citation">(§6-1-1703(3))</span></li>
+                </ul>
+            </div>
+            
+            <div class="requirement">
+                <h4>2. Wellness Non-Compliance</h4>
+                <ul>
+                    <li>High-risk AI system collecting sensitive health data <span class="citation">(§6-1-1701(9))</span></li>
+                    <li>Ongoing monitoring requirements <span class="citation">(§6-1-1703(3)(g))</span></li>
+                </ul>
+            </div>
+            
+            <div class="requirement">
+                <h4>3. Adverse Employment Decision</h4>
+                <ul>
+                    <li>Consequential decision affecting employment <span class="citation">(§6-1-1701(3)(b))</span></li>
+                    <li>Consumer right to human review of decisions <span class="citation">(§6-1-1703(4)(b))</span></li>
+                    <li>Notice requirements before consequential decisions <span class="citation">(§6-1-1703(4)(a))</span></li>
+                </ul>
+            </div>
+            
+            <div class="requirement">
+                <h4>4. Discovery of Bias</h4>
+                <ul>
+                    <li>Algorithmic discrimination identification <span class="citation">(§6-1-1701(1))</span></li>
+                    <li>Mandatory reporting to Attorney General <span class="citation">(§6-1-1703(7))</span></li>
+                    <li>Developer notification to deployers <span class="citation">(§6-1-1702(5))</span></li>
+                </ul>
+            </div>
+            
+            <div class="requirement">
+                <h4>5. Resolution</h4>
+                <ul>
+                    <li>Opportunity to correct personal data <span class="citation">(§6-1-1703(4)(b)(II))</span></li>
+                    <li>Appeal via human review <span class="citation">(§6-1-1703(4)(b)(III))</span></li>
+                    <li>Implementation of reasonable care standards <span class="citation">(§6-1-1702(1) and §6-1-1703(1))</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="compliance-heatmap" class="tab-content">
+            <div class="heatmap-container">
+                <h2 class="text-2xl font-bold mb-4 text-center">Colorado SB24-205 Compliance Assessment</h2>
+                <h3 class="text-xl mb-6 text-center">CareAI Healthcare Workforce Management System Case Study</h3>
+                
+                <div class="note-box">
+                    <p>Note: Dr. Sarah Johnson is included in this visualization as the affected individual (consumer) in this scenario, not as an entity responsible for compliance with SB24-205. The law places compliance obligations on developers and deployers of AI systems, not on the individuals affected by those systems.</p>
+                </div>
+                
+                <!-- Legend for the heatmap -->
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ff6b6b;"></div>
+                        <span>Poor (1-3)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffd166;"></div>
+                        <span>Moderate (4-6)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #06d6a0;"></div>
+                        <span>Good (7-10)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f0f0f0;"></div>
+                        <span>Not Applicable</span>
+                    </div>
+                </div>
+                
+                <!-- Compliance Heatmap Table -->
+                <div class="compliance-table-container">
+                    <table class="compliance-table">
+                        <thead>
+                            <tr>
+                                <th>Stakeholder</th>
+                                <th>Initial Deployment</th>
+                                <th>Wellness Non-Compliance</th>
+                                <th>Adverse Employment Decision</th>
+                                <th>Discovery of Bias</th>
+                                <th>Regulatory Action</th>
+                                <th>Resolution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Sarah Johnson (Affected Individual - Not Subject to Compliance)</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                            </tr>
+                            <tr>
+                                <td>Lakewood Medical Center (Deployer)</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ff6b6b; color: white;">2</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                            </tr>
+                            <tr>
+                                <td>Department Chair</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">2</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                            </tr>
+                            <tr>
+                                <td>HR Team</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">2</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                            </tr>
+                            <tr>
+                                <td>Legal Team</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">2</td>
+                                <td style="background-color: #ff6b6b; color: white;">1</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                                <td style="background-color: #06d6a0; color: black;">9</td>
+                            </tr>
+                            <tr>
+                                <td>HealthSync Technologies (Developer)</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Compliance Team</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                                <td style="background-color: #06d6a0; color: black;">9</td>
+                            </tr>
+                            <tr>
+                                <td>Colorado Attorney General's Office
