@@ -712,4 +712,65 @@
                                 <td style="background-color: #06d6a0; color: black;">9</td>
                             </tr>
                             <tr>
-                                <td>Colorado Attorney General's Office
+                                <td>Colorado Attorney General's Office</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                                <td style="background-color: #06d6a0; color: black;">9</td>
+                                <td style="background-color: #06d6a0; color: black;">9</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="observations">
+                    <h3>Key Observations:</h3>
+                    <ul>
+                        <li>Initial compliance levels were moderate to poor across most responsible entities, showing limited preparation for AI regulation.</li>
+                        <li>The adverse employment decision phase shows the lowest compliance scores, representing the critical incident that triggered awareness.</li>
+                        <li>All compliance-obligated stakeholders show improvement in the resolution phase, indicating effective remediation efforts.</li>
+                        <li>Legal Team shows the most dramatic improvement from initial deployment to resolution (4 → 9).</li>
+                        <li>Technical teams started with higher baseline compliance but still had significant room for improvement.</li>
+                        <li>Compliance ratings improve systematically after regulatory intervention, suggesting the effectiveness of enforcement actions.</li>
+                        <li>The case illustrates how SB24-205 places obligations on organizations deploying and developing AI, not on individuals affected by AI systems.</li>
+                    </ul>
+                </div>
+
+                <div class="improvement-section">
+                    <h3>SB24-205 Compliance Improvement Opportunities:</h3>
+                    <ol>
+                        <li>Proactive risk assessment protocols before initial deployment</li>
+                        <li>Enhanced training on algorithmic bias for all stakeholders</li>
+                        <li>Implementation of human review processes for all consequential decisions</li>
+                        <li>Clearer documentation of how AI recommendations should be used in employment contexts</li>
+                        <li>Formal appeals processes for individuals affected by AI-influenced decisions</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Remove "active" class from all tab buttons
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
