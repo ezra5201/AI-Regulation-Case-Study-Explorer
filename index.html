@@ -92,6 +92,28 @@
             background-color: #e8f4f8;
         }
 
+        /* New styles for friction points, risks, and mitigation rows */
+        .friction-row {
+            background-color: #ffe8e8;
+        }
+        
+        .risk-row {
+            background-color: #fff2cc;
+        }
+        
+        .mitigation-row {
+            background-color: #e2f4e5;
+        }
+        
+        .section-border {
+            border-top: 3px solid #2c3e50;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            background-color: #f0f0f0;
+        }
+
         /* Styles for React component */
         .heatmap-container {
             margin-top: 40px;
@@ -552,56 +574,201 @@
         <li>Monitors implementation</li>
         </ul></td>
                     </tr>
+                    
+                    <!-- New rows for friction points, risks, and mitigation -->
+                    <tr class="section-border">
+                        <td class="section-title">Key Colorado SB24-205<br>Requirements</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li>Developer documentation obligation <span class="citation">(§6-1-1702(2))</span></li>
+                                <li>Deployer risk management policy <span class="citation">(§6-1-1703(2))</span></li>
+                                <li>Impact assessment requirement <span class="citation">(§6-1-1703(3))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>High-risk AI system with health data <span class="citation">(§6-1-1701(9))</span></li>
+                                <li>Ongoing monitoring requirements <span class="citation">(§6-1-1703(3)(g))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Consequential employment decision <span class="citation">(§6-1-1701(3)(b))</span></li>
+                                <li>Consumer right to human review <span class="citation">(§6-1-1703(4)(b))</span></li>
+                                <li>Pre-decision notice requirement <span class="citation">(§6-1-1703(4)(a))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Algorithmic discrimination identification <span class="citation">(§6-1-1701(1))</span></li>
+                                <li>Mandatory AG reporting <span class="citation">(§6-1-1703(7))</span></li>
+                                <li>Developer notification to deployers <span class="citation">(§6-1-1702(5))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Technical documentation requirements <span class="citation">(§6-1-1702(7))</span></li>
+                                <li>Disclosure obligations <span class="citation">(§6-1-1703(9))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Opportunity to correct personal data <span class="citation">(§6-1-1703(4)(b)(II))</span></li>
+                                <li>Appeal via human review <span class="citation">(§6-1-1703(4)(b)(III))</span></li>
+                                <li>Reasonable care standards <span class="citation">(§6-1-1702(1), §6-1-1703(1))</span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="section-border friction-row">
+                        <td class="section-title">Friction Points with<br>Colorado AI Law</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li>Limited understanding of what constitutes a "high-risk AI system"</li>
+                                <li>Unclear responsibility boundaries between developer and deployer</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Wellness compliance data not clearly designated as health data under the law</li>
+                                <li>Insufficient guidance on handling indirect health metrics</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Employment decisions based on AI recommendations lack proper notification protocols</li>
+                                <li>Human review requirements not properly implemented</li>
+                                <li>Unclear boundaries between AI suggestion and decision-making</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Ambiguity around "intent" in algorithmic discrimination</li>
+                                <li>Uncertainty about documentation standards for bias discovery</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Technical complexity of documenting algorithmic bias for legal purposes</li>
+                                <li>Challenge of establishing timeline for "known or reasonably foreseeable risks"</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Ongoing compliance monitoring burden</li>
+                                <li>Uncertainty about "reasonable care" standard when implementing new processes</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="risk-row">
+                        <td class="section-title">Risks to Stakeholders</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li><b>Employees:</b> Privacy violations, unfair evaluation</li>
+                                <li><b>Hospital:</b> Legal liability, non-compliance penalties</li>
+                                <li><b>Developer:</b> Reputation damage, legal exposure, product failure</li>
+                                <li><b>Regulatory:</b> Ineffective enforcement due to limited technical expertise</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Employees:</b> Unfair assessment of wellness capacity</li>
+                                <li><b>Hospital:</b> Over-reliance on AI for measuring employee performance</li>
+                                <li><b>Developer:</b> Liability from unintended use of wellness metrics</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Employees:</b> Career advancement limitations, discrimination</li>
+                                <li><b>Hospital:</b> Discrimination claims, regulatory penalties</li>
+                                <li><b>Developer:</b> Liability from deployer misuse of system</li>
+                                <li><b>Managers:</b> Making decisions with incomplete understanding of AI limitations</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Employees:</b> Continued discrimination despite complaint</li>
+                                <li><b>Hospital:</b> Reputation damage, expanded investigation</li>
+                                <li><b>Developer:</b> Multiple deployment remediation, competitive disadvantage</li>
+                                <li><b>Regulatory:</b> Setting improper precedent through early enforcement actions</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Regulatory penalties, operational disruption</li>
+                                <li><b>Developer:</b> Substantial remediation costs, market impact</li>
+                                <li><b>Legal/Compliance Teams:</b> Professional liability for oversight failures</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Increased operational costs for compliance</li>
+                                <li><b>Developer:</b> Development costs for enhanced compliance features</li>
+                                <li><b>Employees:</b> Remaining algorithmic biases not yet identified</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="mitigation-row">
+                        <td class="section-title">Risk Mitigation</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Comprehensive impact assessment before implementation</li>
+                                <li><b>Developer:</b> More detailed use case guidance, explicit documentation of limitations</li>
+                                <li><b>HR/Legal:</b> Early involvement in implementation planning</li>
+                                <li><b>All:</b> Clear policies on appropriate use of AI health metrics</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Human oversight of wellness metrics, sensitivity to medical conditions</li>
+                                <li><b>Developer:</b> Clear documentation about limitations of wellness metrics</li>
+                                <li><b>HR:</b> Proactive accommodations consideration</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Required human review of all AI-influenced employment decisions</li>
+                                <li><b>HR/Legal:</b> Clear anti-discrimination protocols for AI-influenced decisions</li>
+                                <li><b>Developer:</b> Clear use case boundaries in documentation</li>
+                                <li><b>Managers:</b> Training on AI limitations and bias risks</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Prompt and thorough investigation of bias complaints</li>
+                                <li><b>Developer:</b> Expanded testing for diverse user populations</li>
+                                <li><b>Technical Team:</b> Bias testing protocols for all algorithm updates</li>
+                                <li><b>Legal:</b> Documentation of reasonable investigation timelines</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital/Developer:</b> Cooperative approach to compliance</li>
+                                <li><b>Legal:</b> Documentation of all remediation steps</li>
+                                <li><b>Technical Team:</b> Translating technical information for regulatory purposes</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Hospital:</b> Ongoing monitoring processes, regular compliance audits</li>
+                                <li><b>Developer:</b> Regular updates to compliance documentation</li>
+                                <li><b>HR/Legal:</b> Training for all stakeholders on AI governance</li>
+                                <li><b>All:</b> Culture of responsible AI use with clear escalation pathways</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
                 </tbody>
             </table>
             
-            <div class="section-header">
-                <h3>Key Colorado SB24-205 Requirements Triggered</h3>
-            </div>
             
-            <div class="requirement">
-                <h4>1. Initial Deployment</h4>
-                <ul>
-                    <li>Developer obligation to provide documentation <span class="citation">(§6-1-1702(2))</span></li>
-                    <li>Deployer requirement to implement risk management policy <span class="citation">(§6-1-1703(2))</span></li>
-                    <li>Impact assessment requirement <span class="citation">(§6-1-1703(3))</span></li>
-                </ul>
-            </div>
             
-            <div class="requirement">
-                <h4>2. Wellness Non-Compliance</h4>
-                <ul>
-                    <li>High-risk AI system collecting sensitive health data <span class="citation">(§6-1-1701(9))</span></li>
-                    <li>Ongoing monitoring requirements <span class="citation">(§6-1-1703(3)(g))</span></li>
-                </ul>
-            </div>
-            
-            <div class="requirement">
-                <h4>3. Adverse Employment Decision</h4>
-                <ul>
-                    <li>Consequential decision affecting employment <span class="citation">(§6-1-1701(3)(b))</span></li>
-                    <li>Consumer right to human review of decisions <span class="citation">(§6-1-1703(4)(b))</span></li>
-                    <li>Notice requirements before consequential decisions <span class="citation">(§6-1-1703(4)(a))</span></li>
-                </ul>
-            </div>
-            
-            <div class="requirement">
-                <h4>4. Discovery of Bias</h4>
-                <ul>
-                    <li>Algorithmic discrimination identification <span class="citation">(§6-1-1701(1))</span></li>
-                    <li>Mandatory reporting to Attorney General <span class="citation">(§6-1-1703(7))</span></li>
-                    <li>Developer notification to deployers <span class="citation">(§6-1-1702(5))</span></li>
-                </ul>
-            </div>
-            
-            <div class="requirement">
-                <h4>5. Resolution</h4>
-                <ul>
-                    <li>Opportunity to correct personal data <span class="citation">(§6-1-1703(4)(b)(II))</span></li>
-                    <li>Appeal via human review <span class="citation">(§6-1-1703(4)(b)(III))</span></li>
-                    <li>Implementation of reasonable care standards <span class="citation">(§6-1-1702(1) and §6-1-1703(1))</span></li>
-                </ul>
-            </div>
         </div>
 
         <div id="compliance-heatmap" class="tab-content">
