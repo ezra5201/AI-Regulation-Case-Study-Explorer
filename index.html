@@ -259,6 +259,7 @@
     <div class="tab-container">
         <div class="tab-buttons">
             <button class="tab-button active" onclick="openTab(event, 'service-blueprint')">Service Blueprint</button>
+            <button class="tab-button" onclick="openTab(event, 'insights')">Insights</button>
             <button class="tab-button" onclick="openTab(event, 'compliance-heatmap')">Compliance Assessment</button>
         </div>
 
@@ -766,9 +767,18 @@
                     
                 </tbody>
             </table>
+        </div>
+
+        <div id="insights" class="tab-content">
+            <div class="note-box">
+                <h3>Key Insight: Profound disconnect between the intended use of the CareAI system and how it was actually implemented in employment decisions.</h3>
+            </div>
             
+            <p>The case study illustrates how healthcare organizations initially deployed an AI system designed to promote wellness, but then inappropriately used this system to make consequential employment decisions without proper safeguards. The blueprint clearly shows how the hospital made Dr. Johnson's "scheduling preferences and leadership eligibility contingent on compliance with AI recommendations" without adequate human oversight or accommodation considerations.</p>
             
+            <p>This misalignment is at the core of the compliance failure, with the lowest compliance scores across all stakeholders occurring during the "Adverse Employment Decision" phase. This represents a critical blind spot: organizations failing to recognize when an AI system transitions from an assistive tool to a system making "consequential decisions" as defined by Colorado's law.</p>
             
+            <p>The case demonstrates how AI systems developed for one purpose (wellness monitoring) can evolve into high-risk systems under regulatory definitions when their outputs are used to make material decisions about people's careers and opportunities - triggering legal requirements for impact assessments, human review processes, and notification protocols that the organization failed to implement.</p>
         </div>
 
         <div id="compliance-heatmap" class="tab-content">
