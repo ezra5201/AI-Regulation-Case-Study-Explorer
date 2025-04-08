@@ -244,25 +244,24 @@ tr:hover {
     display: block;
 }
 
-/* global-nav class */
+/* Adjust the global-nav layout */
 .global-nav {
     background-color: #2c3e50;
     color: white;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between; /* Already pushing items apart */
-    align-items: center;
+    align-items: center; /* Keep items vertically centered */
     margin-bottom: 20px;
+    position: relative; /* For absolute positioning of the dropdown if needed */
 }
 
-
+/* Style for the title */
 .global-nav-title {
     font-size: 20px;
     font-weight: bold;
-    margin-right: auto; 
 }
 
-
+/* Position the case study selector 100px to the right of the title */
 .case-study-selector {
     background-color: white;
     color: #2c3e50;
@@ -271,7 +270,7 @@ tr:hover {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    margin-left: 20px; 
+    margin-left: 100px; /* This creates exactly 100px space after the title */
 }
 
 .case-study-selector:hover {
