@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colorado SB24-205 Service Blueprint & Compliance Assessment</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
 <div class="global-nav">
     <div class="global-nav-title">Regulatory Case Study Explorer</div>
 <select id="case-study-selector" class="case-study-selector" onchange="changeCaseStudy()">
-    <option value="/reg-cs-explorer/colorado-aclu.html">TalentView-FinSoft Case Study</option>
-    <option value="/reg-cs-explorer/index.html">CareAI Healthcare Case Study</option>
+    <option value="colorado-aclu.html">TalentView-FinSoft Case Study</option>
+    <option value="index.html">CareAI Healthcare Case Study</option>
 </select>
 </div>
 
@@ -580,7 +579,7 @@
         </div>
     </div>
 
-    <script>
+   <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tabbuttons;
             
@@ -607,22 +606,22 @@ function changeCaseStudy() {
     const selector = document.getElementById('case-study-selector');
     const selectedValue = selector.value;
     if (selectedValue) {
-        // This creates an absolute URL based on your site's base path
+        // Use relative URL paths instead of absolute paths
         window.location.href = selectedValue;
     }
 }
     
-    // Set the correct option as selected based on current page
-    document.addEventListener('DOMContentLoaded', function() {
-        const selector = document.getElementById('case-study-selector');
-        const currentPath = window.location.pathname;
-        
-        if (currentPath.includes('index')) {
-            selector.value = 'index.html';
-        } else if (currentPath.includes('colorado-aclu')) {
-            selector.value = 'colorado-aclu.html';
-        }
-    });
+// Set the correct option as selected based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const selector = document.getElementById('case-study-selector');
+    const currentPath = window.location.pathname;
+    
+    if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
+        selector.value = 'index.html';
+    } else if (currentPath.includes('colorado-aclu')) {
+        selector.value = 'colorado-aclu.html';
+    }
+});
 </script>
 
 </body>
