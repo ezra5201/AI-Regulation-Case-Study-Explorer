@@ -250,9 +250,49 @@
         .tab-content.active {
             display: block;
         }
+
+<style>
+    .global-nav {
+        background-color: #2c3e50;
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .global-nav-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .case-study-selector {
+        background-color: white;
+        color: #2c3e50;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .case-study-selector:hover {
+        background-color: #f1f1f1;
+    }
+        
     </style>
 </head>
 <body>
+
+<div class="global-nav">
+    <div class="global-nav-title">Regulatory Case Study Explorer</div>
+    <select id="case-study-selector" class="case-study-selector" onchange="changeCaseStudy()">
+        <option value="colorado-aclu.html">TalentView-FinSoft Case Study</option>
+        <option value="index.html">CareAI Healthcare Case Study</option>
+    </select>
+</div>
+    
     <h1>Colorado SB24-205 Service Blueprint & Compliance Assessment</h1>
     <h2>CareAI Healthcare Workforce Management System Case Study</h2>
     
@@ -949,5 +989,28 @@
             evt.currentTarget.className += " active";
         }
     </script>
+
+<script>
+    function changeCaseStudy() {
+        const selector = document.getElementById('case-study-selector');
+        const selectedValue = selector.value;
+        if (selectedValue && selectedValue !== window.location.pathname) {
+            window.location.href = selectedValue;
+        }
+    }
+    
+    // Set the correct option as selected based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+        const selector = document.getElementById('case-study-selector');
+        const currentPath = window.location.pathname;
+        
+        if (currentPath.includes('index')) {
+            selector.value = 'index.html';
+        } else if (currentPath.includes('colorado-aclu')) {
+            selector.value = 'colorado-aclu.html';
+        }
+    });
+</script>
+    
 </body>
 </html>
