@@ -1,4 +1,4 @@
-
+/**
  * Tab switching functionality
  * Opens the selected tab content and updates active tab styling
  */
@@ -50,5 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
         selector.value = 'index.html';
     } else if (currentPath.includes('colorado-aclu')) {
         selector.value = 'colorado-aclu.html';
+    }
+    
+    // Ensure tab switching works
+    const tabButtons = document.getElementsByClassName('tab-button');
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].addEventListener('click', function(event) {
+            const tabName = this.getAttribute('onclick').split("'")[1];
+            openTab(event, tabName);
+        });
     }
 });
