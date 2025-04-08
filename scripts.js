@@ -1,4 +1,4 @@
-/**
+
  * Tab switching functionality
  * Opens the selected tab content and updates active tab styling
  */
@@ -24,13 +24,13 @@ function openTab(evt, tabName) {
 
 /**
  * Case study selector functionality
- * Redirects to the selected case study page
+ * Redirects to the selected case study page immediately when selection changes
  */
 function changeCaseStudy() {
     const selector = document.getElementById('case-study-selector');
     const selectedValue = selector.value;
     if (selectedValue) {
-        // This creates an absolute URL based on your site's base path
+        // Navigate to the selected page immediately
         window.location.href = selectedValue;
     }
 }
@@ -41,11 +41,14 @@ function changeCaseStudy() {
  */
 document.addEventListener('DOMContentLoaded', function() {
     const selector = document.getElementById('case-study-selector');
+    if (!selector) return; // Exit if selector doesn't exist
+    
     const currentPath = window.location.pathname;
     
-    if (currentPath.includes('index')) {
-        selector.value = '/reg-cs-explorer/index.html';
+    // Set the correct option based on the current page
+    if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+        selector.value = 'index.html';
     } else if (currentPath.includes('colorado-aclu')) {
-        selector.value = '/reg-cs-explorer/colorado-aclu.html';
+        selector.value = 'colorado-aclu.html';
     }
 });
