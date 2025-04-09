@@ -286,7 +286,7 @@ tr:hover {
     margin-left: 100px; /* This creates exactly 100px space after the title */
     appearance: menulist; /* Ensures the dropdown arrow appears consistently */
     -webkit-appearance: menulist; /* For Safari */
-    max-width: 420px; /* Limits the width to prevent overflow */
+    max-width: 520px; /* Limits the width to prevent overflow */
 }
 
 .case-study-selector:hover {
