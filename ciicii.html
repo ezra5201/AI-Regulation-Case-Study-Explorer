@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Case Study Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="global-nav">
+    <div class="global-nav-title">Regulatory Case Study Explorer</div>
+    <select id="case-study-selector" class="case-study-selector" onchange="changeCaseStudy()">
+        <option value="ciicii-colorado.html">Colorado SB24-20: CiiCii Elder Care Companion</option>
+        <option value="colorado-aclu.html">Colorado SB24-20: TalentView-FinSoft</option>
+        <option value="index.html">Colorado SB24-20: CareAI Healthcare</option>
+    </select>
+</div>
+    
+    <h1>Regulation: Colorado SB24-205</h1>
+    <h2>Case Study: CiiCii AI Elder Companionship System</h2>
+    
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="service-blueprint" onclick="openTab(event, 'service-blueprint')">Service Blueprint</button>
+            <button class="tab-button" data-tab="insights" onclick="openTab(event, 'insights')">Insights</button>
+            <button class="tab-button" data-tab="compliance-heatmap" onclick="openTab(event, 'compliance-heatmap')">Compliance Assessment</button>
+        </div>
+
+        <div id="service-blueprint" class="tab-content active">
+            <p>This service blueprint maps the journey of key stakeholders through significant events that trigger Colorado's SB24-205 AI regulations, focusing on the CiiCii AI companion system developed by ElderTech Solutions and deployed by home care agencies in Colorado to support older adults with cognitive impairments.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stakeholder</th>
+                        <th>Context & Parameters</th>
+                        <th>Initial Assessment</th>
+                        <th>System Implementation</th>
+                        <th>Ongoing Monitoring</th>
+                        <th>Behavior Management</th>
+                        <th>Care Continuation</th>
+                        <th>Outcomes & Evaluation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stakeholder">Robert M.<br>(Elder Care Client)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Age: 79</li>
+                                <li>Diagnosis: Moderate dementia</li>
+                                <li>History: Former engineer</li>
+                                <li>Living situation: Home-based care</li>
+                                <li>Behavioral challenges: Agitation, aggression</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Exhibits regular agitation episodes</li>
+                            <li>Documented physical aggression</li>
+                            <li>Home care agency considers terminating services</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Initial content preferences identified</li>
+                            <li>Personal history collected for system training</li>
+                            <li>Family contributes photos and music selections</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>System observes content engagement patterns</li>
+                            <li>Identifies preferred music and video content</li>
+                            <li>Tracks mood variations throughout day</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>CiiCii suggests personalized music playlists during agitation</li>
+                            <li>System recommends videos of heavy machinery (relevant to past profession)</li>
+                            <li>Displays family photos during periods of confusion</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Significant reduction in aggressive incidents</li>
+                            <li>Caregivers report improved mood management</li>
+                            <li>Care continues in home setting for additional 20 months</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Only 3 reported incidents in final year</li>
+                            <li>Enabled $137,939 in continued care revenue</li>
+                            <li>Caregiver turnover dramatically reduced</li>
+                        </ul></td>
+                    </tr>
+                    <tr class="organization">
+                        <td class="stakeholder">SilverCare Home Services<br>(Implementor/Deployer)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Location: Denver, Colorado</li>
+                                <li>Size: Mid-sized regional agency</li>
+                                <li>Client base: 50%+ with cognitive impairments</li>
+                                <li>Challenge: High caregiver turnover</li>
+                                <li>Previous behavior management: Traditional approaches</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Documents 22 formal complaints of aggression</li>
+                            <li>Multiple caregivers refuse assignment</li>
+                            <li>Considers terminating client contract</li>
+                            <li>Evaluates CiiCii as alternative to service termination</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Contracts with ElderTech Solutions</li>
+                            <li>Trains caregivers on system functionality</li>
+                            <li>Configures client profile with personalization data</li>
+                            <li>Establishes baseline behavior measurements</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Caregivers document client responses to content</li>
+                            <li>Logs system recommendations and outcomes</li>
+                            <li>Monitors caregiver compliance with AI suggestions</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Implements CiiCii behavior management recommendations</li>
+                            <li>Adapts care schedules based on system insights</li>
+                            <li>Uses predictive warnings to prevent agitation</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Continues client services beyond original termination point</li>
+                            <li>Maintains care team with minimal turnover</li>
+                            <li>Provides care at home rather than recommending facility placement</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Evaluates return on investment</li>
+                            <li>Documents increased client lifetime value</li>
+                            <li>Expands CiiCii implementation to other clients</li>
+                            <li>Develops standard protocols for system use</li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Care Team<br>(Professional Caregivers)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Team size: Rotating staff of 12</li>
+                                <li>Experience level: Mixed (novice to veteran)</li>
+                                <li>Technology comfort: Variable</li>
+                                <li>Past challenges: Frequent reassignment requests</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>High stress related to unpredictable behaviors</li>
+                            <li>Many refuse to work with client</li>
+                            <li>Document safety concerns</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Receive training on CiiCii system</li>
+                            <li>Learn to document client responses</li>
+                            <li>Initial skepticism about technology effectiveness</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Input observations into mobile app</li>
+                            <li>Follow system recommendations</li>
+                            <li>Document intervention effectiveness</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Apply specific AI-suggested interventions</li>
+                            <li>Use content recommendations during agitation</li>
+                            <li>Develop increased confidence in managing behaviors</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Lower stress levels reported</li>
+                            <li>Increased job satisfaction</li>
+                            <li>Greater continuity of care with consistent staff</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Provide feedback for system improvement</li>
+                            <li>Develop personalized expertise with AI assistance</li>
+                            <li>Lower turnover rates overall</li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Family Members</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Relationship: Son and daughter living in Colorado</li>
+                                <li>Involvement level: Regular but remote</li>
+                                <li>Concern: Behavioral issues and potential facility placement</li>
+                                <li>Technology comfort: Moderate</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Facing difficult facility placement decision</li>
+                            <li>Concern about continued aggressive behaviors</li>
+                            <li>Emotional stress from potential care changes</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Provide personal history information</li>
+                            <li>Upload family photos and videos</li>
+                            <li>Share information about preferences and interests</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Regularly update content through mobile app</li>
+                            <li>Receive updates on engagement patterns</li>
+                            <li>Learn which content creates positive responses</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Contribute context for behavioral triggers</li>
+                            <li>Record personalized voice messages</li>
+                            <li>Add new photos and videos as suggested by system</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Relief at continued home-based care</li>
+                            <li>Increased engagement in care planning</li>
+                            <li>More meaningful remote interactions</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Report higher satisfaction with care quality</li>
+                            <li>Continued participation in content creation</li>
+                            <li>Advocate for technology with other families</li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">ElderTech Solutions<br>(Developer)</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Location: Pennsylvania-based</li>
+                                <li>Company age: 6 years</li>
+                                <li>AI governance maturity: Developing</li>
+                                <li>Regulatory compliance team: Limited</li>
+                                <li>Colorado market presence: Growing</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Provides assessment tools to determine client suitability</li>
+                            <li>Evaluates behavioral data for system appropriateness</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Configures system for specific client needs</li>
+                            <li>Provides implementation support</li>
+                            <li>Trains SilverCare staff on platform use</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Collects user interaction data</li>
+                            <li>Refines algorithms based on client response</li>
+                            <li>Monitors system performance metrics</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Updates recommendation algorithms</li>
+                            <li>Analyzes effectiveness of intervention suggestions</li>
+                            <li>Identifies patterns in successful de-escalation</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Provides ongoing technical support</li>
+                            <li>Implements system updates based on user feedback</li>
+                            <li>Collects data on care continuation metrics</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Analyzes behavioral outcome data</li>
+                            <li>Documents system ROI for marketing</li>
+                            <li>Begins assessment of SB24-205 compliance needs</li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Colorado State Agencies</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Departments: Health Care Policy, Aging</li>
+                                <li>Regulatory oversight: Home care licensing</li>
+                                <li>Interest: Extending aging-in-place capabilities</li>
+                                <li>Concern: AI system safety and efficacy</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Not directly involved at client level</li>
+                            <li>Maintaining standard home care oversight</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Beginning awareness of AI care technologies</li>
+                            <li>No specific regulatory framework yet</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Limited visibility into AI system operations</li>
+                            <li>Collecting preliminary data on technology use</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Growing interest in behavior management outcomes</li>
+                            <li>Evaluating potential cost savings for Medicaid</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Initial interest in reduced institutional placements</li>
+                            <li>Potential policy implications identified</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Begins developing regulatory framework</li>
+                            <li>Considers AI governance requirements</li>
+                            <li>Evaluates SB24-205 implications for elder care</li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="stakeholder">Healthcare Providers</td>
+                        <td class="parameters">
+                            <ul>
+                                <li>Primary care physician</li>
+                                <li>Geriatric psychiatrist</li>
+                                <li>Role: Medical oversight</li>
+                                <li>Technology integration: Limited</li>
+                            </ul>
+                        </td>
+                        <td><ul>
+                            <li>Prescribing traditional interventions</li>
+                            <li>Considering medication adjustments</li>
+                            <li>Evaluating potential for facility placement</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Initial skepticism about AI intervention</li>
+                            <li>Provides medical history for system configuration</li>
+                            <li>Establishes behavioral baselines</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Reviews behavioral data reports</li>
+                            <li>Minimal integration with clinical workflows</li>
+                            <li>Observes medication needs</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Notes potential reduction in pharmacological interventions</li>
+                            <li>Receives behavioral trend reports</li>
+                            <li>Limited direct interaction with system</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Documents improved behavioral management</li>
+                            <li>Adjusts care plan based on new stability</li>
+                            <li>Delays recommendation for facility placement</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Considers system data in treatment planning</li>
+                            <li>Evaluates potential for broader application</li>
+                            <li>Questions medical oversight of AI recommendations</li>
+                        </ul></td>
+                    </tr>
+                    
+                    <tr class="section-border">
+                        <td class="section-title">Key Colorado SB24-205<br>Requirements</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li>Assessment of whether system qualifies as "high-risk" <span class="citation">(§6-1-1701(9))</span></li>
+                                <li>Potential consequential decision influence on healthcare <span class="citation">(§6-1-1701(3)(e))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Developer documentation requirements <span class="citation">(§6-1-1702(2))</span></li>
+                                <li>Disclosure of intended uses <span class="citation">(§6-1-1702(2)(a))</span></li>
+                                <li>Deployer impact assessment obligation <span class="citation">(§6-1-1703(3))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Ongoing monitoring requirements <span class="citation">(§6-1-1703(3)(g))</span></li>
+                                <li>Data governance measures <span class="citation">(§6-1-1702(2)(c)(ii))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Disclosure to consumer of AI interaction <span class="citation">(§6-1-1704)</span></li>
+                                <li>Risk management program requirements <span class="citation">(§6-1-1703(2))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Protection from algorithmic discrimination <span class="citation">(§6-1-1702(1), §6-1-1703(1))</span></li>
+                                <li>Disclosure of potential risks <span class="citation">(§6-1-1702(5))</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Public statement of system types and risk management <span class="citation">(§6-1-1702(4), §6-1-1703(5))</span></li>
+                                <li>Reasonable care standard compliance <span class="citation">(§6-1-1702(1), §6-1-1703(1))</span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="section-border friction-row">
+                        <td class="section-title">Friction Points with<br>Colorado AI Law</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li>Unclear if elder companionship systems qualify as "high-risk"</li>
+                                <li>Ambiguity on whether behavior management is a "consequential decision"</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Out-of-state developer with limited Colorado regulatory knowledge</li>
+                                <li>Lack of standardized impact assessment for cognitive impairment contexts</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Complexity of monitoring algorithmic performance with cognitively impaired users</li>
+                                <li>Unclear standards for measuring effectiveness in behavior management</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Ethical questions about informed consent with cognitively impaired individuals</li>
+                                <li>Challenge of "disclosing" AI interaction to users with dementia</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Difficulty defining "algorithmic discrimination" in healthcare context</li>
+                                <li>Unclear boundaries between quality of life decisions and healthcare decisions</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Limited precedent on "reasonable care" standard for elder care AI</li>
+                                <li>Evolving medical standard of care for AI-assisted behavior management</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="risk-row">
+                        <td class="section-title">Risks to Stakeholders</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Continuation of dangerous behaviors, potential institutional placement</li>
+                                <li><b>Agency:</b> Liability from terminated care, staff turnover, revenue loss</li>
+                                <li><b>Developer:</b> System ineffectiveness for severe behavioral issues</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Privacy concerns, autonomy questions, surveillance ethics</li>
+                                <li><b>Agency:</b> Inadequate staff training, improper system configuration</li>
+                                <li><b>Developer:</b> Insufficient Colorado-specific compliance documentation</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Ineffective personalization, system misinterpretation of needs</li>
+                                <li><b>Agency:</b> Over-reliance on technology, diminished human assessment</li>
+                                <li><b>Developer:</b> Limited ability to ensure appropriate system use</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Manipulation of emotional state, agency reduction</li>
+                                <li><b>Agency:</b> Inappropriate intervention suggestions, liability for outcomes</li>
+                                <li><b>Developer:</b> Unknown long-term effects of AI behavioral influence</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Extended home care that might eventually be inappropriate</li>
+                                <li><b>Agency:</b> Delay in necessary institutional referrals</li>
+                                <li><b>Developer:</b> System used beyond intended capabilities</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Technology dependency, unknown long-term impacts</li>
+                                <li><b>Agency:</b> Non-compliance with emerging regulations</li>
+                                <li><b>Developer:</b> Cross-state regulatory complexity</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr class="mitigation-row">
+                        <td class="section-title">Risk Mitigation</td>
+                        <td>N/A</td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Comprehensive behavioral assessment, family input on preferences</li>
+                                <li><b>Agency:</b> Clear documentation of existing intervention failures</li>
+                                <li><b>Developer:</b> Thorough client suitability screening protocol</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Appropriate surrogate consent processes, privacy controls</li>
+                                <li><b>Agency:</b> Comprehensive staff training, implementation protocols</li>
+                                <li><b>Developer:</b> Detailed Colorado-specific compliance documentation</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Regular refinement of personalization data</li>
+                                <li><b>Agency:</b> Human oversight of system recommendations</li>
+                                <li><b>Developer:</b> Clear guidelines for appropriate system use</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Family oversight of content selection</li>
+                                <li><b>Agency:</b> Clinical review of intervention patterns</li>
+                                <li><b>Developer:</b> Ethical review of behavioral influence mechanisms</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Regular clinical reassessment of care appropriateness</li>
+                                <li><b>Agency:</b> Clear criteria for continued home care suitability</li>
+                                <li><b>Developer:</b> Documentation of system limitations</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><b>Client:</b> Regular reassessment of benefit vs. autonomy impact</li>
+                                <li><b>Agency:</b> Proactive compliance planning for SB24-205</li>
+                                <li><b>Developer:</b> Cross-state regulatory alignment strategy</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div id="insights" class="tab-content">
+            <div class="note-box">
+                <h3>Key Insight: Unique tension between consumer protection and quality of life improvement in AI elder care applications</h3>
+            </div>
+            
+            <p>The CiiCii case study reveals a fundamental tension in applying Colorado's SB24-205 to elder care AI systems: while the law rightfully aims to protect consumers from algorithmic discrimination and harmful AI decisions, it must balance this protection against the demonstrable quality-of-life benefits such systems provide to vulnerable populations with cognitive impairments.</p>
+            
+            <p>Three critical dimensions of this tension emerge:</p>
+            
+            <p><strong>1. Consent & Disclosure Complexities:</strong> SB24-205 requires disclosure to consumers that they are interacting with an AI system. However, this presents unique challenges with cognitively impaired individuals who may lack capacity to understand such disclosures. The CiiCii case demonstrates how AI systems that provide tremendous benefit to users with cognitive impairments exist in a regulatory gray area regarding informed consent and disclosure requirements.</p>
+            
+            <p><strong>2. Redefining "Consequential Decisions" in Elder Care:</strong> The law defines high-risk AI systems as those making consequential decisions affecting healthcare services. The CiiCii case illustrates how behavior management through content personalization may not appear as a traditional "decision" yet profoundly impacts critical outcomes including remaining at home versus institutional placement. This challenges regulators and developers to consider more nuanced conceptions of what constitutes a "consequential decision" in elder care contexts.</p>
+            
+            <p><strong>3. Risk-Benefit Balance for Vulnerable Populations:</strong> The data shows that without the CiiCii system, clients would likely have been moved to institutional settings due to unmanageable behaviors. The system effectively enabled an additional 20 months of home-based care despite previously documented dangerous behaviors. This creates a complex ethical and regulatory question: how should laws like SB24-205 balance potential algorithmic risks against demonstrated improvements in quality of life for vulnerable populations?</p>
+            
+            <p>As Colorado's regulators implement SB24-205, they will need to develop nuanced frameworks that protect cognitively impaired consumers while enabling beneficial innovation. The CiiCii case suggests a need for specialized guidance addressing care contexts where traditional notions of consumer autonomy, disclosure, and decision-making require adaptation. A one-size-fits-all approach to AI regulation may inadvertently restrict access to technologies that demonstrably improve quality of life for those with cognitive impairments.</p>
+        </div>
+
+        <div id="compliance-heatmap" class="tab-content">
+            <div class="heatmap-container">
+                <h2 class="text-2xl font-bold mb-4 text-center">Colorado SB24-205 Compliance Assessment</h2>
+                <h3 class="text-xl mb-6 text-center">CiiCii Elder Companionship System Case Study</h3>
+                
+                <div class="note-box">
+                    <p>Note: The individual clients are included in this visualization as affected individuals (consumers) in this scenario, not as entities responsible for compliance with SB24-205. The law places compliance obligations on developers and deployers of AI systems, not on the individuals affected by those systems.</p>
+                </div>
+                
+                <!-- Legend for the heatmap -->
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ff6b6b;"></div>
+                        <span>Poor (1-3)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffd166;"></div>
+                        <span>Moderate (4-6)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #06d6a0;"></div>
+                        <span>Good (7-10)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f0f0f0;"></div>
+                        <span>Not Applicable</span>
+                    </div>
+                </div>
+                
+                <!-- Compliance Heatmap Table -->
+                <div class="compliance-table-container">
+                    <table class="compliance-table">
+                        <thead>
+                            <tr>
+                                <th>Stakeholder</th>
+                                <th>Initial Assessment</th>
+                                <th>System Implementation</th>
+                                <th>Ongoing Monitoring</th>
+                                <th>Behavior Management</th>
+                                <th>Care Continuation</th>
+                                <th>Outcomes & Evaluation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Client (Not Subject to Compliance)</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                            </tr>
+                            <tr>
+                                <td>SilverCare Home Services (Deployer)</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #06d6a0; color: black;">8</td>
+                            </tr>
+                            <tr>
+                                <td>Professional Caregivers</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #06d6a0; color: black;">7</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                            </tr>
+                            <tr>
+                                <td>Family Members</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                            </tr>
+                            <tr>
+                                <td>ElderTech Solutions (Developer)</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                                <td style="background-color: #ffd166; color: black;">6</td>
+                            </tr>
+                            <tr>
+                                <td>Colorado State Agencies</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                            </tr>
+                            <tr>
+                                <td>Healthcare Providers</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ff6b6b; color: white;">3</td>
+                                <td style="background-color: #ff6b6b; color: white;">2</td>
+                                <td style="background-color: #ffd166; color: black;">4</td>
+                                <td style="background-color: #ffd166; color: black;">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="observations">
+                    <h3>Key Observations:</h3>
+                    <ul>
+                        <li>SilverCare Home Services (deployer) shows an improving compliance trajectory (5→8) as they gain experience with the system and develop more robust protocols.</li>
+                        <li>ElderTech Solutions (developer) maintains moderate compliance levels (4-6) throughout, suggesting awareness of regulatory considerations but insufficient preparation for Colorado-specific requirements.</li>
+                        <li>The lowest compliance score appears in healthcare provider involvement during behavior management (2), indicating a critical gap in medical oversight of AI interventions.</li>
+                        <li>Colorado State Agencies show low initial compliance (3) during care continuation, reflecting the regulatory gap for AI systems in elder care.</li>
+                        <li>Professional caregivers show steady improvement in compliance as they gain familiarity with the system (5→7).</li>
+                        <li>All stakeholders show modestly improved compliance in later stages, suggesting natural learning curves in implementing novel AI technologies.</li>
+                        <li>Family members maintain moderate compliance (4-6) where applicable, primarily related to content contribution and oversight.</li>
+                        <li>The overall compliance picture suggests that while the CiiCii system produces positive care outcomes, significant regulatory gaps exist in how it is implemented.</li>
+                    </ul>
+                </div>
+
+                <div class="improvement-section">
+                    <h3>SB24-205 Compliance Improvement Opportunities:</h3>
+                    <ol>
+                        <li><strong>Cognitive Capacity Accommodations:</strong> Develop specialized informed consent and disclosure protocols for AI systems used with cognitively impaired individuals.</li>
+                        <li><strong>Cross-State Regulatory Alignment:</strong> Create clearer guidance for out-of-state developers serving Colorado consumers about their specific compliance obligations.</li>
+                        <li><strong>Clinical Integration Framework:</strong> Establish formal medical oversight requirements for AI systems influencing behavior management and healthcare decisions.</li>
+                        <li><strong>Specialized Impact Assessments:</strong> Develop impact assessment templates specifically designed for AI systems targeting vulnerable populations with cognitive limitations.</li>
+                        <li><strong>Decision Boundary Clarification:</strong> Provide regulatory guidance on when behavior management and quality of life interventions constitute "consequential decisions" under the law.</li>
+                        <li><strong>Surrogate Consent Protocols:</strong> Establish clear standards for surrogate decision-makers regarding consent for AI system use with cognitively impaired individuals.</li>
+                        <li><strong>Benefit-Risk Documentation:</strong> Implement formal documentation requirements balancing demonstrated quality of life benefits against potential algorithmic risks.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="copyright">
+            Regulatory Case Study Explorer © 2025 Art & Tech, Inc. | Concept by Ezra Schwartz. Additional contributions by [names]. All rights reserved.
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
