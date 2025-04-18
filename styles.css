@@ -332,10 +332,17 @@ th {
   border-radius: var(--md-sys-shape-corner-small);
 }
 
-.observations {
-  margin-top: 30px;
+.observations ul {
+  padding-left: 20px;
 }
 
-.observations h3 {
-  color: var(--md-sys-color-on
-             }
+.observations li {
+  margin-bottom: 8px;
+}
+
+.improvement-section {
+  background-color: var(--md-sys-color-surface-variant);
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: var(--md-sys-shape-corner-small);
+}
