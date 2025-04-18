@@ -302,12 +302,16 @@ tbody tr:nth-child(even) {
 .compliance-table td {
   border: 1px solid rgba(0,0,0,0.12);
   padding: 8px;
-  text-align: center;
+  text-align: top;
 }
 
 .compliance-table th:first-child,
 .compliance-table td:first-child {
   text-align: left;
+}
+
+table th {
+  color: var(--md-sys-color-primary);
 }
 
 .legend {
