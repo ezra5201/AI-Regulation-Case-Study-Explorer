@@ -56,6 +56,14 @@ tr:hover {
     color: #666;
 }
 
+
+.outcomes-summary p {
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+
+
 .copyright {
     margin: 0;
 }
