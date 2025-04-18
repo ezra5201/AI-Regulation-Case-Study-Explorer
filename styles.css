@@ -1,28 +1,26 @@
----
-## styles.css (Complete MD3 + Case‑Study Styles)
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  /* Core Color System */
-  --md-sys-color-primary: #6750A4;
+  /* Harmonious Material Palette */
+  --md-sys-color-primary: #3949AB;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-secondary: #625B71;
-  --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-surface: #FFFBFE;
-  --md-sys-color-on-surface: #1C1B1F;
-  --md-sys-color-background: #FFFBFE;
-  --md-sys-color-on-background: #1C1B1F;
-  --md-sys-color-error: #B3261E;
+  --md-sys-color-secondary: #FFC107;
+  --md-sys-color-on-secondary: #000000;
+  --md-sys-color-surface: #FFFFFF;
+  --md-sys-color-on-surface: #212121;
+  --md-sys-color-background: #F5F5F5;
+  --md-sys-color-on-background: #212121;
+  --md-sys-color-error: #D32F2F;
   --md-sys-color-on-error: #FFFFFF;
 
   /* Container Variant Colors */
-  --md-sys-color-primary-container: #EADDFF;
-  --md-sys-color-secondary-container: #E8DEF8;
-  --md-sys-color-surface-variant: #F5F5F5;
-  --md-sys-color-error-container: #F9DEDC;
-  --md-sys-color-warning-container: #FFF2CC;
-  --md-sys-color-success-container: #E2F4E5;
+  --md-sys-color-primary-container: #C5CAE9;
+  --md-sys-color-secondary-container: #FFECB3;
+  --md-sys-color-surface-variant: #ECEFF1;
+  --md-sys-color-error-container: #FFCDD2;
+  --md-sys-color-warning-container: #FFECB3;
+  --md-sys-color-success-container: #C8E6C9;
 
   /* Elevation */
   --md-sys-elevation-level1: 0px 1px 2px rgba(0,0,0,0.14),
@@ -85,7 +83,7 @@ nav.global-nav {
 }
 
 .case-study-selector:hover {
-  background-color: rgba(0,0,0,0.04);
+  background-color: var(--md-sys-color-secondary-container);
 }
 
 .case-study-selector:focus-visible {
@@ -99,7 +97,7 @@ nav.global-nav {
 }
 
 main {
-  padding: 16px;
+  padding: 24px;
   max-width: 1024px;
   margin: 0 auto;
 }
@@ -108,6 +106,7 @@ h1 {
   font-size: 32px;
   line-height: 40px;
   margin-bottom: 16px;
+  color: var(--md-sys-color-primary);
 }
 
 h2 {
@@ -115,6 +114,7 @@ h2 {
   line-height: 32px;
   margin-top: 24px;
   margin-bottom: 16px;
+  color: var(--md-sys-color-primary);
 }
 
 /* Tabs */
@@ -175,6 +175,12 @@ th, td {
 
 th {
   font-weight: 500;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--md-sys-color-surface-variant);
 }
 
 /* Toggle Button */
@@ -346,3 +352,5 @@ th {
   margin-top: 20px;
   border-radius: var(--md-sys-shape-corner-small);
 }
+```
+
