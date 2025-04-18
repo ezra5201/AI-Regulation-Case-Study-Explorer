@@ -1,698 +1,730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulatory Case Study Explorer</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulatory Case Study Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
 </head>
 <body>
+  <header>
+    <nav class="global-nav" aria-label="Global navigation">
+      <div class="global-nav-title">Regulatory Case Study Explorer</div>
+      <select id="case-study-selector" class="case-study-selector" aria-label="Select case study" onchange="changeCaseStudy()">
+        <option value="colorado-aclu.html">Colorado SB24-205: TalentVue-AcmeSoft</option>
+        <option value="index.html">Colorado SB24-205: CareAI Healthcare</option>
+        <option value="ciicii.html">Colorado SB24-205: DiiDii Elder Care Companion</option>
+      </select>
+    </nav>
+  </header>
 
-<div class="global-nav">
-    <div class="global-nav-title">Regulatory Case Study Explorer</div>
-<select id="case-study-selector" class="case-study-selector" onchange="changeCaseStudy()">
-    <option value="colorado-aclu.html">Colorado SB24-205: TalentVue-AcmeSoft</option>
-    <option value="index.html">Colorado SB24-205: CareAI Healthcare</option>
-    <option value="ciicii.html">Colorado SB24-205: DiiDii Elder Care Companion</option>
-</select>
-</div>
-
+  <main>
     <h1>Regulation: Colorado SB24-205</h1>
     <h2>Case Study: TalentVue-AcmeSoft Automated Video Interview</h2>
-    
+
     <div class="tab-container">
-        <div class="tab-buttons">
-<button class="tab-button active" data-tab="service-blueprint" onclick="openTab(event, 'service-blueprint')">Events Timeline</button>
-<button class="tab-button" data-tab="insights" onclick="openTab(event, 'insights')">Insights</button>
-<button class="tab-button" data-tab="compliance-heatmap" onclick="openTab(event, 'compliance-heatmap')">Compliance Assessment</button>
+      <div class="tab-buttons" role="tablist">
+        <button id="tab-service-blueprint" class="tab-button active"
+                role="tab" aria-selected="true" aria-controls="service-blueprint"
+                onclick="openTab(event,'service-blueprint')">
+          Events Timeline
+        </button>
+        <button id="tab-insights" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="insights"
+                onclick="openTab(event,'insights')">
+          Insights
+        </button>
+        <button id="tab-compliance-heatmap" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="compliance-heatmap"
+                onclick="openTab(event,'compliance-heatmap')">
+          Compliance Assessment
+        </button>
+        <button id="tab-developers" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="developers"
+                onclick="openTab(event,'developers')">
+          Developer Roadmap
+        </button>
+      </div>
 
-<button class="tab-button" data-tab="developers" onclick="openTab(event, 'developers')">Developer Roadmap</button>
+      <!-- Events Timeline -->
+      <section id="service-blueprint" class="tab-content active"
+               role="tabpanel" aria-labelledby="tab-service-blueprint" aria-hidden="false">
+        <p>This events timeline maps the journey of key stakeholders through significant events that trigger Colorado's SB24-205 AI regulations, focusing on the TalentVue automated video interview platform used by AcmeSoft in hiring decisions, based on a discrimination complaint case.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Stakeholder</th>
+              <th>Context & Parameters</th>
+              <th>Initial Employment</th>
+              <th>Accessibility Communication</th>
+              <th>Promotion Application</th>
+              <th>Automated Interview Experience</th>
+              <th>Decision & Feedback</th>
+              <th>Complaint Filing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="stakeholder">J.D.<br>(Job Applicant)</td>
+              <td class="parameters">
+                <ul>
+                  <li>Indigenous (Pawnee)</li>
+                  <li>Deaf with deaf accent</li>
+                  <li>Fluent in English and ASL</li>
+                  <li>Experienced Tax Associate</li>
+                  <li>Strong performance history</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Hired as Tax Associate at AcmeSoft in 2019</li>
+                  <li>Requested human-generated captioning (CART)</li>
+                  <li>Request denied; used automated captioning</li>
+                  <li>Performed role successfully despite barriers</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Identified AI system discriminatory scoring issue with manager</li>
+                  <li>System inaccurately evaluated speech due to deaf accent</li>
+                  <li>Joined AcmeSoft's Accessibility Team in 2023</li>
+                  <li>Raised concerns about TalentVue's accessibility to Chair of Accessibility Team</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Applied for Seasonal Manager position</li>
+                  <li>Met all qualifications for promotion</li>
+                  <li>Had 3 years as Tax Expert Lead</li>
+                  <li>Received notice to complete TalentVue video interview</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Requested CART captioning for interview</li>
+                  <li>Told TalentVue had built-in subtitling</li>
+                  <li>Found no subtitle option in TalentVue platform</li>
+                  <li>Relied on less accurate browser-based captioning</li>
+                  <li>Completed 3-hour assessment with video questions</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Received automated rejection</li>
+                  <li>Later received feedback focusing on communication style</li>
+                  <li>Feedback suggested "practice active listening" and "more concise communication"</li>
+                  <li>Feedback related directly to deaf accent and communication style</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Filed discrimination complaint</li>
+                  <li>Alleged violations of CADA, ADA, and Title VII</li>
+                  <li>Requested personnel file from AcmeSoft</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="organization">
+              <td class="stakeholder">AcmeSoft<br>(Employer/Deployer)</td>
+              <td class="parameters">
+                <ul>
+                  <li>Multinational business/financial software company</li>
+                  <li>18,000+ employees worldwide</li>
+                  <li>Uses TalentVue for hiring/promotion processes</li>
+                  <li>Has internal Accessibility Team</li>
+                  <li>Uses automated performance monitoring systems</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Hired J.D. as seasonal Tax Associate</li>
+                  <li>Denied CART accommodation request</li>
+                  <li>Used AI monitoring system to evaluate performance</li>
+                  <li>Awarded J.D. bonuses for strong performance</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Acknowledged AI system's inability to accurately assess J.D.'s speech</li>
+                  <li>Modified job duties to avoid customer phone calls</li>
+                  <li>Established Accessibility Team</li>
+                  <li>Did not address reported concerns about TalentVue's accessibility</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Opened Seasonal Manager position</li>
+                  <li>Manager encouraged J.D. to apply</li>
+                  <li>Required TalentVue video interview as part of application process</li>
+                  <li>Did not provide accommodation information in application materials</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Denied CART captioning accommodation request</li>
+                  <li>Incorrectly claimed TalentVue had built-in subtitling</li>
+                  <li>Failed to verify accommodation would be effective</li>
+                  <li>Proceeded with automated assessment despite known issues</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Rejected J.D.'s application</li>
+                  <li>Hired non-deaf and/or non-Indigenous candidates</li>
+                  <li>Provided automated feedback focused on communication</li>
+                  <li>Failed to consider previous performance evaluation issues</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Provided minimal personnel file documents</li>
+                  <li>Named as respondent in discrimination complaint</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="stakeholder">TalentVue<br>(Developer)</td>
+              <td class="parameters">
+                <ul>
+                  <li>AI and HR technology company</li>
+                  <li>200+ employees in US</li>
+                  <li>Develops AI-powered video interview platform</li>
+                  <li>Uses ASR systems to transcribe and evaluate speech</li>
+                  <li>Provides scoring reports to employers</li>
+                </ul>
+              </td>
+              <td>Not involved</td>
+              <td>Not directly involved</td>
+              <td>
+                <ul>
+                  <li>Provides video interview platform to AcmeSoft</li>
+                  <li>Platform includes video, essay, and multiple-choice questions</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Platform lacked complete subtitling for audible content</li>
+                  <li>No built-in subtitling option available as claimed</li>
+                  <li>Used ASR to transcribe applicant responses</li>
+                  <li>Applied AI to evaluate transcribed responses</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Generated automated analysis of interview performance</li>
+                  <li>Provided feedback emphasizing communication style</li>
+                  <li>Used system known to perform poorly for deaf speakers</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Named as respondent in discrimination complaint</li>
+                  <li>Accused of aiding and abetting discrimination</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="stakeholder">AcmeSoft's Accessibility Team</td>
+              <td class="parameters">
+                <ul>
+                  <li>Internal team focused on accessibility</li>
+                  <li>Addresses barriers in AcmeSoft's services</li>
+                  <li>Includes J.D. as a member in 2023</li>
+                  <li>Limited authority to change hiring practices</li>
+                </ul>
+              </td>
+              <td>Not yet established</td>
+              <td>
+                <ul>
+                  <li>Established to address accessibility barriers</li>
+                  <li>Recruited J.D. to help resolve ASL customer issues</li>
+                  <li>Chair received concerns about TalentVue from J.D.</li>
+                  <li>Promised to "look into" TalentVue accessibility</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>No apparent action taken on TalentVue concerns</li>
+                  <li>Failed to address known accessibility issues before promotion process</li>
+                </ul>
+              </td>
+              <td>Not directly involved</td>
+              <td>Not directly involved</td>
+              <td>Not mentioned in the complaint</td>
+            </tr>
+            <tr>
+              <td class="stakeholder">AcmeSoft Management</td>
+              <td class="parameters">
+                <ul>
+                  <li>Direct supervisors of J.D.</li>
+                  <li>Evaluate performance</li>
+                  <li>Make promotion recommendations</li>
+                  <li>Aware of J.D.'s disability</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Recognized ASR system's failure to accurately evaluate J.D.</li>
+                  <li>Modified job duties rather than fixing system</li>
+                  <li>Provided positive feedback on communication skills</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Provided positive feedback about J.D.'s communication</li>
+                  <li>Noted she was "motivated and encouraging"</li>
+                  <li>J.D. received bonuses for strong performance</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>J.D.'s manager encouraged her to apply for promotion</li>
+                  <li>Manager was on the hiring team</li>
+                  <li>Continued use of TalentVue despite known issues</li>
+                </ul>
+              </td>
+              <td>Not directly involved</td>
+              <td>
+                <ul>
+                  <li>Decided to "move forward with other candidates"</li>
+                  <li>Selected non-deaf and/or non-Indigenous candidates</li>
+                </ul>
+              </td>
+              <td>Not specifically mentioned</td>
+            </tr>
+            <tr>
+              <td class="stakeholder">Colorado Civil Rights Division</td>
+              <td class="parameters">
+                <ul>
+                  <li>State enforcement agency</li>
+                  <li>Investigates discrimination complaints</li>
+                  <li>Responsible for CADA enforcement</li>
+                </ul>
+              </td>
+              <td>Not involved</td>
+              <td>Not involved</td>
+              <td>Not involved</td>
+              <td>Not involved</td>
+              <td>Not involved</td>
+              <td>
+                <ul>
+                  <li>Received discrimination complaint</li>
+                  <li>Will evaluate CADA, ADA, and Title VII claims</li>
+                  <li>Authority to grant relief deemed "necessary and proper"</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="section-border">
+              <td class="section-title">Key Colorado SB24-205<br>Requirements</td>
+              <td>N/A</td>
+              <td>
+                <ul>
+                  <li>Use of automated systems for employment evaluation</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Known technical limitations on assessment accuracy <span class="citation">(§6-1-1702(2)(b)(ii))</span></li>
+                  <li>Documentation of AI system limitations <span class="citation">(§6-1-1702(2)(c))</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>High-risk AI system for employment decisions <span class="citation">(§6-1-1701(3)(b))</span></li>
+                  <li>Developer documentation requirements <span class="citation">(§6-1-1702(2))</span></li>
+                  <li>Deployer impact assessment obligation <span class="citation">(§6-1-1703(3))</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Notification of AI system use <span class="citation">(§6-1-1704)</span></li>
+                  <li>Reasonable accommodations consideration</li>
+                  <li>Risk of algorithmic discrimination <span class="citation">(§6-1-1701(1))</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Consequential decision affecting employment <span class="citation">(§6-1-1701(3)(b))</span></li>
+                  <li>Opportunity for human review <span class="citation">(§6-1-1703(4)(b)(iii))</span></li>
+                  <li>Disclosure of decision factors <span class="citation">(§6-1-1703(4)(b)(i))</span></li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Potential violation of reasonable care standard <span class="citation">(§6-1-1702(1), §6-1-1703(1))</span></li>
+                  <li>Deceptive trade practice under CCPA <span class="citation">(§6-1-1706(2))</span></li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="section-border friction-row">
+              <td class="section-title">Friction Points with<br>Colorado AI Law</td>
+              <td>N/A</td>
+              <td>
+                <ul>
+                  <li>Unclear if initial employment evaluation systems would classify as "high-risk"</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Failure to document known technical limitations</li>
+                  <li>Continued use of system known to perform poorly with deaf speakers</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Failure to identify TalentVue as a high-risk AI system</li>
+                  <li>No impact assessment conducted despite known issues</li>
+                  <li>No evaluation of system's likely performance with diverse users</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Lack of adequate notification about AI system use</li>
+                  <li>Failure to provide effective accommodation</li>
+                  <li>Misrepresentation of platform capabilities</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>No human review of potentially discriminatory decision</li>
+                  <li>Feedback based on factors directly related to disability</li>
+                  <li>No opportunity to correct inaccurate assessment</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>High burden of proof for discrimination in automated systems</li>
+                  <li>Complex intersection of disability and racial discrimination</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="risk-row">
+              <td class="section-title">Risks to Stakeholders</td>
+              <td>N/A</td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Inequitable evaluation, limited career opportunities</li>
+                  <li><strong>Employer:</strong> Reliance on inaccurate performance metrics</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Continued barriers to advancement despite proven abilities</li>
+                  <li><strong>Employer:</strong> Failure to address known discriminatory system</li>
+                  <li><strong>Developer:</strong> Continued distribution of discriminatory technology</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Forced to use inaccessible application process</li>
+                  <li><strong>Employer:</strong> Implementing discriminatory hiring practices</li>
+                  <li><strong>Developer:</strong> Legal liability for known discriminatory impacts</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Inability to fully understand or respond to questions</li>
+                  <li><strong>Employer:</strong> Making decisions based on flawed data</li>
+                  <li><strong>Developer:</strong> System failure with protected classes</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Career advancement denial based on disability/race</li>
+                  <li><strong>Employer:</strong> Legal liability for discrimination</li>
+                  <li><strong>Developer:</strong> Regulatory compliance failures</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employee:</strong> Extended litigation process</li>
+                  <li><strong>Employer:</strong> Regulatory penalties, reputation damage</li>
+                  <li><strong>Developer:</strong> Potential market restrictions for technology</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="mitigation-row">
+              <td class="section-title">Risk Mitigation</td>
+              <td>N/A</td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Alternative evaluation methods for employees with disabilities</li>
+                  <li><strong>Employer:</strong> Effective accommodations to ensure equal opportunity</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Document and address known system limitations</li>
+                  <li><strong>Developer:</strong> Testing with diverse speech patterns and accents</li>
+                  <li><strong>Both:</strong> Regular auditing for disparate impacts</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Comprehensive impact assessment before implementation</li>
+                  <li><strong>Developer:</strong> Detailed guidance on technology limitations</li>
+                  <li><strong>Both:</strong> Alternative assessment methods for inaccessible systems</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Provide effective accommodations</li>
+                  <li><strong>Developer:</strong> Implement proper accessibility features</li>
+                  <li><strong>Both:</strong> Verify accommodation effectiveness</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Human review of AI recommendations</li>
+                  <li><strong>Developer:</strong> Clear flags for potential discrimination risk</li>
+                  <li><strong>Both:</strong> Appeals process for adverse decisions</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Employer:</strong> Proactive compliance review with AI regulations</li>
+                  <li><strong>Developer:</strong> Regular auditing of systems for bias</li>
+                  <li><strong>Both:</strong> Documentation of reasonable care steps</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
+      <!-- Insights -->
+      <section id="insights" class="tab-content"
+               role="tabpanel" aria-labelledby="tab-insights" aria-hidden="true">
+        <div class="note-box">
+          <h3>Key Insight: Multiple critical disconnects between known AI limitations and continued use in high-stakes employment decisions</h3>
         </div>
+        <p>The TalentVue-AcmeSoft case demonstrates a particularly troubling pattern: continued use of AI systems for high-stakes employment decisions despite documented knowledge of their limitations with specific protected groups. This creates multiple points of potential liability under Colorado SB24-205.</p>
+        <p>Three critical disconnects stand out in this case study:</p>
+        <p><strong>1. Knowledge vs. Action Gap:</strong> AcmeSoft had prior, direct knowledge that automated speech recognition (ASR) systems couldn't accurately evaluate J.D.'s speech due to her deaf accent. Rather than address this technological limitation, they simply modified her job duties. Yet they later required her to use TalentVue - a system using similar ASR technology - for a promotion assessment, despite having been explicitly warned about its accessibility issues.</p>
+        <p><strong>2. Promotion Criteria vs. Assessment Method Misalignment:</strong> The case shows a stark disconnect between J.D.'s demonstrated qualifications (5 years of successful employment with positive feedback and bonuses) and the method chosen to evaluate her promotion readiness (an automated video interview known to perform poorly with deaf speakers). This raises questions about whether the assessment method could "accurately reflect the knowledge, skills, and abilities" of the applicant as required by anti-discrimination laws.</p>
+        <p><strong>3. Accommodation Request vs. Implementation Failure:</strong> When J.D. requested CART captioning as an accommodation, AcmeSoft incorrectly claimed TalentVue had built-in subtitling. This demonstrates a failure to verify accommodation effectiveness before denying the requested accommodation - a critical compliance issue that affects both companies.</p>
+        <p>Under Colorado's SB24-205, these disconnects suggest potential violations of both developer and deployer obligations, particularly the requirement to use "reasonable care to protect consumers from any known or reasonably foreseeable risks of algorithmic discrimination." The feedback J.D. received after rejection - focused on communication style and suggesting she "practice active listening" - provides compelling evidence that the algorithmic assessment evaluated factors directly related to her disability.</p>
+      </section>
 
-        <div id="service-blueprint" class="tab-content active">
-            <p>This events timeline maps the journey of key stakeholders through significant events that trigger Colorado's SB24-205 AI regulations, focusing on the TalentVue automated video interview platform used by AcmeSoft in hiring decisions, based on a discrimination complaint case.</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Stakeholder</th>
-                        <th>Context & Parameters</th>
-                        <th>Initial Employment</th>
-                        <th>Accessibility Communication</th>
-                        <th>Promotion Application</th>
-                        <th>Automated Interview Experience</th>
-                        <th>Decision & Feedback</th>
-                        <th>Complaint Filing</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="stakeholder">J.D.<br>(Job Applicant)</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>Indigenous (Pawnee)</li>
-                                <li>Deaf with deaf accent</li>
-                                <li>Fluent in English and ASL</li>
-                                <li>Experienced Tax Associate</li>
-                                <li>Strong performance history</li>
-                            </ul>
-                        </td>
-                        <td><ul>
-        <li>Hired as Tax Associate at AcmeSoft in 2019</li>
-        <li>Requested human-generated captioning (CART)</li>
-        <li>Request denied; used automated captioning</li>
-        <li>Performed role successfully despite barriers</li>
-        </ul></td>
-                        <td><ul>
-        <li>Identified AI system discriminatory scoring issue with manager</li>
-        <li>System inaccurately evaluated speech due to deaf accent</li>
-        <li>Joined AcmeSoft's Accessibility Team in 2023</li>
-        <li>Raised concerns about TalentVue's accessibility to Chair of Accessibility Team</li>
-        </ul></td>
-                        <td><ul>
-        <li>Applied for Seasonal Manager position</li>
-        <li>Met all qualifications for promotion</li>
-        <li>Had 3 years as Tax Expert Lead</li>
-        <li>Received notice to complete TalentVue video interview</li>
-        </ul></td>
-                        <td><ul>
-        <li>Requested CART captioning for interview</li>
-        <li>Told TalentVue had built-in subtitling</li>
-        <li>Found no subtitle option in TalentVue platform</li>
-        <li>Relied on less accurate browser-based captioning</li>
-        <li>Completed 3-hour assessment with video questions</li>
-        </ul></td>
-                        <td><ul>
-        <li>Received automated rejection</li>
-        <li>Later received feedback focusing on communication style</li>
-        <li>Feedback suggested "practice active listening" and "more concise communication"</li>
-        <li>Feedback related directly to deaf accent and communication style</li>
-        </ul></td>
-                        <td><ul>
-        <li>Filed discrimination complaint</li>
-        <li>Alleged violations of CADA, ADA, and Title VII</li>
-        <li>Requested personnel file from AcmeSoft</li>
-        </ul></td>
-                    </tr>
-                    <tr class="organization">
-                        <td class="stakeholder">AcmeSoft<br>(Employer/Deployer)</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>Multinational business/financial software company</li>
-                                <li>18,000+ employees worldwide</li>
-                                <li>Uses TalentVue for hiring/promotion processes</li>
-                                <li>Has internal Accessibility Team</li>
-                                <li>Uses automated performance monitoring systems</li>
-                            </ul>
-                        </td>
-                        <td><ul>
-        <li>Hired J.D. as seasonal Tax Associate</li>
-        <li>Denied CART accommodation request</li>
-        <li>Used AI monitoring system to evaluate performance</li>
-        <li>Awarded J.D. bonuses for strong performance</li>
-        </ul></td>
-                        <td><ul>
-        <li>Acknowledged AI system's inability to accurately assess J.D.'s speech</li>
-        <li>Modified job duties to avoid customer phone calls</li>
-        <li>Established Accessibility Team</li>
-        <li>Did not address reported concerns about TalentVue's accessibility</li>
-        </ul></td>
-                        <td><ul>
-        <li>Opened Seasonal Manager position</li>
-        <li>Manager encouraged J.D. to apply</li>
-        <li>Required TalentVue video interview as part of application process</li>
-        <li>Did not provide accommodation information in application materials</li>
-        </ul></td>
-                        <td><ul>
-        <li>Denied CART captioning accommodation request</li>
-        <li>Incorrectly claimed TalentVue had built-in subtitling</li>
-        <li>Failed to verify accommodation would be effective</li>
-        <li>Proceeded with automated assessment despite known issues</li>
-        </ul></td>
-                        <td><ul>
-        <li>Rejected J.D.'s application</li>
-        <li>Hired non-deaf and/or non-Indigenous candidates</li>
-        <li>Provided automated feedback focused on communication</li>
-        <li>Failed to consider previous performance evaluation issues</li>
-        </ul></td>
-                        <td><ul>
-        <li>Provided minimal personnel file documents</li>
-        <li>Named as respondent in discrimination complaint</li>
-        </ul></td>
-                    </tr>
-                    <tr>
-                        <td class="stakeholder">TalentVue<br>(Developer)</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>AI and HR technology company</li>
-                                <li>200+ employees in US</li>
-                                <li>Develops AI-powered video interview platform</li>
-                                <li>Uses ASR systems to transcribe and evaluate speech</li>
-                                <li>Provides scoring reports to employers</li>
-                            </ul>
-                        </td>
-                        <td>Not involved</td>
-                        <td>Not directly involved</td>
-                        <td><ul>
-        <li>Provides video interview platform to AcmeSoft</li>
-        <li>Platform includes video, essay, and multiple-choice questions</li>
-        </ul></td>
-                        <td><ul>
-        <li>Platform lacked complete subtitling for audible content</li>
-        <li>No built-in subtitling option available as claimed</li>
-        <li>Used ASR to transcribe applicant responses</li>
-        <li>Applied AI to evaluate transcribed responses</li>
-        </ul></td>
-                        <td><ul>
-        <li>Generated automated analysis of interview performance</li>
-        <li>Provided feedback emphasizing communication style</li>
-        <li>Used system known to perform poorly for deaf speakers</li>
-        </ul></td>
-                        <td><ul>
-        <li>Named as respondent in discrimination complaint</li>
-        <li>Accused of aiding and abetting discrimination</li>
-        </ul></td>
-                    </tr>
-                    <tr>
-                        <td class="stakeholder">AcmeSoft's Accessibility Team</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>Internal team focused on accessibility</li>
-                                <li>Addresses barriers in AcmeSoft's services</li>
-                                <li>Includes J.D. as a member in 2023</li>
-                                <li>Limited authority to change hiring practices</li>
-                            </ul>
-                        </td>
-                        <td>Not yet established</td>
-                        <td><ul>
-        <li>Established to address accessibility barriers</li>
-        <li>Recruited J.D. to help resolve ASL customer issues</li>
-        <li>Chair received concerns about TalentVue from J.D.</li>
-        <li>Promised to "look into" TalentVue accessibility</li>
-        </ul></td>
-                        <td><ul>
-        <li>No apparent action taken on TalentVue concerns</li>
-        <li>Failed to address known accessibility issues before promotion process</li>
-        </ul></td>
-                        <td>Not directly involved</td>
-                        <td>Not directly involved</td>
-                        <td>Not mentioned in the complaint</td>
-                    </tr>
-                    <tr>
-                        <td class="stakeholder">AcmeSoft Management</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>Direct supervisors of J.D.</li>
-                                <li>Evaluate performance</li>
-                                <li>Make promotion recommendations</li>
-                                <li>Aware of J.D.'s disability</li>
-                            </ul>
-                        </td>
-                        <td><ul>
-        <li>Recognized ASR system's failure to accurately evaluate J.D.</li>
-        <li>Modified job duties rather than fixing system</li>
-        <li>Provided positive feedback on communication skills</li>
-        </ul></td>
-                        <td><ul>
-        <li>Provided positive feedback about J.D.'s communication</li>
-        <li>Noted she was "motivated and encouraging"</li>
-        <li>J.D. received bonuses for strong performance</li>
-        </ul></td>
-                        <td><ul>
-        <li>J.D.'s manager encouraged her to apply for promotion</li>
-        <li>Manager was on the hiring team</li>
-        <li>Continued use of TalentVue despite known issues</li>
-        </ul></td>
-                        <td>Not directly involved</td>
-                        <td><ul>
-        <li>Decided to "move forward with other candidates"</li>
-        <li>Selected non-deaf and/or non-Indigenous candidates</li>
-        </ul></td>
-                        <td>Not specifically mentioned</td>
-                    </tr>
-                    <tr>
-                        <td class="stakeholder">Colorado Civil Rights Division</td>
-                        <td class="parameters">
-                            <ul>
-                                <li>State enforcement agency</li>
-                                <li>Investigates discrimination complaints</li>
-                                <li>Responsible for CADA enforcement</li>
-                            </ul>
-                        </td>
-                        <td>Not involved</td>
-                        <td>Not involved</td>
-                        <td>Not involved</td>
-                        <td>Not involved</td>
-                        <td>Not involved</td>
-                        <td><ul>
-        <li>Received discrimination complaint</li>
-        <li>Will evaluate CADA, ADA, and Title VII claims</li>
-        <li>Authority to grant relief deemed "necessary and proper"</li>
-        </ul></td>
-                    </tr>
-                    
-                    <tr class="section-border">
-                        <td class="section-title">Key Colorado SB24-205<br>Requirements</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li>Use of automated systems for employment evaluation</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Known technical limitations on assessment accuracy <span class="citation">(§6-1-1702(2)(b)(ii))</span></li>
-                                <li>Documentation of AI system limitations <span class="citation">(§6-1-1702(2)(c))</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>High-risk AI system for employment decisions <span class="citation">(§6-1-1701(3)(b))</span></li>
-                                <li>Developer documentation requirements <span class="citation">(§6-1-1702(2))</span></li>
-                                <li>Deployer impact assessment obligation <span class="citation">(§6-1-1703(3))</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Notification of AI system use <span class="citation">(§6-1-1704)</span></li>
-                                <li>Reasonable accommodations consideration</li>
-                                <li>Risk of algorithmic discrimination <span class="citation">(§6-1-1701(1))</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Consequential decision affecting employment <span class="citation">(§6-1-1701(3)(b))</span></li>
-                                <li>Opportunity for human review <span class="citation">(§6-1-1703(4)(b)(iii))</span></li>
-                                <li>Disclosure of decision factors <span class="citation">(§6-1-1703(4)(b)(i))</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Potential violation of reasonable care standard <span class="citation">(§6-1-1702(1), §6-1-1703(1))</span></li>
-                                <li>Deceptive trade practice under CCPA <span class="citation">(§6-1-1706(2))</span></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    
-                    <tr class="section-border friction-row">
-                        <td class="section-title">Friction Points with<br>Colorado AI Law</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li>Unclear if initial employment evaluation systems would classify as "high-risk"</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Failure to document known technical limitations</li>
-                                <li>Continued use of system known to perform poorly with deaf speakers</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Failure to identify TalentVue as a high-risk AI system</li>
-                                <li>No impact assessment conducted despite known issues</li>
-                                <li>No evaluation of system's likely performance with diverse users</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>Lack of adequate notification about AI system use</li>
-                                <li>Failure to provide effective accommodation</li>
-                                <li>Misrepresentation of platform capabilities</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>No human review of potentially discriminatory decision</li>
-                                <li>Feedback based on factors directly related to disability</li>
-                                <li>No opportunity to correct inaccurate assessment</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>High burden of proof for discrimination in automated systems</li>
-                                <li>Complex intersection of disability and racial discrimination</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    
-                    <tr class="risk-row">
-                        <td class="section-title">Risks to Stakeholders</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Inequitable evaluation, limited career opportunities</li>
-                                <li><b>Employer:</b> Reliance on inaccurate performance metrics</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Continued barriers to advancement despite proven abilities</li>
-                                <li><b>Employer:</b> Failure to address known discriminatory system</li>
-                                <li><b>Developer:</b> Continued distribution of discriminatory technology</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Forced to use inaccessible application process</li>
-                                <li><b>Employer:</b> Implementing discriminatory hiring practices</li>
-                                <li><b>Developer:</b> Legal liability for known discriminatory impacts</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Inability to fully understand or respond to questions</li>
-                                <li><b>Employer:</b> Making decisions based on flawed data</li>
-                                <li><b>Developer:</b> System failure with protected classes</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Career advancement denial based on disability/race</li>
-                                <li><b>Employer:</b> Legal liability for discrimination</li>
-                                <li><b>Developer:</b> Regulatory compliance failures</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employee:</b> Extended litigation process</li>
-                                <li><b>Employer:</b> Regulatory penalties, reputation damage</li>
-                                <li><b>Developer:</b> Potential market restrictions for technology</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    
-                    <tr class="mitigation-row">
-                        <td class="section-title">Risk Mitigation</td>
-                        <td>N/A</td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Alternative evaluation methods for employees with disabilities</li>
-                                <li><b>Employer:</b> Effective accommodations to ensure equal opportunity</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Document and address known system limitations</li>
-                                <li><b>Developer:</b> Testing with diverse speech patterns and accents</li>
-                                <li><b>Both:</b> Regular auditing for disparate impacts</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Comprehensive impact assessment before implementation</li>
-                                <li><b>Developer:</b> Detailed guidance on technology limitations</li>
-                                <li><b>Both:</b> Alternative assessment methods for inaccessible systems</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Provide effective accommodations</li>
-                                <li><b>Developer:</b> Implement proper accessibility features</li>
-                                <li><b>Both:</b> Verify accommodation effectiveness</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Human review of AI recommendations</li>
-                                <li><b>Developer:</b> Clear flags for potential discrimination risk</li>
-                                <li><b>Both:</b> Appeals process for adverse decisions</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li><b>Employer:</b> Proactive compliance review with AI regulations</li>
-                                <li><b>Developer:</b> Regular auditing of systems for bias</li>
-                                <li><b>Both:</b> Documentation of reasonable care steps</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    
-                </tbody>
+      <!-- Compliance Heatmap -->
+      <section id="compliance-heatmap" class="tab-content"
+               role="tabpanel" aria-labelledby="tab-compliance-heatmap" aria-hidden="true">
+        <div class="heatmap-container">
+          <h2 class="text-center">Colorado SB24-205 Compliance Assessment</h2>
+          <h3 class="text-center">TalentVue-AcmeSoft Automated Video Interview Case Study</h3>
+          <div class="note-box">
+            <p>Note: J.D. is included in this visualization as the affected individual (consumer) in this scenario, not as an entity responsible for compliance with SB24-205. The law places compliance obligations on developers and deployers of AI systems, not on the individuals affected by those systems.</p>
+          </div>
+          <div class="legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ff6b6b;"></div>
+              <span>Poor (1-3)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #ffd166;"></div>
+              <span>Moderate (4-6)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #06d6a0;"></div>
+              <span>Good (7-10)</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #f0f0f0;"></div>
+              <span>Not Applicable</span>
+            </div>
+          </div>
+          <div class="compliance-table-container">
+            <table class="compliance-table">
+              <thead>
+                <tr>
+                  <th>Stakeholder</th>
+                  <th>Initial Employment</th>
+                  <th>Accessibility Communication</th>
+                  <th>Promotion Application</th>
+                  <th>Automated Interview Experience</th>
+                  <th>Decision & Feedback</th>
+                  <th>Complaint Filing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>J.D. (Affected Individual - Not Subject to Compliance)</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                </tr>
+                <tr>
+                  <td>AcmeSoft (Employer/Deployer)</td>
+                  <td style="background-color: #ffd166; color: black;">4</td>
+                  <td style="background-color: #ff6b6b; color: white;">3</td>
+                  <td style="background-color: #ff6b6b; color: white;">2</td>
+                  <td style="background-color: #ff6b6b; color: white;">1</td>
+                  <td style="background-color: #ff6b6b; color: white;">2</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                </tr>
+                <tr>
+                  <td>AcmeSoft Accessibility Team</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #ff6b6b; color: white;">2</td>
+                  <td style="background-color: #ff6b6b; color: white;">1</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                </tr>
+                <tr>
+                  <td>AcmeSoft Management</td>
+                  <td style="background-color: #ffd166; color: black;">5</td>
+                  <td style="background-color: #ffd166; color: black;">4</td>
+                  <td style="background-color: #ff6b6b; color: white;">3</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #ff6b6b; color: white;">2</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                </tr>
+                <tr>
+                  <td>TalentVue (Developer)</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #ff6b6b; color: white;">3</td>
+                  <td style="background-color: #ff6b6b; color: white;">1</td>
+                  <td style="background-color: #ff6b6b; color: white;">2</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                </tr>
+                <tr>
+                  <td>Colorado Civil Rights Division</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #f0f0f0; color: #999;">N/A</td>
+                  <td style="background-color: #06d6a0; color: black;">8</td>
+                </tr>
+              </tbody>
             </table>
+          </div>
+          <div class="observations">
+            <h3>Key Observations:</h3>
+            <ul>
+              <li>The lowest compliance scores (1-2) occur during the automated interview experience phase, indicating serious failures by both AcmeSoft and TalentVue.</li>
+              <li>AcmeSoft shows particularly poor compliance during the interview phase (score: 1), having incorrectly claimed capabilities that didn't exist and failed to verify accommodation effectiveness.</li>
+              <li>AcmeSoft had experienced firsthand issues with automated speech recognition systems' limitations with J.D.'s deaf accent yet continued to use similar technology for promotion decisions.</li>
+              <li>TalentVue shows equally poor compliance in the automated interview phase (score: 1), particularly in failing to provide accessibility features that were claimed to exist.</li>
+              <li>The AcmeSoft Accessibility Team shows the most troubling compliance failure, with a score of 1 during promotion application, as they had explicit knowledge of potential issues yet took no apparent action.</li>
+              <li>Compliance scores generally decline from initial employment through the automated interview process, indicating a deterioration in responsibility as the process progressed.</li>
+              <li>The intersection of disability and racial factors creates a particularly complex compliance scenario that neither company adequately addressed.</li>
+              <li>Management showed slightly better compliance in early phases (scores 5 and 4) but failed to maintain this standard when the promotion process began.</li>
+              <li>Colorado SB24-205's specific requirements for high-risk AI systems in employment decisions were consistently violated throughout the promotion process.</li>
+            </ul>
+          </div>
+          <div class="improvement-section">
+            <h3>SB24-205 Compliance Improvement Opportunities:</h3>
+            <ol>
+              <li><strong>Comprehensive Documentation:</strong> Both developer and deployer should document known limitations of AI systems with specific demographic groups, including deaf users and non-white users.</li>
+              <li><strong>Effective Accommodations Process:</strong> Establish clear procedures for requesting, evaluating, and implementing accommodations for AI systems, with verification of effectiveness.</li>
+              <li><strong>Alternative Assessment Methods:</strong> Develop alternative evaluation protocols when AI systems have known limitations with specific protected groups.</li>
+              <li><strong>Human Oversight Requirements:</strong> Implement mandatory human review of all AI-influenced employment decisions, especially for candidates from protected groups.</li>
+              <li><strong>Inclusive Testing Protocols:</strong> Test AI systems with diverse users including those with disabilities and from various racial backgrounds before deployment.</li>
+              <li><strong>Cross-Functional Compliance Teams:</strong> Ensure accessibility experts are involved in AI procurement and deployment decisions.</li>
+              <li><strong>Disparate Impact Analysis:</strong> Regularly analyze outcomes of AI-based assessments to identify potential discriminatory patterns.</li>
+            </ol>
+          </div>
         </div>
+      </section>
 
-        <div id="insights" class="tab-content">
-            <div class="note-box">
-                <h3>Key Insight: Multiple critical disconnects between known AI limitations and continued use in high-stakes employment decisions</h3>
-            </div>
-            
-            <p>The TalentVue-AcmeSoft case demonstrates a particularly troubling pattern: continued use of AI systems for high-stakes employment decisions despite documented knowledge of their limitations with specific protected groups. This creates multiple points of potential liability under Colorado SB24-205.</p>
-            
-            <p>Three critical disconnects stand out in this case study:</p>
-            
-            <p><strong>1. Knowledge vs. Action Gap:</strong> AcmeSoft had prior, direct knowledge that automated speech recognition (ASR) systems couldn't accurately evaluate J.D.'s speech due to her deaf accent. Rather than address this technological limitation, they simply modified her job duties. Yet they later required her to use TalentVue - a system using similar ASR technology - for a promotion assessment, despite having been explicitly warned about its accessibility issues.</p>
-            
-            <p><strong>2. Promotion Criteria vs. Assessment Method Misalignment:</strong> The case shows a stark disconnect between J.D.'s demonstrated qualifications (5 years of successful employment with positive feedback and bonuses) and the method chosen to evaluate her promotion readiness (an automated video interview known to perform poorly with deaf speakers). This raises questions about whether the assessment method could "accurately reflect the knowledge, skills, and abilities" of the applicant as required by anti-discrimination laws.</p>
-            
-            <p><strong>3. Accommodation Request vs. Implementation Failure:</strong> When J.D. requested CART captioning as an accommodation, AcmeSoft incorrectly claimed TalentVue had built-in subtitling. This demonstrates a failure to verify accommodation effectiveness before denying the requested accommodation - a critical compliance issue that affects both companies.</p>
-            
-            <p>Under Colorado's SB24-205, these disconnects suggest potential violations of both developer and deployer obligations, particularly the requirement to use "reasonable care to protect consumers from any known or reasonably foreseeable risks of algorithmic discrimination." The feedback J.D. received after rejection - focused on communication style and suggesting she "practice active listening" - provides compelling evidence that the algorithmic assessment evaluated factors directly related to her disability.</p>
+      <!-- Developer Roadmap -->
+      <section id="developers" class="tab-content"
+               role="tabpanel" aria-labelledby="tab-developers" aria-hidden="true">
+        <h2>Summary of Compliance Readiness Outcomes</h2>
+        <div class="outcomes-summary">
+          <p>Over the next year, TalentVue's stakeholders will work to establish compliance with the Colorado AI Act amidst ongoing demands. The project will kick off with the CEO initiating the compliance effort and quickly assigning a project lead, aiming for a focused approach given limited bandwidth, ensuring resources are allocated pragmatically and accountability is clear from the start.</p>
+          <p>The CTO will rapidly assess current AI systems, pinpoint key gaps and risks, and develop a workable technical compliance roadmap. This roadmap will guide the necessary technical adjustments, leading to a final compliance review to document findings and essential improvements, all while balancing other critical technical priorities.</p>
+          <p>The CMO will swiftly align the marketing strategy with compliance needs, develop a concise communication strategy, and get it implemented. Ongoing monitoring will aim to keep the strategy on track, with adjustments made as urgently needed amidst other marketing imperatives.</p>
+          <p>The Legal team will review the Colorado AI Act requirements, draft essential compliance policies, conduct focused training sessions, and monitor adherence as time allows. They'll also update policies pragmatically to address any legal issues that surface, while managing their broader caseload.</p>
+          <p>The Executive Team will define core roles and responsibilities, coordinate cross-functional efforts efficiently, and track progress during implementation, addressing critical roadblocks and reporting on compliance status as part of their regular oversight, adjusting the strategy when absolutely necessary.</p>
+          <p>The Governance Committee will be formed to oversee the compliance implementation, developing key governance policies, monitoring adherence where feasible, and evaluating the effectiveness of these policies, reporting on outcomes and essential improvements within their scheduled activities.</p>
+          <p>Investors and Board Relations will be kept informed about the compliance project from the start through necessary updates and inclusion in relevant discussions, ensuring they are aware of progress and addressing urgent concerns. The final compliance outcomes will be reported, highlighting key successes and lessons learned under the given constraints.</p>
+          <p>Key milestones will include the initial project setup, the development of a practical technical compliance roadmap, the implementation of essential communication strategies, and the establishment of core governance policies. These milestones will demonstrate TalentVue's focused effort and intent to achieve compliance with the Colorado AI Act, ensuring all stakeholders are informed and engaged as efficiently as possible throughout the process.</p>
         </div>
-
-        <div id="compliance-heatmap" class="tab-content">
-            <div class="heatmap-container">
-                <h2 class="text-2xl font-bold mb-4 text-center">Colorado SB24-205 Compliance Assessment</h2>
-                <h3 class="text-xl mb-6 text-center">TalentVue-AcmeSoft Automated Video Interview Case Study</h3>
-                
-                <div class="note-box">
-                    <p>Note: J.D. is included in this visualization as the affected individual (consumer) in this scenario, not as an entity responsible for compliance with SB24-205. The law places compliance obligations on developers and deployers of AI systems, not on the individuals affected by those systems.</p>
-                </div>
-                
-                <!-- Legend for the heatmap -->
-                <div class="legend">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #ff6b6b;"></div>
-                        <span>Poor (1-3)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #ffd166;"></div>
-                        <span>Moderate (4-6)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #06d6a0;"></div>
-                        <span>Good (7-10)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #f0f0f0;"></div>
-                        <span>Not Applicable</span>
-                    </div>
-                </div>
-                
-                <!-- Compliance Heatmap Table -->
-                <div class="compliance-table-container">
-                    <table class="compliance-table">
-                        <thead>
-                            <tr>
-                                <th>Stakeholder</th>
-                                <th>Initial Employment</th>
-                                <th>Accessibility Communication</th>
-                                <th>Promotion Application</th>
-                                <th>Automated Interview Experience</th>
-                                <th>Decision & Feedback</th>
-                                <th>Complaint Filing</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>J.D. (Affected Individual - Not Subject to Compliance)</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                            </tr>
-                            <tr>
-                                <td>AcmeSoft (Employer/Deployer)</td>
-                                <td style="background-color: #ffd166; color: black;">4</td>
-                                <td style="background-color: #ff6b6b; color: white;">3</td>
-                                <td style="background-color: #ff6b6b; color: white;">2</td>
-                                <td style="background-color: #ff6b6b; color: white;">1</td>
-                                <td style="background-color: #ff6b6b; color: white;">2</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                            </tr>
-                            <tr>
-                                <td>AcmeSoft Accessibility Team</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #ff6b6b; color: white;">2</td>
-                                <td style="background-color: #ff6b6b; color: white;">1</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                            </tr>
-                            <tr>
-                                <td>AcmeSoft Management</td>
-                                <td style="background-color: #ffd166; color: black;">5</td>
-                                <td style="background-color: #ffd166; color: black;">4</td>
-                                <td style="background-color: #ff6b6b; color: white;">3</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #ff6b6b; color: white;">2</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                            </tr>
-                            <tr>
-                                <td>TalentVue (Developer)</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #ff6b6b; color: white;">3</td>
-                                <td style="background-color: #ff6b6b; color: white;">1</td>
-                                <td style="background-color: #ff6b6b; color: white;">2</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                            </tr>
-                            <tr>
-                                <td>Colorado Civil Rights Division</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #f0f0f0; color: #999;">N/A</td>
-                                <td style="background-color: #06d6a0; color: black;">8</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="observations">
-                    <h3>Key Observations:</h3>
-                    <ul>
-                        <li>The lowest compliance scores (1-2) occur during the automated interview experience phase, indicating serious failures by both AcmeSoft and TalentVue.</li>
-                        <li>AcmeSoft shows particularly poor compliance during the interview phase (score: 1), having incorrectly claimed capabilities that didn't exist and failed to verify accommodation effectiveness.</li>
-                        <li>AcmeSoft had experienced firsthand issues with automated speech recognition systems' limitations with J.D.'s deaf accent yet continued to use similar technology for promotion decisions.</li>
-                        <li>TalentVue shows equally poor compliance in the automated interview phase (score: 1), particularly in failing to provide accessibility features that were claimed to exist.</li>
-                        <li>The AcmeSoft Accessibility Team shows the most troubling compliance failure, with a score of 1 during promotion application, as they had explicit knowledge of potential issues yet took no apparent action.</li>
-                        <li>Compliance scores generally decline from initial employment through the automated interview process, indicating a deterioration in responsibility as the process progressed.</li>
-                        <li>The intersection of disability and racial factors creates a particularly complex compliance scenario that neither company adequately addressed.</li>
-                        <li>Management showed slightly better compliance in early phases (scores 5 and 4) but failed to maintain this standard when the promotion process began.</li>
-                        <li>Colorado SB24-205's specific requirements for high-risk AI systems in employment decisions were consistently violated throughout the promotion process.</li>
-                    </ul>
-                </div>
-
-                <div class="improvement-section">
-                    <h3>SB24-205 Compliance Improvement Opportunities:</h3>
-                    <ol>
-                        <li><strong>Comprehensive Documentation:</strong> Both developer and deployer should document known limitations of AI systems with specific demographic groups, including deaf users and non-white users.</li>
-                        <li><strong>Effective Accommodations Process:</strong> Establish clear procedures for requesting, evaluating, and implementing accommodations for AI systems, with verification of effectiveness.</li>
-                        <li><strong>Alternative Assessment Methods:</strong> Develop alternative evaluation protocols when AI systems have known limitations with specific protected groups.</li>
-                        <li><strong>Human Oversight Requirements:</strong> Implement mandatory human review of all AI-influenced employment decisions, especially for candidates from protected groups.</li>
-                        <li><strong>Inclusive Testing Protocols:</strong> Test AI systems with diverse users including those with disabilities and from various racial backgrounds before deployment.</li>
-                        <li><strong>Cross-Functional Compliance Teams:</strong> Ensure accessibility experts are involved in AI procurement and deployment decisions.</li>
-                        <li><strong>Disparate Impact Analysis:</strong> Regularly analyze outcomes of AI-based assessments to identify potential discriminatory patterns.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-
-
-        
-               
-<div id="developers" class="tab-content">
-            <h2>Summary of Compliance Readiness Outcomes</h2>
-            <div class="outcomes-summary">
-            <p>Over the next year, TalentVue's stakeholders will work to establish compliance with the Colorado AI Act amidst ongoing demands. The project will kick off with the CEO initiating the compliance effort and quickly assigning a project lead, aiming for a focused approach given limited bandwidth, ensuring resources are allocated pragmatically and accountability is clear from the start.</p>
-
-<p>The CTO will rapidly assess current AI systems, pinpoint key gaps and risks, and develop a workable technical compliance roadmap. This roadmap will guide the necessary technical adjustments, leading to a final compliance review to document findings and essential improvements, all while balancing other critical technical priorities.</p>
-
-<p>The CMO will swiftly align the marketing strategy with compliance needs, develop a concise communication strategy, and get it implemented. Ongoing monitoring will aim to keep the strategy on track, with adjustments made as urgently needed amidst other marketing imperatives.</p>
-
-<p>The Legal team will review the Colorado AI Act requirements, draft essential compliance policies, conduct focused training sessions, and monitor adherence as time allows. They'll also update policies pragmatically to address any legal issues that surface, while managing their broader caseload.</p>
-
-<p>The Executive Team will define core roles and responsibilities, coordinate cross-functional efforts efficiently, and track progress during implementation, addressing critical roadblocks and reporting on compliance status as part of their regular oversight, adjusting the strategy when absolutely necessary.</p>
-
-<p>The Governance Committee will be formed to oversee the compliance implementation, developing key governance policies, monitoring adherence where feasible, and evaluating the effectiveness of these policies, reporting on outcomes and essential improvements within their scheduled activities.</p>
-
-<p>Investors and Board Relations will be kept informed about the compliance project from the start through necessary updates and inclusion in relevant discussions, ensuring they are aware of progress and addressing urgent concerns. The final compliance outcomes will be reported, highlighting key successes and lessons learned under the given constraints.</p>
-
-<p>Key milestones will include the initial project setup, the development of a practical technical compliance roadmap, the implementation of essential communication strategies, and the establishment of core governance policies. These milestones will demonstrate TalentVue's focused effort and intent to achieve compliance with the Colorado AI Act, ensuring all stakeholders are informed and engaged as efficiently as possible throughout the process.</p>
-
-<h2>Step-by-Step Roadmap to Establish Compliance with the Colorado AI Act</h2>    
-            <table>
-                <thead>
-                    <tr>
-                        <th>Stakeholder</th>
-                        <th>Q1</th>
-                        <th>Q2</th>
-                        <th>Q3</th>
-                        <th>Q4</th>
-                        <th>Outcomes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>CEO</td>
-                        <td>Initiate compliance project<br>Appoint project lead<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                        <td>Review progress and allocate resources<br>Ensure accountability and responsibility are defined<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                        <td>Oversee implementation of compliance measures<br>Ensure cross-functional collaboration<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                        <td>Evaluate compliance outcomes and report to board<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Successfully initiated the compliance project, appointed a project lead, ensured resource allocation, and provided oversight throughout the implementation. Reported outcomes to the board and adjusted strategy as needed.</td>
-                    </tr>
-                    <tr>
-                        <td>CTO</td>
-                        <td>Assess current AI systems for compliance<br>Identify gaps and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 2 months</td>
-                        <td>Develop technical compliance roadmap<br>Define technical requirements and milestones<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                        <td>Implement necessary technical changes<br>Monitor progress and address issues<br>**Tags**: `Implementation and Execution`<br>Duration: 3 months</td>
-                        <td>Conduct final technical compliance review<br>Document findings and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Completed assessment of AI systems, developed a technical compliance roadmap, implemented necessary changes, and conducted a final review. Documented findings and improvements.</td>
-                    </tr>
-                    <tr>
-                        <td>CMO</td>
-                        <td>Communicate compliance goals to marketing team<br>Align marketing strategy with compliance objectives<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                        <td>Develop communication strategy for compliance<br>Ensure messaging is clear and consistent<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                        <td>Implement communication strategy<br>Monitor effectiveness and adjust as needed<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                        <td>Review and adjust communication strategy<br>Report on outcomes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Aligned marketing strategy with compliance objectives, developed and implemented a communication strategy, monitored its effectiveness, and reported outcomes.</td>
-                    </tr>
-                    <tr>
-                        <td>Legal</td>
-                        <td>Review Colorado AI Act requirements<br>Identify legal obligations and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 1 month</td>
-                        <td>Draft compliance policies and procedures<br>Ensure alignment with legal requirements<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                        <td>Conduct legal compliance training<br>Monitor adherence to policies<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Monitor compliance and address legal issues<br>Update policies as needed<br>**Tags**: `Monitoring, Review, and Reporting`, `Policy and Procedure Development`<br>Duration: 2 months</td>
-                        <td>Reviewed legal requirements, drafted compliance policies, conducted training, monitored adherence, and updated policies as needed.</td>
-                    </tr>
-                    <tr>
-                        <td>Exec. Team</td>
-                        <td>Align on compliance objectives<br>Define roles and responsibilities<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                        <td>Coordinate cross-functional compliance efforts<br>Ensure clear communication and collaboration<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                        <td>Monitor implementation progress<br>Address any roadblocks or issues<br>**Tags**: `Monitoring, Review, and Reporting`, `Implementation and Execution`<br>Duration: 2 months</td>
-                        <td>Review and report on compliance status<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Defined roles and responsibilities, coordinated cross-functional efforts, monitored progress, addressed issues, and reported on compliance status.</td>
-                    </tr>
-                    <tr>
-                        <td>Governance Committee</td>
-                        <td>Establish governance committee<br>Define governance framework<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                        <td>Develop governance policies and procedures<br>Ensure alignment with compliance objectives<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                        <td>Oversee compliance implementation<br>Monitor adherence to governance policies<br>**Tags**: `Implementation and Execution`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
-                        <td>Evaluate governance effectiveness<br>Report on outcomes and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Established governance committee, developed policies, oversaw implementation, monitored adherence, and evaluated effectiveness.</td>
-                    </tr>
-                    <tr>
-                        <td>Investors and Board Relations</td>
-                        <td>Inform investors about compliance project<br>Provide initial project overview<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                        <td>Provide regular updates on progress<br>Engage investors in compliance discussions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Engage investors in compliance review<br>Address any concerns or questions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Report final compliance outcomes<br>Highlight successes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                        <td>Informed investors about the project, provided regular updates, engaged in compliance discussions, and reported final outcomes.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-            
-            
-
-
+        <h2>Step-by-Step Roadmap to Establish Compliance with the Colorado AI Act</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Stakeholder</th>
+              <th>Q1</th>
+              <th>Q2</th>
+              <th>Q3</th>
+              <th>Q4</th>
+              <th>Outcomes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CEO</td>
+              <td>Initiate compliance project<br>Appoint project lead<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
+              <td>Review progress and allocate resources<br>Ensure accountability and responsibility are defined<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
+              <td>Oversee implementation of compliance measures<br>Ensure cross-functional collaboration<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
+              <td>Evaluate compliance outcomes and report to board<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Successfully initiated the compliance project, appointed a project lead, ensured resource allocation, and provided oversight throughout the implementation. Reported outcomes to the board and adjusted strategy as needed.</td>
+            </tr>
+            <tr>
+              <td>CTO</td>
+              <td>Assess current AI systems for compliance<br>Identify gaps and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 2 months</td>
+              <td>Develop technical compliance roadmap<br>Define technical requirements and milestones<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
+              <td>Implement necessary technical changes<br>Monitor progress and address issues<br>**Tags**: `Implementation and Execution`<br>Duration: 3 months</td>
+              <td>Conduct final technical compliance review<br>Document findings and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Completed assessment of AI systems, developed a technical compliance roadmap, implemented necessary changes, and conducted a final review. Documented findings and improvements.</td>
+            </tr>
+            <tr>
+              <td>CMO</td>
+              <td>Communicate compliance goals to marketing team<br>Align marketing strategy with compliance objectives<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
+              <td>Develop communication strategy for compliance<br>Ensure messaging is clear and consistent<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
+              <td>Implement communication strategy<br>Monitor effectiveness and adjust as needed<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
+              <td>Review and adjust communication strategy<br>Report on outcomes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Aligned marketing strategy with compliance objectives, developed and implemented a communication strategy, monitored its effectiveness, and reported outcomes.</td>
+            </tr>
+            <tr>
+              <td>Legal</td>
+              <td>Review Colorado AI Act requirements<br>Identify legal obligations and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 1 month</td>
+              <td>Draft compliance policies and procedures<br>Ensure alignment with legal requirements<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
+              <td>Conduct legal compliance training<br>Monitor adherence to policies<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Monitor compliance and address legal issues<br>Update policies as needed<br>**Tags**: `Monitoring, Review, and Reporting`, `Policy and Procedure Development`<br>Duration: 2 months</td>
+              <td>Reviewed legal requirements, drafted compliance policies, conducted training, monitored adherence, and updated policies as needed.</td>
+            </tr>
+            <tr>
+              <td>Exec. Team</td>
+              <td>Align on compliance objectives<br>Define roles and responsibilities<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
+              <td>Coordinate cross-functional compliance efforts<br>Ensure clear communication and collaboration<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
+              <td>Monitor implementation progress<br>Address any roadblocks or issues<br>**Tags**: `Monitoring, Review, and Reporting`, `Implementation and Execution`<br>Duration: 2 months</td>
+              <td>Review and report on compliance status<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Defined roles and responsibilities, coordinated cross-functional efforts, monitored progress, addressed issues, and reported on compliance status.</td>
+            </tr>
+            <tr>
+              <td>Governance Committee</td>
+              <td>Establish governance committee<br>Define governance framework<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
+              <td>Develop governance policies and procedures<br>Ensure alignment with compliance objectives<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
+              <td>Oversee compliance implementation<br>Monitor adherence to governance policies<br>**Tags**: `Implementation and Execution`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
+              <td>Evaluate governance effectiveness<br>Report on outcomes and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Established governance committee, developed policies, oversaw implementation, monitored adherence, and evaluated effectiveness.</td>
+            </tr>
+            <tr>
+              <td>Investors and Board Relations</td>
+              <td>Inform investors about compliance project<br>Provide initial project overview<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
+              <td>Provide regular updates on progress<br>Engage investors in compliance discussions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Engage investors in compliance review<br>Address any concerns or questions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Report final compliance outcomes<br>Highlight successes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+              <td>Informed investors about the project, provided regular updates, engaged in compliance discussions, and reported final outcomes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
+  </main>
 
- <footer class="site-footer">
-        <div class="copyright">
-            Regulatory Case Study Explorer © 2025 Art & Tech, Inc. | Concept by Ezra Schwartz. Additional contributions by [names]. All rights reserved.
-        </div>
-    </footer>
-    
-    <script src="scripts.js"></script>
-
+  <footer class="site-footer">
+    Regulatory Case Study Explorer © 2025 Art & Tech, Inc. | Concept by Ezra Schwartz. All rights reserved.
+  </footer>
 </body>
 </html>
