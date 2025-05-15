@@ -25,35 +25,10 @@ function openTab(evt, tabName) {
 }
 
 /**
- * Case study selector functionality
- * Redirects to the selected case study page immediately when selection changes
- */
-function changeCaseStudy() {
-    const selector = document.getElementById('case-study-selector');
-    const selectedValue = selector.value;
-    if (selectedValue) {
-        // Navigate to the selected page immediately
-        window.location.href = selectedValue;
-    }
-}
-
-/**
  * Document ready handler
- * Sets the correct case study option as selected based on current page
+ * Sets up tab event listeners and initializes the page
  */
 document.addEventListener('DOMContentLoaded', function() {
-    const selector = document.getElementById('case-study-selector');
-    if (selector) {
-        const currentPath = window.location.pathname;
-        
-        // Set the correct option based on the current page
-        if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
-            selector.value = 'index.html';
-        } else if (currentPath.includes('colorado-aclu')) {
-            selector.value = 'colorado-aclu.html';
-        }
-    }
-    
     // Set up tab switching event listeners
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
@@ -62,4 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
             openTab(event, tabName);
         });
     });
+    
+    // Initialize the first tab as active by default (if none is already active)
+    if (!document.querySelector('.tab-button.active')) {
+        const firstTab = document.querySelector('.tab-button');
+        if (firstTab) {
+            const firstTabName = firstTab.getAttribute('aria-controls');
+            // Simulate a click on the first tab
+            firstTab.className += " active";
+            firstTab.setAttribute("aria-selected", "true");
+            const firstTabContent = document.getElementById(firstTabName);
+            if (firstTabContent) {
+                firstTabContent.style.display = "block";
+                firstTabContent.setAttribute("aria-hidden", "false");
+            }
+        }
+    }
 });
