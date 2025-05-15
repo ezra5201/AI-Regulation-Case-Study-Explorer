@@ -1,27 +1,29 @@
+
 /**
  * Tab switching functionality
  * Opens the selected tab content and updates active tab styling
  */
 function openTab(evt, tabName) {
-    var i, tabcontent, tabbuttons;
-    
     // Hide all tab content
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
+    const tabcontent = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
+        tabcontent[i].setAttribute("aria-hidden", "true");
     }
     
-    // Remove "active" class from all tab buttons
-    tabbuttons = document.getElementsByClassName("tab-button");
-    for (i = 0; i < tabbuttons.length; i++) {
+    // Remove "active" class from all tab buttons and update aria-selected
+    const tabbuttons = document.getElementsByClassName("tab-button");
+    for (let i = 0; i < tabbuttons.length; i++) {
         tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+        tabbuttons[i].setAttribute("aria-selected", "false");
     }
     
-    // Show the current tab, and add an "active" class to the button that opened the tab
+    // Show the current tab and add an "active" class to the button that opened the tab
     document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).setAttribute("aria-hidden", "false");
     evt.currentTarget.className += " active";
+    evt.currentTarget.setAttribute("aria-selected", "true");
 }
-
 /**
  * Case study selector functionality
  * Redirects to the selected case study page immediately when selection changes
