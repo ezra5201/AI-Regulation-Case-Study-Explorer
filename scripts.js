@@ -1,4 +1,3 @@
-
 /**
  * Tab switching functionality
  * Opens the selected tab content and updates active tab styling
@@ -24,6 +23,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
     evt.currentTarget.setAttribute("aria-selected", "true");
 }
+
 /**
  * Case study selector functionality
  * Redirects to the selected case study page immediately when selection changes
@@ -43,23 +43,23 @@ function changeCaseStudy() {
  */
 document.addEventListener('DOMContentLoaded', function() {
     const selector = document.getElementById('case-study-selector');
-    if (!selector) return; // Exit if selector doesn't exist
-    
-    const currentPath = window.location.pathname;
-    
-    // Set the correct option based on the current page
-    if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
-        selector.value = 'index.html';
-    } else if (currentPath.includes('colorado-aclu')) {
-        selector.value = 'colorado-aclu.html';
+    if (selector) {
+        const currentPath = window.location.pathname;
+        
+        // Set the correct option based on the current page
+        if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+            selector.value = 'index.html';
+        } else if (currentPath.includes('colorado-aclu')) {
+            selector.value = 'colorado-aclu.html';
+        }
     }
     
-    // Ensure tab switching works
-    const tabButtons = document.getElementsByClassName('tab-button');
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].addEventListener('click', function(event) {
-            const tabName = this.getAttribute('onclick').split("'")[1];
+    // Set up tab switching event listeners
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            const tabName = this.getAttribute('aria-controls');
             openTab(event, tabName);
         });
-    }
+    });
 });
