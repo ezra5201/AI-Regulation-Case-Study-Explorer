@@ -170,6 +170,7 @@ table {
 th, td {
   padding: 12px;
   text-align: left;
+vertical-align: top;
   border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
