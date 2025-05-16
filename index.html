@@ -8,6 +8,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .tag-pill {
+      display: inline-block;
+      padding: 0.2em 0.6em; /* Small padding */
+      margin: 0.1em 0.2em; /* Small margin for spacing between pills */
+      font-size: 0.85em; /* Smaller font size to fit inline */
+      font-weight: 500;
+      color: var(--md-sys-color-on-primary-container, #001E2F); /* Text color, with fallback */
+      background-color: var(--md-sys-color-primary-container, #D1E4FF); /* Background color, with fallback */
+      border-radius: 1em; /* Pill shape */
+      line-height: 1.2; /* Adjusted line-height for better inline fit */
+      vertical-align: baseline; /* Align with surrounding text */
+      white-space: nowrap; /* Prevent pills from breaking across lines */
+    }
+    /* Ensure the Tags line itself doesn't get too much extra space if it wraps */
+    td > strong {
+      display: inline-block; /* Or block if preferred, helps manage spacing */
+      margin-bottom: 0.2em;
+    }
+  </style>
   <script src="scripts.js" defer></script>
 </head>
 <body>
@@ -654,58 +674,58 @@
               <tbody>
                 <tr>
                   <td>CEO</td>
-                  <td>Initiate compliance project<br>Appoint project lead<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                  <td>Review progress and allocate resources<br>Ensure accountability and responsibility are defined<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                  <td>Oversee implementation of compliance measures<br>Ensure cross-functional collaboration<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                  <td>Evaluate compliance outcomes and report to board<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Initiate compliance project<br>Appoint project lead<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                  <td>Review progress and allocate resources<br>Ensure accountability and responsibility are defined<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                  <td>Oversee implementation of compliance measures<br>Ensure cross-functional collaboration<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 2 months</td>
+                  <td>Evaluate compliance outcomes and report to board<br>Adjust strategy as needed<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Successfully initiated the compliance project, appointed a project lead, ensured resource allocation, and provided oversight throughout the implementation. Reported outcomes to the board and adjusted strategy as needed.</td>
                 </tr>
                 <tr>
                   <td>CTO</td>
-                  <td>Assess current AI systems for compliance<br>Identify gaps and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 2 months</td>
-                  <td>Develop technical compliance roadmap<br>Define technical requirements and milestones<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                  <td>Implement necessary technical changes<br>Monitor progress and address issues<br>**Tags**: `Implementation and Execution`<br>Duration: 3 months</td>
-                  <td>Conduct final technical compliance review<br>Document findings and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Assess current AI systems for compliance<br>Identify gaps and risks<br><strong>Tags</strong>: <span class="tag-pill">Assessment and Analysis</span><br>Duration: 2 months</td>
+                  <td>Develop technical compliance roadmap<br>Define technical requirements and milestones<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                  <td>Implement necessary technical changes<br>Monitor progress and address issues<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 3 months</td>
+                  <td>Conduct final technical compliance review<br>Document findings and improvements<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Completed assessment of AI systems, developed a technical compliance roadmap, implemented necessary changes, and conducted a final review. Documented findings and improvements.</td>
                 </tr>
                 <tr>
                   <td>CMO</td>
-                  <td>Communicate compliance goals to marketing team<br>Align marketing strategy with compliance objectives<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                  <td>Develop communication strategy for compliance<br>Ensure messaging is clear and consistent<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                  <td>Implement communication strategy<br>Monitor effectiveness and adjust as needed<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                  <td>Review and adjust communication strategy<br>Report on outcomes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Communicate compliance goals to marketing team<br>Align marketing strategy with compliance objectives<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 1 month</td>
+                  <td>Develop communication strategy for compliance<br>Ensure messaging is clear and consistent<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 2 months</td>
+                  <td>Implement communication strategy<br>Monitor effectiveness and adjust as needed<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 2 months</td>
+                  <td>Review and adjust communication strategy<br>Report on outcomes and lessons learned<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Aligned marketing strategy with compliance objectives, developed and implemented a communication strategy, monitored its effectiveness, and reported outcomes.</td>
                 </tr>
                 <tr>
                   <td>Legal</td>
-                  <td>Review Colorado AI Act requirements<br>Identify legal obligations and risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 1 month</td>
-                  <td>Draft compliance policies and procedures<br>Ensure alignment with legal requirements<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                  <td>Conduct legal compliance training<br>Monitor adherence to policies<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                  <td>Monitor compliance and address legal issues<br>Update policies as needed<br>**Tags**: `Monitoring, Review, and Reporting`, `Policy and Procedure Development`<br>Duration: 2 months</td>
+                  <td>Review Colorado AI Act requirements<br>Identify legal obligations and risks<br><strong>Tags</strong>: <span class="tag-pill">Assessment and Analysis</span><br>Duration: 1 month</td>
+                  <td>Draft compliance policies and procedures<br>Ensure alignment with legal requirements<br><strong>Tags</strong>: <span class="tag-pill">Policy and Procedure Development</span><br>Duration: 2 months</td>
+                  <td>Conduct legal compliance training<br>Monitor adherence to policies<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                  <td>Monitor compliance and address legal issues<br>Update policies as needed<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span> <span class="tag-pill">Policy and Procedure Development</span><br>Duration: 2 months</td>
                   <td>Reviewed legal requirements, drafted compliance policies, conducted training, monitored adherence, and updated policies as needed.</td>
                 </tr>
                 <tr>
                   <td>Exec. Team</td>
-                  <td>Align on compliance objectives<br>Define roles and responsibilities<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                  <td>Coordinate cross-functional compliance efforts<br>Ensure clear communication and collaboration<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                  <td>Monitor implementation progress<br>Address any roadblocks or issues<br>**Tags**: `Monitoring, Review, and Reporting`, `Implementation and Execution`<br>Duration: 2 months</td>
-                  <td>Review and report on compliance status<br>Adjust strategy as needed<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Align on compliance objectives<br>Define roles and responsibilities<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                  <td>Coordinate cross-functional compliance efforts<br>Ensure clear communication and collaboration<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 2 months</td>
+                  <td>Monitor implementation progress<br>Address any roadblocks or issues<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span> <span class="tag-pill">Implementation and Execution</span><br>Duration: 2 months</td>
+                  <td>Review and report on compliance status<br>Adjust strategy as needed<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Defined roles and responsibilities, coordinated cross-functional efforts, monitored progress, addressed issues, and reported on compliance status.</td>
                 </tr>
                 <tr>
                   <td>Governance Committee</td>
-                  <td>Establish governance committee<br>Define governance framework<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                  <td>Develop governance policies and procedures<br>Ensure alignment with compliance objectives<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                  <td>Oversee compliance implementation<br>Monitor adherence to governance policies<br>**Tags**: `Implementation and Execution`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
-                  <td>Evaluate governance effectiveness<br>Report on outcomes and improvements<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Establish governance committee<br>Define governance framework<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                  <td>Develop governance policies and procedures<br>Ensure alignment with compliance objectives<br><strong>Tags</strong>: <span class="tag-pill">Policy and Procedure Development</span><br>Duration: 2 months</td>
+                  <td>Oversee compliance implementation<br>Monitor adherence to governance policies<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 2 months</td>
+                  <td>Evaluate governance effectiveness<br>Report on outcomes and improvements<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Established governance committee, developed policies, oversaw implementation, monitored adherence, and evaluated effectiveness.</td>
                 </tr>
                 <tr>
                   <td>Investors and Board Relations</td>
-                  <td>Inform investors about compliance project<br>Provide initial project overview<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                  <td>Provide regular updates on progress<br>Engage investors in compliance discussions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                  <td>Engage investors in compliance review<br>Address any concerns or questions<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                  <td>Report final compliance outcomes<br>Highlight successes and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                  <td>Inform investors about compliance project<br>Provide initial project overview<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 1 month</td>
+                  <td>Provide regular updates on progress<br>Engage investors in compliance discussions<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                  <td>Engage investors in compliance review<br>Address any concerns or questions<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                  <td>Report final compliance outcomes<br>Highlight successes and lessons learned<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                   <td>Informed investors about the project, provided regular updates, engaged in compliance discussions, and reported final outcomes.</td>
                 </tr>
               </tbody>
@@ -745,58 +765,58 @@
               <tbody>
                   <tr>
                       <td>CEO</td>
-                      <td>Launch AI compliance initiative<br>Appoint compliance lead<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                      <td>Review deployment progress and reallocate resources<br>Define accountability framework<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                      <td>Oversee implementation of compliance controls<br>Ensure cross-functional coordination<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                      <td>Evaluate deployment outcomes and report to board<br>Adjust organizational strategy<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Launch AI compliance initiative<br>Appoint compliance lead<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                      <td>Review deployment progress and reallocate resources<br>Define accountability framework<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                      <td>Oversee implementation of compliance controls<br>Ensure cross-functional coordination<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 2 months</td>
+                      <td>Evaluate deployment outcomes and report to board<br>Adjust organizational strategy<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Established executive sponsorship, clear accountability, and strategic oversight across the TalentVue deployment, with board alignment on compliance outcomes.</td>
                   </tr>
                   <tr>
                       <td>CIO</td>
-                      <td>Inventory AI systems and assess technical gaps<br>Map TalentVue integration points<br>**Tags**: `Assessment and Analysis`<br>Duration: 2 months</td>
-                      <td>Develop IT compliance and integration roadmap<br>Define control requirements<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                      <td>Implement technical controls and monitoring<br>Address identified security and compliance issues<br>**Tags**: `Implementation and Execution`<br>Duration: 3 months</td>
-                      <td>Conduct final technical compliance audit<br>Document system modifications and lessons learned<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Inventory AI systems and assess technical gaps<br>Map TalentVue integration points<br><strong>Tags</strong>: <span class="tag-pill">Assessment and Analysis</span><br>Duration: 2 months</td>
+                      <td>Develop IT compliance and integration roadmap<br>Define control requirements<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                      <td>Implement technical controls and monitoring<br>Address identified security and compliance issues<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 3 months</td>
+                      <td>Conduct final technical compliance audit<br>Document system modifications and lessons learned<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Completed AI inventory, applied technical controls, and finalized documentation for compliant TalentVue integration.</td>
                   </tr>
                   <tr>
                       <td>CHRO</td>
-                      <td>Communicate AI compliance requirements to HR teams<br>Update recruitment workflows<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                      <td>Develop and deliver accommodation and accessibility training<br>Formalize applicant support protocols<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                      <td>Monitor HR adherence to new processes<br>Collect feedback and refine procedures<br>**Tags**: `Implementation and Execution`<br>Duration: 2 months</td>
-                      <td>Review recruitment outcomes and accommodation effectiveness<br>Adjust HR policies<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Communicate AI compliance requirements to HR teams<br>Update recruitment workflows<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 1 month</td>
+                      <td>Develop and deliver accommodation and accessibility training<br>Formalize applicant support protocols<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 2 months</td>
+                      <td>Monitor HR adherence to new processes<br>Collect feedback and refine procedures<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span><br>Duration: 2 months</td>
+                      <td>Review recruitment outcomes and accommodation effectiveness<br>Adjust HR policies<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Ensured HR practices aligned with SB24-205, with effective accommodation protocols and ongoing process refinement.</td>
                   </tr>
                   <tr>
                       <td>Legal</td>
-                      <td>Review SB24-205 deployer obligations<br>Identify legal and compliance risks<br>**Tags**: `Assessment and Analysis`<br>Duration: 1 month</td>
-                      <td>Draft deployer-specific AI use policies<br>Align procedures with regulations<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                      <td>Deliver targeted legal training<br>Monitor adherence to policies<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                      <td>Update policies based on emerging issues<br>Prepare final compliance documentation<br>**Tags**: `Policy and Procedure Development`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
+                      <td>Review SB24-205 deployer obligations<br>Identify legal and compliance risks<br><strong>Tags</strong>: <span class="tag-pill">Assessment and Analysis</span><br>Duration: 1 month</td>
+                      <td>Draft deployer-specific AI use policies<br>Align procedures with regulations<br><strong>Tags</strong>: <span class="tag-pill">Policy and Procedure Development</span><br>Duration: 2 months</td>
+                      <td>Deliver targeted legal training<br>Monitor adherence to policies<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                      <td>Update policies based on emerging issues<br>Prepare final compliance documentation<br><strong>Tags</strong>: <span class="tag-pill">Policy and Procedure Development</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 2 months</td>
                       <td>Established legal framework for AI deployment, trained stakeholders, and maintained up-to-date compliance materials.</td>
                   </tr>
                   <tr>
                       <td>Exec. Team</td>
-                      <td>Define cross-functional roles and responsibilities<br>Set compliance objectives<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                      <td>Coordinate cross-department compliance efforts<br>Ensure clear communication channels<br>**Tags**: `Training and Communication`<br>Duration: 2 months</td>
-                      <td>Track progress and resolve escalated issues<br>Facilitate resource alignment<br>**Tags**: `Implementation and Execution`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
-                      <td>Review overall compliance status<br>Report outcomes and refine strategy<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Define cross-functional roles and responsibilities<br>Set compliance objectives<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                      <td>Coordinate cross-department compliance efforts<br>Ensure clear communication channels<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 2 months</td>
+                      <td>Track progress and resolve escalated issues<br>Facilitate resource alignment<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 2 months</td>
+                      <td>Review overall compliance status<br>Report outcomes and refine strategy<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Maintained executive oversight, resolved critical roadblocks, and ensured alignment across functions.</td>
                   </tr>
                   <tr>
                       <td>Accessibility Committee</td>
-                      <td>Form cross-functional accessibility committee<br>Define testing scope and members<br>**Tags**: `Project Initiation and Planning`<br>Duration: 1 month</td>
-                      <td>Develop accessibility testing protocols<br>Plan user testing sessions<br>**Tags**: `Policy and Procedure Development`<br>Duration: 2 months</td>
-                      <td>Execute testing with diverse users<br>Report accessibility gaps<br>**Tags**: `Implementation and Execution`, `Monitoring, Review, and Reporting`<br>Duration: 2 months</td>
-                      <td>Implement remediation actions<br>Verify accommodation effectiveness<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Form cross-functional accessibility committee<br>Define testing scope and members<br><strong>Tags</strong>: <span class="tag-pill">Project Initiation and Planning</span><br>Duration: 1 month</td>
+                      <td>Develop accessibility testing protocols<br>Plan user testing sessions<br><strong>Tags</strong>: <span class="tag-pill">Policy and Procedure Development</span><br>Duration: 2 months</td>
+                      <td>Execute testing with diverse users<br>Report accessibility gaps<br><strong>Tags</strong>: <span class="tag-pill">Implementation and Execution</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 2 months</td>
+                      <td>Implement remediation actions<br>Verify accommodation effectiveness<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Delivered detailed accessibility assessments and implemented fixes to ensure inclusive TalentVue deployment.</td>
                   </tr>
                   <tr>
                       <td>Investors and Board Relations</td>
-                      <td>Brief board and investors on AI compliance plan<br>Present risk overview<br>**Tags**: `Training and Communication`<br>Duration: 1 month</td>
-                      <td>Provide quarterly compliance updates<br>Incorporate stakeholder feedback<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                      <td>Engage board in risk management discussions<br>Align on remediation funding<br>**Tags**: `Training and Communication`, `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
-                      <td>Present final compliance report and lessons learned<br>Highlight business impact<br>**Tags**: `Monitoring, Review, and Reporting`<br>Duration: 1 month</td>
+                      <td>Brief board and investors on AI compliance plan<br>Present risk overview<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span><br>Duration: 1 month</td>
+                      <td>Provide quarterly compliance updates<br>Incorporate stakeholder feedback<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                      <td>Engage board in risk management discussions<br>Align on remediation funding<br><strong>Tags</strong>: <span class="tag-pill">Training and Communication</span> <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
+                      <td>Present final compliance report and lessons learned<br>Highlight business impact<br><strong>Tags</strong>: <span class="tag-pill">Monitoring</span> <span class="tag-pill">Review</span> <span class="tag-pill">Reporting</span><br>Duration: 1 month</td>
                       <td>Ensured leadership and investors remained informed and supportive of compliance investments and outcomes.</td>
                   </tr>
               </tbody>
