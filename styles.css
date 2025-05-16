@@ -1,365 +1,603 @@
-
+/* Import Roboto font (ensure it's linked in HTML as well) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  /* Harmonious Material Palette */
-  --md-sys-color-primary: #3949AB;
+  /* Material Design 3 Baseline Color Palette (Illustrative Light Theme) */
+  /* Replace with your generated theme from Material Theme Builder */
+  --md-sys-color-primary: #3949AB; /* Indigo 600 */
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-secondary: #FFC107;
+  --md-sys-color-primary-container: #C5CAE9; /* Indigo 100 */
+  --md-sys-color-on-primary-container: #001A78; /* Darker for contrast on light container */
+
+  --md-sys-color-secondary: #FFC107; /* Amber 500 */
   --md-sys-color-on-secondary: #000000;
-  --md-sys-color-surface: #FFFFFF;
-  --md-sys-color-on-surface: #212121;
-  --md-sys-color-background: #F5F5F5;
-  --md-sys-color-on-background: #212121;
-  --md-sys-color-error: #D32F2F;
+  --md-sys-color-secondary-container: #FFECB3; /* Amber 100 */
+  --md-sys-color-on-secondary-container: #483500; /* Darker for contrast */
+
+  --md-sys-color-tertiary: #4CAF50; /* Green 500 */
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #C8E6C9; /* Green 100 */
+  --md-sys-color-on-tertiary-container: #083A0A;
+
+  --md-sys-color-error: #D32F2F; /* Red 700 */
   --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFCDD2; /* Red 100 */
+  --md-sys-color-on-error-container: #5F0000;
 
-  /* Container Variant Colors */
-  --md-sys-color-primary-container: #C5CAE9;
-  --md-sys-color-secondary-container: #FFECB3;
-  --md-sys-color-surface-variant: #ECEFF1;
-  --md-sys-color-error-container: #FFCDD2;
-  --md-sys-color-warning-container: #FFECB3;
-  --md-sys-color-success-container: #C8E6C9;
+  --md-sys-color-background: #F8F9FA; /* Light Grey */
+  --md-sys-color-on-background: #1C1B1F; /* Near Black */
 
-  /* Elevation */
-  --md-sys-elevation-level1: 0px 1px 2px rgba(0,0,0,0.14),
-                           0px 2px 1px rgba(0,0,0,0.12),
-                           0px 1px 3px rgba(0,0,0,0.20);
+  --md-sys-color-surface: #FFFFFF;
+  --md-sys-color-on-surface: #1C1B1F;
+  --md-sys-color-surface-variant: #E0E0E0; /* Grey 300 */
+  --md-sys-color-on-surface-variant: #424242; /* Grey 700 */
+  --md-sys-color-outline: #757575; /* Grey 600 */
+  --md-sys-color-outline-variant: #BDBDBD; /* Grey 400 */
 
-  /* Shape */
-  --md-sys-shape-corner-small: 4px;
-  --md-sys-shape-corner-medium: 8px;
-  --md-sys-shape-corner-large: 12px;
+  /* Additional surface container shades for depth */
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F5F5F5; /* Grey 100 */
+  --md-sys-color-surface-container: #EEEEEE; /* Grey 200 */
+  --md-sys-color-surface-container-high: #E0E0E0; /* Grey 300 */
+  --md-sys-color-surface-container-highest: #BDBDBD; /* Grey 400 */
 
-  /* Typography Scale */
-  --md-sys-typescale-display-large: 57px/64px;
-  --md-sys-typescale-headline-large: 32px/40px;
-  --md-sys-typescale-title-medium: 16px/24px;
-  --md-sys-typescale-body-regular: 14px/20px;
-  --md-sys-typescale-body-small: 12px/16px;
+
+  /* Custom semantic colors (using MD3 roles as base) */
+  --md-sys-color-warning-container: var(--md-sys-color-secondary-container);
+  --md-sys-color-on-warning-container: var(--md-sys-color-on-secondary-container);
+  --md-sys-color-success-container: var(--md-sys-color-tertiary-container);
+  --md-sys-color-on-success-container: var(--md-sys-color-on-tertiary-container);
+
+
+  /* Elevation - MD3 uses surface tints more in dark theme, shadows primarily in light */
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0px 1px 3px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-sys-elevation-level2: 0px 2px 6px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-sys-elevation-level3: 0px 4px 8px 0px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+  /* Add more levels as needed */
+
+  /* Shape - MD3 uses dp, which translates to px for web */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px; /* For pills/circular elements */
+
+  /* MD3 Typography Scale (Illustrative - customize as needed) */
+  --md-sys-typescale-font-family: 'Roboto', sans-serif;
+
+  --md-sys-typescale-display-large-font-size: 57px;
+  --md-sys-typescale-display-large-line-height: 64px;
+  --md-sys-typescale-display-large-font-weight: 400;
+  --md-sys-typescale-display-large-letter-spacing: -0.25px;
+
+  --md-sys-typescale-headline-large-font-size: 32px;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  --md-sys-typescale-headline-large-font-weight: 500;
+
+  --md-sys-typescale-headline-medium-font-size: 28px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-font-weight: 500;
+
+  --md-sys-typescale-title-large-font-size: 22px;
+  --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-large-font-weight: 500;
+
+  --md-sys-typescale-title-medium-font-size: 16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-font-weight: 500;
+  --md-sys-typescale-title-medium-letter-spacing: 0.15px;
+
+  --md-sys-typescale-title-small-font-size: 14px;
+  --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-title-small-font-weight: 500;
+  --md-sys-typescale-title-small-letter-spacing: 0.1px;
+
+  --md-sys-typescale-label-large-font-size: 14px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-font-weight: 500;
+  --md-sys-typescale-label-large-letter-spacing: 0.1px;
+
+  --md-sys-typescale-label-medium-font-size: 12px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-font-weight: 500;
+  --md-sys-typescale-label-medium-letter-spacing: 0.5px;
+
+  --md-sys-typescale-body-large-font-size: 16px;
+  --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-large-font-weight: 400;
+  --md-sys-typescale-body-large-letter-spacing: 0.5px;
+
+  --md-sys-typescale-body-medium-font-size: 14px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-font-weight: 400;
+  --md-sys-typescale-body-medium-letter-spacing: 0.25px;
+
+  --md-sys-typescale-body-small-font-size: 12px;
+  --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-body-small-font-weight: 400;
+  --md-sys-typescale-body-small-letter-spacing: 0.4px;
+
+  /* Spacing */
+  --spacing-unit: 8px;
 }
 
+/* Global Resets & Base Styles */
 *, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* Allows user to zoom text */
 }
 
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--md-sys-typescale-font-family);
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-header {
-  background-color: var(--md-sys-color-primary);
-  box-shadow: var(--md-sys-elevation-level1);
-}
-
-nav.global-nav {
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: flex;
-  align-items: center;
-  padding: 16px;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Typography Application */
+h1, .page-title {
+  font-size: var(--md-sys-typescale-headline-large-font-size);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  font-weight: var(--md-sys-typescale-headline-large-font-weight);
+  color: var(--md-sys-color-primary);
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+h2, .page-subtitle {
+  font-size: var(--md-sys-typescale-headline-medium-font-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  font-weight: var(--md-sys-typescale-headline-medium-font-weight);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+h3, .tab-content-title, .roadmap-subtitle {
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  color: var(--md-sys-color-primary);
+  margin-top: calc(var(--spacing-unit) * 3);
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+h4 {
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  color: var(--md-sys-color-on-surface);
+  margin-top: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+p, li {
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+ul, ol {
+  padding-left: calc(var(--spacing-unit) * 2.5); /* Indent lists */
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+strong {
+  font-weight: var(--md-sys-typescale-title-small-font-weight); /* Or bold (700) */
+}
+
+.citation {
+  font-style: italic;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-small-font-size);
+}
+
+/* Header */
+.site-header {
+  background-color: var(--md-sys-color-surface-container-high); /* Slightly elevated surface */
+  color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-level2);
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .global-nav-title {
-  color: var(--md-sys-color-on-primary);
-  font-size: 20px;
-  font-weight: 500;
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  color: var(--md-sys-color-primary);
 }
 
-.case-study-selector {
-  margin-left: 24px;
-  padding: 8px 16px;
-  border-radius: var(--md-sys-shape-corner-small);
-  font-size: 14px;
-  border: none;
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
-  box-shadow: var(--md-sys-elevation-level1);
-  appearance: menulist;
-}
-
-.case-study-selector:hover {
-  background-color: var(--md-sys-color-secondary-container);
-}
-
-.case-study-selector:focus-visible {
-  outline: 2px solid var(--md-sys-color-secondary);
-}
-
-.case-study-selector option {
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface);
-  padding: 8px;
-}
-
-main {
-  padding: 24px;
-  max-width: 90%;
+/* Main Content Area */
+.site-main {
+  padding: calc(var(--spacing-unit) * 3);
+  max-width: 1200px; /* Max width for readability on large screens */
+  width: 90%; /* Responsive width */
   margin: 0 auto;
+  flex-grow: 1;
 }
 
-h1 {
-  font-size: 32px;
-  line-height: 40px;
-  margin-bottom: 16px;
-  color: var(--md-sys-color-primary);
+.page-header {
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding-bottom: calc(var(--spacing-unit) * 2);
 }
 
-h2 {
-  font-size: 24px;
-  line-height: 32px;
-  margin-top: 24px;
-  margin-bottom: 16px;
-  color: var(--md-sys-color-primary);
-}
 
 /* Tabs */
 .tab-container {
-  margin-top: 24px;
+  margin-top: calc(var(--spacing-unit) * 3);
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-shape-corner-medium);
+  box-shadow: var(--md-sys-elevation-level1);
+  overflow: hidden; /* To contain rounded corners with border */
 }
 
 .tab-buttons {
   display: flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+  background-color: var(--md-sys-color-surface-container-low);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding: 0 calc(var(--spacing-unit) * 1);
 }
 
 .tab-button {
+  font-family: var(--md-sys-typescale-font-family);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
   background: none;
   border: none;
-  padding: 12px 16px;
-  font-size: 14px;
-  color: var(--md-sys-color-on-surface);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  color: var(--md-sys-color-on-surface-variant);
   cursor: pointer;
-  border-bottom: 2px solid transparent;
+  position: relative; /* For the indicator */
+  text-align: center;
   border-radius: var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 0 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  flex-grow: 1; /* Allow tabs to take equal space if desired, or set specific widths */
+  min-width: 120px; /* Ensure tabs don't get too squished before wrapping */
 }
 
-.tab-button:hover {
-  background-color: rgba(0,0,0,0.04);
+.tab-button::after { /* Indicator line */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: transparent;
+  border-radius: 3px 3px 0 0;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button:hover, .tab-button:focus-visible {
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container); /* Subtle hover */
 }
 
 .tab-button[aria-selected="true"] {
   color: var(--md-sys-color-primary);
-  border-bottom-color: var(--md-sys-color-primary);
+  font-weight: bold; /* Or a heavier M3 weight if defined */
+}
+.tab-button[aria-selected="true"]::after {
+  background-color: var(--md-sys-color-primary);
 }
 
 .tab-button:focus-visible {
-  outline: 2px solid var(--md-sys-color-secondary);
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: -2px; /* Adjust to be inside or outside */
 }
 
 .tab-content {
   display: none;
-  padding: 16px 0;
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+  background-color: var(--md-sys-color-surface);
 }
 
 .tab-content[aria-hidden="false"] {
   display: block;
 }
+.tab-content:focus-visible { /* Make tab panel focusable for programmatic focus */
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
 
 /* Tables */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scroll for the table */
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
 table {
   width: 100%;
+  min-width: 800px; /* Force horizontal scroll below this width */
   border-collapse: collapse;
-  margin-bottom: 32px;
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+}
+
+table caption {
+  font-size: var(--md-sys-typescale-title-small-font-size);
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  color: var(--md-sys-color-on-surface-variant);
+  padding: calc(var(--spacing-unit) * 1.5);
+  text-align: left;
+  caption-side: top; /* MD default for caption position */
+  background-color: var(--md-sys-color-surface-container-low);
 }
 
 th, td {
-  padding: 12px;
+  padding: calc(var(--spacing-unit) * 1.5);
   text-align: left;
-vertical-align: top;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
-}
-
-.tab-content table td {
   vertical-align: top;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
-th {
-  font-weight: 500;
-  background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary);
+th { /* Table Headers */
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface-variant); /* Ensure contrast */
+  border-bottom-width: 2px; /* Thicker border for header row */
+  border-bottom-color: var(--md-sys-color-outline);
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--md-sys-color-surface-variant);
+  background-color: var(--md-sys-color-surface-container-lowest); /* Subtle striping */
 }
-
-/* Toggle Button */
-#toggle-section-btn {
-  margin: 24px 0;
-  padding: 10px 20px;
-  font-size: 14px;
-  background-color: var(--md-sys-color-secondary);
-  color: var(--md-sys-color-on-secondary);
-  border: none;
-  border-radius: var(--md-sys-shape-corner-small);
-  box-shadow: var(--md-sys-elevation-level1);
-  cursor: pointer;
-}
-
-#toggle-section-btn:hover {
-  background-color: var(--md-sys-color-primary);
-}
-
-#toggle-section-btn:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary);
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* Case‑Study Specific Styles */
-.site-footer {
-  margin-top: 40px;
-  padding: 20px;
-  border-top: 1px solid rgba(0,0,0,0.12);
-  text-align: center;
-  font-size: 12px;
-  color: var(--md-sys-color-on-surface);
-  background-color: var(--md-sys-color-surface);
-}
-
-.outcomes-summary p {
-  line-height: 1.4;
-  margin-bottom: 10px;
-  font-size: var(--md-sys-typescale-body-regular);
+tbody tr:hover {
+  background-color: var(--md-sys-color-surface-container-low); /* Hover effect */
 }
 
 .stakeholder {
-  font-weight: 500;
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  color: var(--md-sys-color-on-surface);
 }
 
 .parameters {
-  font-size: var(--md-sys-typescale-body-small);
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .parameters ul {
   margin: 0;
-  padding-left: 20px;
+  padding-left: calc(var(--spacing-unit) * 2);
 }
 
-.section-header {
-  background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
-  padding: 10px;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border-radius: var(--md-sys-shape-corner-small);
+.section-title { /* For rows like "Key Colorado SB24-205 Requirements" */
+  font-weight: var(--md-sys-typescale-title-small-font-weight);
+  background-color: var(--md-sys-color-surface-container-high) !important; /* Ensure overrides even/odd striping */
+  color: var(--md-sys-color-on-surface);
+}
+.section-border > td {
+  border-top: 2px solid var(--md-sys-color-primary);
 }
 
-.requirement {
-  background-color: var(--md-sys-color-surface);
-  padding: 12px;
-  border-left: 4px solid var(--md-sys-color-primary);
-  margin-bottom: 10px;
+/* Specific row highlights - ensure accessible contrast with text */
+.organization td { /* Slightly different background for AcmeSoft rows if needed */
+  background-color: var(--md-sys-color-secondary-container); /* Example */
+  color: var(--md-sys-color-on-secondary-container);
 }
-
-.citation {
-  font-style: italic;
-  color: rgba(0,0,0,0.6);
-}
-
-.organization {
-  background-color: var(--md-sys-color-secondary-container);
-}
-
-.friction-row {
+.friction-row td {
   background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
 }
-
-.risk-row {
+.risk-row td {
   background-color: var(--md-sys-color-warning-container);
+  color: var(--md-sys-color-on-warning-container);
 }
-
-.mitigation-row {
+.mitigation-row td {
   background-color: var(--md-sys-color-success-container);
+  color: var(--md-sys-color-on-success-container);
 }
 
-.section-border {
-  border-top: 3px solid var(--md-sys-color-primary);
-}
-
-.section-title {
-  font-weight: 500;
-  background-color: var(--md-sys-color-surface-variant);
-}
-
+/* Compliance Heatmap Specifics */
 .heatmap-container {
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: calc(var(--spacing-unit) * 4);
+  padding: calc(var(--spacing-unit) * 3);
   border-radius: var(--md-sys-shape-corner-medium);
   background-color: var(--md-sys-color-surface);
   box-shadow: var(--md-sys-elevation-level1);
 }
 
-.compliance-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
 .compliance-table th,
 .compliance-table td {
-  border: 1px solid rgba(0,0,0,0.12);
-  padding: 8px;
-  text-align: top;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: var(--spacing-unit);
+  vertical-align: middle; /* Better for single numbers */
+  text-align: center; /* Center scores */
 }
 
-.compliance-table th:first-child,
+.compliance-table th:first-child, /* Stakeholder column */
 .compliance-table td:first-child {
   text-align: left;
-}
-
-table th {
-  color: var(--md-sys-color-primary);
 }
 
 .legend {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
   flex-wrap: wrap;
+  gap: calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 2.5) 0;
+  padding: calc(var(--spacing-unit) * 1.5);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-small);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  margin: 0 15px;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .legend-color {
   width: 20px;
   height: 20px;
-  margin-right: 8px;
-  border: 1px solid rgba(0,0,0,0.12);
+  margin-right: var(--spacing-unit);
+  border-radius: var(--md-sys-shape-corner-extra-small);
 }
 
+/* Note Box & Info Sections */
 .note-box {
   background-color: var(--md-sys-color-secondary-container);
   border-left: 4px solid var(--md-sys-color-secondary);
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
   border-radius: var(--md-sys-shape-corner-small);
+  color: var(--md-sys-color-on-secondary-container);
+}
+.note-box p, .note-box h4 {
+    color: var(--md-sys-color-on-secondary-container);
 }
 
-.observations ul {
-  padding-left: 20px;
-}
-
-.observations li {
-  margin-bottom: 8px;
-}
-
-.improvement-section {
-  background-color: var(--md-sys-color-surface-variant);
-  padding: 15px;
-  margin-top: 20px;
+.observations, .improvement-section {
+  background-color: var(--md-sys-color-surface-container-low);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-top: calc(var(--spacing-unit) * 2.5);
   border-radius: var(--md-sys-shape-corner-small);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
-```
+.observations ul, .improvement-section ol {
+  padding-left: calc(var(--spacing-unit) * 3);
+}
+.observations li, .improvement-section li {
+  margin-bottom: var(--spacing-unit);
+}
 
+.outcomes-summary p {
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: calc(var(--spacing-unit) * 5);
+  padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  text-align: center;
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface-variant);
+}
+.site-footer p {
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  margin: 0;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Medium screens / Tablets */
+  .site-main {
+    width: 95%;
+    padding: calc(var(--spacing-unit) * 2);
+  }
+  .tab-button {
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 1.5);
+    font-size: var(--md-sys-typescale-label-medium-font-size);
+  }
+  .table-responsive-wrapper {
+    /* Wrapper will handle scroll, table min-width forces it */
+  }
+
+  h1, .page-title {
+    font-size: var(--md-sys-typescale-display-large-font-size); /* Adjust if too large for tablets */
+  }
+  h2, .page-subtitle {
+    font-size: calc(var(--md-sys-typescale-headline-medium-font-size) * 0.9);
+  }
+}
+
+@media (max-width: 768px) { /* Small screens / Large Phones */
+  .tab-buttons {
+    /* Tabs will wrap due to flex-wrap: wrap */
+  }
+  .tab-button {
+    flex-basis: 50%; /* Example: 2 tabs per row, adjust as needed */
+    min-width: 0; /* Override previous min-width if necessary for flex-basis to work well */
+  }
+
+  /* Further reduce table cell padding on small screens */
+  table {
+    min-width: 600px; /* Adjust min-width based on content */
+  }
+  th, td {
+    padding: var(--spacing-unit);
+    font-size: var(--md-sys-typescale-body-small-font-size);
+  }
+  table caption {
+    font-size: var(--md-sys-typescale-body-medium-font-size);
+    padding: var(--spacing-unit);
+  }
+
+  .parameters ul {
+    padding-left: calc(var(--spacing-unit) * 1.5);
+  }
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-unit);
+  }
+}
+
+@media (max-width: 480px) { /* Extra Small screens / Phones */
+  .site-main {
+    width: 100%;
+    padding: var(--spacing-unit);
+  }
+  .page-header {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding-bottom: var(--spacing-unit);
+  }
+  h1, .page-title {
+    font-size: var(--md-sys-typescale-headline-medium-font-size);
+  }
+  h2, .page-subtitle {
+    font-size: var(--md-sys-typescale-title-large-font-size);
+  }
+  h3, .tab-content-title, .roadmap-subtitle {
+    font-size: var(--md-sys-typescale-title-medium-font-size);
+  }
+
+  .tab-button {
+    flex-basis: 100%; /* Full width tabs on very small screens */
+    border-bottom: 1px solid var(--md-sys-color-outline-variant); /* Add separator if they stack */
+  }
+  .tab-button:last-child {
+    border-bottom: none;
+  }
+  .tab-content {
+    padding: var(--spacing-unit) * 1.5;
+  }
+
+  table {
+    min-width: 450px; /* Further adjust if needed */
+  }
+  th, td {
+    padding: calc(var(--spacing-unit) * 0.75);
+  }
+
+  .site-footer {
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  }
+}
