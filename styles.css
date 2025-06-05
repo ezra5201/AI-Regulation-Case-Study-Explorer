@@ -209,7 +209,7 @@ strong {
 
 /* Header */
 .site-header {
-  background-color: var(--md-sys-color-surface-container-high);
+  background-color: var(--md-sys-color-surface-container-high); /* Slightly elevated surface */
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-level2);
   padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
@@ -219,7 +219,6 @@ strong {
   right: 0;
   width: 100%;
   z-index: 1000;
-}
 }
 
 .global-nav-title {
