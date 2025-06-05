@@ -9,47 +9,70 @@ document.addEventListener('DOMContentLoaded', function() {
   // Tabs that should use wide layout (for tables)
   const wideLayoutTabs = ['service-blueprint', 'compliance-heatmap', 'developers', 'deployer'];
 
-  function showTab(targetTabId) {
-    // Hide all tab contents
-    tabContents.forEach(content => {
-      content.style.display = 'none';
-      content.setAttribute('aria-hidden', 'true');
-    });
+function showTab(targetTabId) {
+  // Store the tab container's position to maintain scroll consistency
+  const tabContainer = document.querySelector('.tab-container');
+  const tabContainerTop = tabContainer ? tabContainer.getBoundingClientRect().top + window.pageYOffset : 0;
+  
+  // Hide all tab contents
+  tabContents.forEach(content => {
+    content.style.display = 'none';
+    content.setAttribute('aria-hidden', 'true');
+  });
 
-    // Deactivate all tab buttons
-    tabButtons.forEach(button => {
-      button.classList.remove('active');
-      button.setAttribute('aria-selected', 'false');
-    });
+  // Deactivate all tab buttons
+  tabButtons.forEach(button => {
+    button.classList.remove('active');
+    button.setAttribute('aria-selected', 'false');
+  });
 
-    // Show the target tab content
-    const targetContent = document.getElementById(targetTabId);
-    if (targetContent) {
-      targetContent.style.display = 'block';
-      targetContent.setAttribute('aria-hidden', 'false');
-      
-      // Focus the tab content for accessibility
-      targetContent.focus();
-    }
+  // Show the target tab content
+  const targetContent = document.getElementById(targetTabId);
+  if (targetContent) {
+    targetContent.style.display = 'block';
+    targetContent.setAttribute('aria-hidden', 'false');
+  }
 
-    // Activate the corresponding button
-    const targetButton = document.getElementById(`tab-${targetTabId}`);
-    if (targetButton) {
-      targetButton.classList.add('active');
-      targetButton.setAttribute('aria-selected', 'true');
-    }
+  // Activate the corresponding button
+  const targetButton = document.getElementById(`tab-${targetTabId}`);
+  if (targetButton) {
+    targetButton.classList.add('active');
+    targetButton.setAttribute('aria-selected', 'true');
+  }
 
-    // Apply appropriate layout class based on tab type
-    if (siteMain) {
-      if (wideLayoutTabs.includes(targetTabId)) {
-        siteMain.classList.remove('standard-layout');
-        siteMain.classList.add('wide-layout');
-      } else {
-        siteMain.classList.remove('wide-layout');
-        siteMain.classList.add('standard-layout');
-      }
+  // Apply appropriate layout class based on tab type
+  if (siteMain) {
+    if (wideLayoutTabs.includes(targetTabId)) {
+      siteMain.classList.remove('standard-layout');
+      siteMain.classList.add('wide-layout');
+    } else {
+      siteMain.classList.remove('wide-layout');
+      siteMain.classList.add('standard-layout');
     }
   }
+
+  // Ensure the tab buttons remain visible by scrolling to a consistent position
+  // Use requestAnimationFrame to ensure the layout changes have been applied
+  requestAnimationFrame(() => {
+    // Scroll to keep the tab container at the top of the viewport
+    // Add a small offset to ensure the tabs are clearly visible
+    const offset = 20; // 20px buffer from top
+    const targetScrollPosition = Math.max(0, tabContainerTop - offset);
+    
+    window.scrollTo({
+      top: targetScrollPosition,
+      behavior: 'smooth'
+    });
+
+    // Focus the tab content for accessibility after scrolling
+    if (targetContent) {
+      // Small delay to ensure scroll completes before focusing
+      setTimeout(() => {
+        targetContent.focus();
+      }, 300);
+    }
+  });
+}
 
   // Add click event listeners to all tab buttons
   tabButtons.forEach(button => {
