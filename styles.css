@@ -260,12 +260,6 @@ strong {
   background-color: var(--md-sys-color-surface-container-low);
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
   padding: 0 calc(var(--spacing-unit) * 1);
-  position: fixed;
-  top: calc(var(--spacing-unit) * 8);
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 999;
   box-shadow: var(--md-sys-elevation-level1);
 }
 
@@ -336,7 +330,6 @@ strong {
   margin-bottom: 0;
   text-align: left;
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
-  margin-top: calc(var(--spacing-unit) * 8);
 }
 
 
