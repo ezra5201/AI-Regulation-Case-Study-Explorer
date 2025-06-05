@@ -14,13 +14,12 @@ function setupTabs() {
 
         if (currentTabIndex === -1 && tabs.length > 0) {
             // If no tab is active, activate the first one
-            activateTab(tabs[0], false); // Don't set focus yet, page load handles it or user action
+            activateTab(tabs[0], false);
             currentTabIndex = 0;
         } else if (currentTabIndex !== -1 && tabs.length > 0) {
             // Ensure initially active tab is correctly set up
-             activateTab(tabs[currentTabIndex], false); // Ensure panel visibility
+            activateTab(tabs[currentTabIndex], false);
         }
-
 
         function activateTab(selectedTab, setFocus = true) {
             // Deactivate all other tabs
@@ -29,20 +28,20 @@ function setupTabs() {
                 if (tab === selectedTab) {
                     tab.classList.add('active');
                     tab.setAttribute('aria-selected', 'true');
-                    tab.setAttribute('tabindex', '0'); // Active tab is part of tab sequence
+                    tab.setAttribute('tabindex', '0');
                     if (panel) {
-                        panel.classList.add('active'); // For CSS if needed, though display handles it
+                        panel.classList.add('active');
                         panel.style.display = 'block';
                         panel.setAttribute('aria-hidden', 'false');
                     }
-                    currentTabIndex = index; // Update current tab index
+                    currentTabIndex = index;
                     if (setFocus) {
                         tab.focus();
                     }
                 } else {
                     tab.classList.remove('active');
                     tab.setAttribute('aria-selected', 'false');
-                    tab.setAttribute('tabindex', '-1'); // Inactive tabs are not in tab sequence
+                    tab.setAttribute('tabindex', '-1');
                     if (panel) {
                         panel.classList.remove('active');
                         panel.style.display = 'none';
@@ -74,12 +73,12 @@ function setupTabs() {
                     return; // Not a relevant key for tab navigation
                 }
 
-                event.preventDefault(); // Prevent default browser action (e.g., scrolling)
+                event.preventDefault();
                 activateTab(tabs[newTabIndex]);
             });
         });
 
-        // Initialize the first tab if no active tab is found (or ensure its panel is visible)
+        // Initialize the first tab if no active tab is found
         const activeTabButton = tablist.querySelector('.tab-button.active');
         if (activeTabButton) {
             const panelId = activeTabButton.getAttribute('aria-controls');
@@ -88,7 +87,7 @@ function setupTabs() {
                 activePanel.style.display = 'block';
                 activePanel.setAttribute('aria-hidden', 'false');
             }
-             // Set tabindex for initially active and inactive tabs
+            // Set tabindex for initially active and inactive tabs
             tabs.forEach(tab => {
                 if (tab === activeTabButton) {
                     tab.setAttribute('tabindex', '0');
@@ -96,14 +95,12 @@ function setupTabs() {
                     tab.setAttribute('tabindex', '-1');
                 }
             });
-
         } else if (tabs.length > 0) {
             // If no tab was marked active in HTML, activate the first one by default
-            activateTab(tabs[0], false); // Don't set focus on initial load
+            activateTab(tabs[0], false);
         }
     });
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     setupTabs();
