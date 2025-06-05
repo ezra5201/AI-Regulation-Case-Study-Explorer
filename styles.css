@@ -209,13 +209,17 @@ strong {
 
 /* Header */
 .site-header {
-  background-color: var(--md-sys-color-surface-container-high); /* Slightly elevated surface */
+  background-color: var(--md-sys-color-surface-container-high);
   color: var(--md-sys-color-on-surface);
   box-shadow: var(--md-sys-elevation-level2);
   padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
 }
 
 .global-nav-title {
@@ -227,10 +231,11 @@ strong {
 /* Main Content Area */
 .site-main {
   padding: calc(var(--spacing-unit) * 3);
-  max-width: 1200px; /* Max width for readability on large screens */
-  width: 90%; /* Responsive width */
+  max-width: 1200px;
+  width: 90%;
   margin: 0 auto;
   flex-grow: 1;
+  margin-top: calc(var(--spacing-unit) * 8);
 }
 
 .page-header {
@@ -242,23 +247,27 @@ strong {
 
 /* Tabs */
 .tab-container {
-  margin-top: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 12);
   background-color: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-medium);
   box-shadow: var(--md-sys-elevation-level1);
-  overflow: hidden; /* To contain rounded corners with border */
-  position: relative; /* Establish stacking context for scroll positioning */
+  overflow: hidden;
+  position: relative;
 }
 
 .tab-buttons {
   display: flex;
-  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+  flex-wrap: wrap;
   background-color: var(--md-sys-color-surface-container-low);
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
   padding: 0 calc(var(--spacing-unit) * 1);
-  position: sticky; /* Make tab buttons stick when scrolling */
-  top: calc(var(--spacing-unit) * 8); /* Position below the main header */
-  z-index: 50; /* Ensure tabs stay above content but below main header */
+  position: fixed;
+  top: calc(var(--spacing-unit) * 8);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .tab-button {
@@ -328,6 +337,7 @@ strong {
   margin-bottom: 0;
   text-align: left;
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  margin-top: calc(var(--spacing-unit) * 8);
 }
 
 
