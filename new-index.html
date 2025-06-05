@@ -1,1 +1,383 @@
+<!-- HTML Head and Opening -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulatory Case Study Explorer</title>
+  <script src="scripts.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .tag-pill {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      margin: 0.1em 0.2em;
+      font-size: 0.85em;
+      font-weight: 500;
+      color: var(--md-sys-color-on-primary-container, #001E2F);
+      background-color: var(--md-sys-color-primary-container, #D1E4FF);
+      border-radius: 1em;
+      line-height: 1.2;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+    td > strong {
+      display: inline-block;
+      margin-bottom: 0.2em;
+    }
+
+    .tag-review { background-color: lightcoral !important; color: white !important; }
+    .tag-project-initiation-and-planning { background-color: lightblue !important; color: #001E2F !important;}
+    .tag-implementation-and-execution { background-color: lightgreen !important; color: #001E2F !important;}
+    .tag-monitoring { background-color: gold !important; color: #001E2F !important;}
+    .tag-reporting { background-color: lightpink !important; color: #001E2F !important;}
+    .tag-assessment-and-analysis { background-color: lightsalmon !important; color: #001E2F !important;}
+    .tag-training-and-communication { background-color: lightseagreen !important; color: white !important;}
+    .tag-policy-and-procedure-development { background-color: lightsteelblue !important; color: #001E2F !important;}
+
+    .roadmap-activities ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+    }
+    .roadmap-activities li {
+      margin-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="global-nav" aria-label="Global navigation">
+      <div class="global-nav-title">Regulatory Case Study Explorer</div>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <div class="page-header">
+      <h1 class="page-title">Regulation: Colorado SB24-205</h1>
+      <h2 class="page-subtitle">Case Study: TalentVue-AcmeSoft Automated Video Interview</h2>
+    </div>
+
+    <div class="tab-container">
+      <div class="tab-buttons" role="tablist" aria-label="Case Study Sections">
+        <button id="tab-case-study" class="tab-button active"
+                role="tab" aria-selected="true" aria-controls="case-study">
+          Case Study
+        </button>
+        <button id="tab-service-blueprint" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="service-blueprint">
+          Events Timeline
+        </button>
+        <button id="tab-insights" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="insights">
+          Insights
+        </button>
+        <button id="tab-compliance-heatmap" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="compliance-heatmap">
+          Compliance Assessment
+        </button>
+        <button id="tab-developers" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="developers">
+          Developer Roadmap
+        </button>
+        <button id="tab-deployer" class="tab-button"
+                role="tab" aria-selected="false" aria-controls="deployer">
+          Deployer Roadmap
+        </button>
+      </div>
+
+<!-- Case Study Tab Content (Part 1) --> 
+
+      <section id="case-study" class="tab-content active"
+               role="tabpanel" aria-labelledby="tab-case-study" aria-hidden="false" tabindex="0">
+        <h3 class="tab-content-title">Executive Summary</h3>
+        <p>This case study, an abbreviated analysis structured using Babl.ai's freely available risk assessment methodology, examines an incident of algorithmic discrimination through the lens of the Colorado AI Act and provides constructive best practices that developers and deployers can implement to avoid such situations.</p>
+        
+        <p>The case involves the AI-driven video interview platform developed by the third-party vendor, TalentVue. When deployed by AcmeSoft/Intuit for promotion decisions – a consequential decision context that falls under the Colorado AI Act – the AI-driven video interview platform potentially discriminated against J.D., an Indigenous deaf woman. The case study illustrates how both TalentVue as a developer and Intuit as a deployer would fall short of complying with the Colorado AI Act. Additionally, it suggests actions that TalentVue and Intuit could take to demonstrate reasonable care as defined by the Colorado AI Act to reduce the risk of algorithmic discrimination against individuals with disabilities or from underrepresented groups like J.D.</p>
+        
+        <p>This case illustrates critical compliance failures under the Colorado AI Act provisions against algorithmic discrimination, highlighting the responsibilities of both AI developers and deployers to exercise reasonable care with high-risk AI systems, particularly when used for consequential employment decisions affecting individuals with disabilities or from underrepresented groups.</p>
+
+        <h3>Overview</h3>
+        <p>This case study is based on the American Civil Liberties Union's (ACLU) filing of a complaint against Intuit and HireVue over an alleged biased AI hiring technology that works worse for deaf and non-white applicants. A few details and names of entities involved were modified for generalization purposes.</p>
+        
+        <p>J.D. is an Indigenous (Lakota) woman who is Deaf and communicates in English with a deaf accent. She began working at AcmeSoft, a multinational business and financial technology company, in 2019 as a Tax Associate. When J.D. joined AcmeSoft, she requested human-generated captioning (CART) to effectively communicate with customers. AcmeSoft denied this specific accommodation, providing automated captioning instead. Despite this limitation, J.D. performed excellently in her role, consistently receiving positive feedback from customers and annual bonuses based on her outstanding performance.</p>
+        
+        <p>During her time as a Tax Associate, J.D. discovered that one of her performance metrics was artificially low because AcmeSoft's AI-powered monitoring system could not accurately recognize her speech due to her deaf accent. When this issue was raised with supervisors, AcmeSoft did not fix the technological problem, but instead reassigned J.D. so she no longer answered customer phone calls, and responded only through chat applications.</p>
+        
+        <p>Over the years, she demonstrated strong performance, receiving positive feedback and annual bonuses. She was promoted to Tax Expert Lead in 2021, where she successfully managed a team of approximately 400 Tax Associates for three consecutive years. In 2023, J.D. joined AcmeSoft's Accessibility Team to help address disability barriers in their services. Back then, AcmeSoft already deployed TalentVue, an AI-powered video interview platform, that facilitates assessing candidates through automated evaluations. As part of her work with the Accessibility Team, J.D. specifically raised concerns about TalentVue's AI-driven video interview platform and its potential to exclude disabled applicants, but no action was taken on these concerns.</p>
+        
+        <p>In early 2024, encouraged by her manager who was on the hiring team, J.D. applied for a Seasonal Manager position. She met all qualifications, with three years of experience leading a large team of tax professionals and several years of tax preparation experience. Despite her documented strong performance and qualifications, she was required to complete a TalentVue video interview as part of the application process.</p>
+        
+        <p>The email inviting J.D. to complete the TalentVue interview provided no information about accommodations for disabled applicants. Knowing the platform would not be fully accessible to her, J.D. requested human-generated captioning for the interview. AcmeSoft denied this specific accommodation, incorrectly claiming that TalentVue had built-in subtitling that she could activate.</p>
+        
+        <p>When J.D. accessed the TalentVue platform, she discovered there was no subtitle option available. She was forced to rely on less accurate automated captioning provided by her web browser, making it difficult for her to fully understand the interview questions. Despite these barriers, J.D. completed the three-hour assessment, which included multiple-choice, essay, and video questions focused mainly on management scenarios and a few questions about tax law.</p>
+        
+        <p>On August 13, 2024, J.D. received an automated rejection stating that AcmeSoft had "decided to move forward with other candidates." The positions went to candidates who were neither deaf nor Indigenous. Six weeks later, J.D. received feedback that appeared to be generated by TalentVue's automated analysis. The feedback recommended she focus on "providing more concise and direct answers," "practice active listening," and "explaining tax concepts in a clear and concise manner" – all factors directly related to her deaf accent and communication style. J.D. subsequently filed a discrimination complaint with the Colorado Civil Rights Division.</p>
+
+
+<!-- Case Study Tab Content (Part 2) --> 
+
+        <h3>Context</h3>
+        <p>TalentVue is an AI-powered video interview platform that helps employers assess job candidates through automated evaluations. Developed by TalentVue, Inc., a technology company headquartered in Sandy, Utah with more than 200 employees, the system records candidates answering preset questions, then uses artificial intelligence to analyze their responses, generating scores and recommendations for hiring managers.</p>
+        
+        <p>The platform operates through several key technological components that work together to evaluate candidates:</p>
+        <ul>
+          <li><strong>Video Interview Collection:</strong> Candidates respond to pre-recorded questions about their experience, skills, and how they would handle various scenarios. These questions are delivered through audible prompts with varying levels of subtitling support.</li>
+          <li><strong>Automated Speech Recognition (ASR):</strong> The system transcribes what candidates say, converting their spoken answers into text using speech recognition technology.</li>
+          <li><strong>AI Analysis:</strong> Advanced algorithms evaluate the transcribed responses based on various factors, including communication style, content quality, vocabulary usage, and perceived job fit.</li>
+          <li><strong>Scoring and Reporting:</strong> The system generates detailed assessments for employers, including numerical scores and recommendations regarding candidates. It can also produce feedback reports for candidates that outline perceived strengths and areas for improvement.</li>
+        </ul>
+        
+        <p>The platform represents a significant shift in how employment decisions are made, replacing or supplementing traditional human interviews with algorithmic assessments that influence who gets hired or promoted. Companies like AcmeSoft utilize this technology across their organizations to standardize hiring processes and potentially reduce the time needed for initial candidate screening.</p>
+        
+        <p>Under Colorado SB24-205, TalentVue qualifies as a "high-risk AI system" because it makes or substantially influences "consequential decisions" about employment opportunities. This classification triggers specific legal requirements for both TalentVue (the developer) and organizations using the platform like AcmeSoft (the deployers).</p>
+
+        <h3>Social Environment</h3>
+        <p>The case takes place against a backdrop of increasing automation in hiring and promotion processes. Organizations are rapidly adopting AI technologies for employment decisions, often without fully understanding their limitations and potential for discriminatory impacts. This trend has raised concerns about algorithmic bias and led to new regulatory frameworks like Colorado's AI Act to address algorithmic discrimination.</p>
+        
+        <p>The use of automated video interviews has become particularly prevalent in large organizations, with companies like AcmeSoft incorporating these technologies into their standard hiring processes. While these systems promise efficiency and objectivity, they often present significant barriers, among others for people with disabilities and those from marginalized groups.</p>
+        
+        <p>For deaf and hard of hearing individuals in particular, the employment landscape presents unique challenges. The unemployment rate for deaf and hard of hearing people is significantly higher than the general population, and technology barriers often contribute to this disparity. The intersection of disability and racial identity creates additional layers of disadvantage for Indigenous deaf individuals like J.D.</p>
+
+        <h3>Stakeholders</h3>
+        <ul>
+          <li><strong>J.D. (Job Applicant):</strong> Indigenous (Lakota) and Deaf woman with a strong performance record at AcmeSoft who was denied promotion after a TalentVue interview. She's directly affected by the algorithmic assessment and its potential discrimination.</li>
+          <li><strong>AcmeSoft (Employer/Deployer):</strong> Multinational business and financial technology company with over 18,000 employees worldwide. As the deployer of TalentVue's technology, AcmeSoft is responsible for how the system is implemented and how its recommendations are used in employment decisions.</li>
+          <li><strong>TalentVue, Inc. (Developer):</strong> AI and human resources technology company with more than 200 employees in the United States. TalentVue designs, administers, and scores the video interviews and assessments, incorporating AI systems that may have discriminatory impacts.</li>
+          <li><strong>AcmeSoft's Accessibility Team:</strong> Internal team designed to address barriers to accessibility in AcmeSoft's services. The team includes J.D. and is specifically tasked with improving experiences for people with disabilities.</li>
+          <li><strong>AcmeSoft Management:</strong> Supervisors and hiring team members who encouraged J.D. to apply for promotion but also maintained the TalentVue assessment requirement despite knowing its potential limitations.</li>
+          <li><strong>Colorado Civil Rights Division:</strong> State enforcement agency responsible for investigating discrimination complaints and enforcing anti-discrimination laws, including the Colorado Anti-Discrimination Act (CADA).</li>
+          <li><strong>Other Job Applicants:</strong> Individuals who applied for and received the Seasonal Manager positions, who apparently did not share J.D.'s protected characteristics.</li>
+          <li><strong>AcmeSoft Customers:</strong> End users of AcmeSoft's tax services who interact with employees like J.D. They have an interest in receiving quality service from a diverse workforce.</li>
+          <li><strong>Deaf and Indigenous Communities:</strong> Broader communities who may be affected by discriminatory hiring practices and who have an interest in equal employment opportunities.</li>
+          <li><strong>Colorado Attorney General:</strong> State enforcement authority with exclusive power to enforce SB24-205. Responsible for investigating AI discrimination complaints, bringing enforcement actions, and establishing compliance standards through rulemaking.</li>
+        </ul>
+
+<!-- Case Study Tab Content (Part 3) - End of case study Tab --> 
+
+        <h3>Data Types and Collection Process</h3>
+        <h4>Types of Data</h4>
+        <ul>
+          <li><strong>Video Recordings:</strong> Captured footage of candidates answering interview questions, including facial expressions, gestures, and speech patterns.</li>
+          <li><strong>Audio Recordings:</strong> Verbal responses to interview questions, including tone, pace, accent, pronunciation, and other speech characteristics.</li>
+          <li><strong>Transcribed Speech:</strong> Text generated from candidates' spoken responses using automated speech recognition technology.</li>
+          <li><strong>Response Content:</strong> The substance of what candidates say, including their answers to questions about experience, skills, and hypothetical scenarios.</li>
+          <li><strong>Previous Performance Data:</strong> For internal candidates like J.D., historical performance metrics, including potentially inaccurate assessments from other AI systems.</li>
+          <li><strong>User Interaction Data:</strong> How candidates navigate the platform, including any accommodation requests or difficulty indicators.</li>
+          <li><strong>Demographic Information:</strong> While not explicitly collected, implicit data about characteristics like accent, speech patterns, and appearance that may correlate with protected characteristics.</li>
+          <li><strong>Employee History:</strong> Length of service, positions held, and other employment history for internal candidates.</li>
+        </ul>
+
+        <h4>Collection Process</h4>
+        <p>TalentVue collects data through its video interview platform using the following methods:</p>
+        <ul>
+          <li><strong>Video Recording:</strong> The platform records candidates as they respond to pre-recorded questions. This captures their visual presentation, facial expressions, and body language.</li>
+          <li><strong>Audio Recording:</strong> The system captures the candidate's voice, including accent, speech patterns, pronunciation, and tone.</li>
+          <li><strong>Automated Speech Recognition (ASR):</strong> The platform uses ASR technology to transcribe candidate responses, converting speech to text for further analysis.</li>
+          <li><strong>User Interactions:</strong> The system logs how candidates interact with the platform, including time spent on questions and any technical issues encountered.</li>
+          <li><strong>Multiple Assessment Types:</strong> Beyond video responses, the platform collects data from multiple-choice questions, essay responses, and other assessment formats.</li>
+          <li><strong>Automated Feedback Generation:</strong> The system processes candidate responses to generate feedback on areas like communication style, conciseness, and listening skills.</li>
+        </ul>
+        
+        <p>For candidates with disabilities like J.D., the collection process may be significantly compromised. Without proper accommodations like accurate captioning, deaf candidates may not fully understand questions, potentially affecting their responses. Additionally, the ASR system's known limitations with deaf accents means the transcription of their responses is likely to be highly inaccurate, compromising all subsequent analysis.</p>
+
+        <h3>Filter Effects and Discrimination</h3>
+        <p>The TalentVue system likely creates several significant filter effects that disadvantage candidates with certain characteristics:</p>
+        <ul>
+          <li><strong>Deaf and Hard of Hearing Filter:</strong> Due to ASR systems performing up to ten times worse for deaf speakers, the platform likely systematically underrates deaf and hard of hearing candidates regardless of their actual qualifications or abilities.</li>
+          <li><strong>Accent and Speech Pattern Filter:</strong> Candidates with non-standard accents or speech patterns, including Indigenous dialects of English, are likely to have their responses inaccurately transcribed and thus inaccurately evaluated.</li>
+          <li><strong>Communication Style Prioritization:</strong> By emphasizing factors like "conciseness" and "active listening" that may be directly related to deaf communication styles, the system creates a structural disadvantage for deaf candidates.</li>
+          <li><strong>Technical Accessibility Filter:</strong> Without proper accommodations like subtitling for audible questions, the platform creates a fundamental access barrier, filtering out candidates who cannot fully understand the interview questions.</li>
+          <li><strong>Intersectional Disadvantage:</strong> Candidates who are both Indigenous and Deaf, like J.D., face compounded disadvantages when the system's limitations regarding both racial and disability factors combine.</li>
+        </ul>
+        
+        <p>These filter effects mean that even highly qualified candidates like J.D. may be systematically disadvantaged by the TalentVue system, regardless of their actual abilities to perform the job in question.</p>
+
+        <h3>Decision Process and Outcomes</h3>
+        <p>TalentVue's algorithm produces several key outputs that influence hiring decisions:</p>
+        <ul>
+          <li><strong>Transcripts of Responses:</strong> The system generates text transcriptions of candidates' verbal responses, which serve as the foundation for further analysis. For deaf speakers like J.D., these transcripts are likely to be highly inaccurate.</li>
+          <li><strong>Competency Scores:</strong> The platform rates candidates on job-relevant competencies such as communication skills, problem-solving abilities, and management potential.</li>
+          <li><strong>Overall Rankings:</strong> Candidates receive comprehensive scores that compare them to other applicants or to predetermined benchmarks.</li>
+          <li><strong>Automated Feedback:</strong> The system generates feedback on candidates' performance, including perceived strengths and areas for improvement. In J.D.'s case, this feedback focused on communication style, listening skills, and conciseness – factors directly related to her deaf accent.</li>
+          <li><strong>Recommendation Reports:</strong> The platform provides hiring managers with summary reports and recommendations regarding candidates, potentially influencing which candidates advance in the hiring process.</li>
+        </ul>
+
+        <h3>Consequential Impact</h3>
+        <p>The use of TalentVue's platform in AcmeSoft's promotion process had several significant impacts:</p>
+        <ul>
+          <li><strong>Employment Opportunity Denial:</strong> J.D. was denied a promotion for which she was qualified, potentially affecting her career advancement and economic opportunities.</li>
+          <li><strong>Psychological Impact:</strong> Receiving feedback that criticized aspects of her communication directly related to her disability likely had a negative psychological impact on J.D.</li>
+          <li><strong>Perpetuation of Barriers:</strong> The continued use of inaccessible technology reinforces barriers for deaf and Indigenous employees seeking advancement.</li>
+          <li><strong>Legal Liability:</strong> Both AcmeSoft and TalentVue face potential legal liability under anti-discrimination laws, including Colorado's SB24-205.</li>
+          <li><strong>Talent Utilization Failure:</strong> AcmeSoft potentially lost the opportunity to promote a qualified, experienced employee who had demonstrated strong performance.</li>
+          <li><strong>Reputation Risk:</strong> Both companies face potential reputation damage from discrimination allegations and their handling of accessibility concerns.</li>
+        </ul>
+
+        <h3>Compliance Issues Under Colorado AI Act</h3>
+        
+        <h4>Developer Obligations (TalentVue, Inc.)</h4>
+        <p>Under the Colorado AI Act, TalentVue failed to meet several key obligations:</p>
+        <ul>
+          <li><strong>Documentation Requirements:</strong> Failed to adequately document known ASR limitations with deaf users and Indigenous speakers</li>
+          <li><strong>Disclosure Obligations:</strong> Did not properly disclose these limitations to AcmeSoft</li>
+          <li><strong>Accessibility Features:</strong> Platform lacked basic accessibility features such as subtitling for audible content</li>
+          <li><strong>Testing with Diverse Users:</strong> Insufficient testing with deaf and Indigenous users</li>
+        </ul>
+        
+        <h4>Deployer Obligations (AcmeSoft)</h4>
+        <p>As a deployer of the high-risk AI system, AcmeSoft failed to:</p>
+        <ul>
+          <li><strong>Implement Risk Management:</strong> Despite prior knowledge of similar AI system limitations with J.D.'s speech, continued to use TalentVue for promotion decisions</li>
+          <li><strong>Provide Reasonable Accommodations:</strong> Denied J.D.'s request for CART captioning and provided incorrect information about available accommodations</li>
+          <li><strong>Human Review:</strong> No meaningful human review of the automated assessment despite J.D.'s established strong performance record</li>
+          <li><strong>Appeals Process:</strong> No clear process for challenging the decision or correcting potential bias</li>
+        </ul>
+
+        <h3>Best Practices for Compliance</h3>
+        
+        <h4>For Developers (TalentVue, Inc.)</h4>
+        <ul>
+          <li><strong>Comprehensive Documentation:</strong> Create detailed documentation about system limitations, particularly how ASR performs across different demographic groups, including deaf users and speakers of Indigenous dialects.</li>
+          <li><strong>Proactive Disclosure:</strong> Clearly communicate known limitations to deployers, including specific performance disparities that might affect protected groups.</li>
+          <li><strong>Accessibility by Design:</strong> Build accessibility features directly into platforms, including high-quality subtitling for all audible content and compatibility with assistive technologies.</li>
+          <li><strong>Diverse Testing Protocols:</strong> Establish rigorous testing protocols with participants from diverse backgrounds, particularly those with disabilities and from various racial and ethnic groups.</li>
+          <li><strong>Alternative Assessment Methods:</strong> Develop alternative pathways for candidates who might be disadvantaged by speech-based assessments, allowing them to demonstrate qualifications through other means.</li>
+          <li><strong>Regular Bias Audits:</strong> Implement systematic auditing of system outputs to identify potential discriminatory patterns, with particular attention to intersectional impacts.</li>
+          <li><strong>Public Accountability:</strong> Maintain transparent, public-facing documentation about how algorithmic risks are identified and mitigated.</li>
+          <li><strong>Performance Monitoring:</strong> Establish regular monitoring of ASR performance with diverse speaker populations and update models to improve accuracy for underrepresented groups.</li>
+          <li><strong>Incident Response Planning:</strong> Develop clear protocols for responding to discrimination reports, including timely notification to deployers and regulatory authorities.</li>
+          <li><strong>Human Oversight Framework:</strong> Create guidelines for deployers on implementing appropriate human review of algorithmic decisions, especially for candidates from protected groups.</li>
+        </ul>
+        
+        <h4>For Deployers (AcmeSoft)</h4>
+        <ul>
+          <li><strong>Comprehensive Impact Assessment:</strong> Conduct thorough algorithmic impact assessments before implementing AI systems for employment decisions, particularly evaluating potential impacts on protected groups.</li>
+          <li><strong>Effective Accommodations Process:</strong> Establish clear procedures for requesting, evaluating, and implementing accommodations for candidates with disabilities, with verification steps to ensure effectiveness.</li>
+          <li><strong>Human Review Requirements:</strong> Implement mandatory human review of all AI-influenced employment decisions, especially for candidates from protected groups or with known technological limitations.</li>
+          <li><strong>Alternative Assessment Pathways:</strong> Develop alternative evaluation methods when AI systems have known limitations with specific protected groups, allowing candidates to demonstrate qualifications through other means.</li>
+          <li><strong>Cross-Functional Compliance Teams:</strong> Ensure accessibility experts are directly involved in AI procurement and deployment decisions, with authority to raise concerns.</li>
+          <li><strong>Disparate Impact Analysis:</strong> Regularly analyze outcomes of AI-based assessments to identify potential discriminatory patterns and take corrective action.</li>
+          <li><strong>Employee Training:</strong> Train all personnel involved in hiring processes on the limitations of AI systems and their legal obligations regarding algorithmic discrimination.</li>
+          <li><strong>Clear Appeals Process:</strong> Establish transparent procedures for candidates to challenge adverse decisions influenced by AI systems, with meaningful human review.</li>
+          <li><strong>Documentation of Reasonable Care:</strong> Maintain thorough records of all steps taken to prevent algorithmic discrimination, including accommodations provided and alternative assessments offered.</li>
+          <li><strong>Consistent Application:</strong> Apply the same vigilance to potential algorithmic discrimination across all company systems, recognizing when similar technological limitations may affect multiple platforms.</li>
+        </ul>
+      </section>
+
+
+
+      <h3>Data Types and Collection Process</h3>
+        <h4>Types of Data</h4>
+        <ul>
+          <li><strong>Video Recordings:</strong> Captured footage of candidates answering interview questions, including facial expressions, gestures, and speech patterns.</li>
+          <li><strong>Audio Recordings:</strong> Verbal responses to interview questions, including tone, pace, accent, pronunciation, and other speech characteristics.</li>
+          <li><strong>Transcribed Speech:</strong> Text generated from candidates' spoken responses using automated speech recognition technology.</li>
+          <li><strong>Response Content:</strong> The substance of what candidates say, including their answers to questions about experience, skills, and hypothetical scenarios.</li>
+          <li><strong>Previous Performance Data:</strong> For internal candidates like J.D., historical performance metrics, including potentially inaccurate assessments from other AI systems.</li>
+          <li><strong>User Interaction Data:</strong> How candidates navigate the platform, including any accommodation requests or difficulty indicators.</li>
+          <li><strong>Demographic Information:</strong> While not explicitly collected, implicit data about characteristics like accent, speech patterns, and appearance that may correlate with protected characteristics.</li>
+          <li><strong>Employee History:</strong> Length of service, positions held, and other employment history for internal candidates.</li>
+        </ul>
+
+        <h4>Collection Process</h4>
+        <p>TalentVue collects data through its video interview platform using the following methods:</p>
+        <ul>
+          <li><strong>Video Recording:</strong> The platform records candidates as they respond to pre-recorded questions. This captures their visual presentation, facial expressions, and body language.</li>
+          <li><strong>Audio Recording:</strong> The system captures the candidate's voice, including accent, speech patterns, pronunciation, and tone.</li>
+          <li><strong>Automated Speech Recognition (ASR):</strong> The platform uses ASR technology to transcribe candidate responses, converting speech to text for further analysis.</li>
+          <li><strong>User Interactions:</strong> The system logs how candidates interact with the platform, including time spent on questions and any technical issues encountered.</li>
+          <li><strong>Multiple Assessment Types:</strong> Beyond video responses, the platform collects data from multiple-choice questions, essay responses, and other assessment formats.</li>
+          <li><strong>Automated Feedback Generation:</strong> The system processes candidate responses to generate feedback on areas like communication style, conciseness, and listening skills.</li>
+        </ul>
+        
+        <p>For candidates with disabilities like J.D., the collection process may be significantly compromised. Without proper accommodations like accurate captioning, deaf candidates may not fully understand questions, potentially affecting their responses. Additionally, the ASR system's known limitations with deaf accents means the transcription of their responses is likely to be highly inaccurate, compromising all subsequent analysis.</p>
+
+        <h3>Filter Effects and Discrimination</h3>
+        <p>The TalentVue system likely creates several significant filter effects that disadvantage candidates with certain characteristics:</p>
+        <ul>
+          <li><strong>Deaf and Hard of Hearing Filter:</strong> Due to ASR systems performing up to ten times worse for deaf speakers, the platform likely systematically underrates deaf and hard of hearing candidates regardless of their actual qualifications or abilities.</li>
+          <li><strong>Accent and Speech Pattern Filter:</strong> Candidates with non-standard accents or speech patterns, including Indigenous dialects of English, are likely to have their responses inaccurately transcribed and thus inaccurately evaluated.</li>
+          <li><strong>Communication Style Prioritization:</strong> By emphasizing factors like "conciseness" and "active listening" that may be directly related to deaf communication styles, the system creates a structural disadvantage for deaf candidates.</li>
+          <li><strong>Technical Accessibility Filter:</strong> Without proper accommodations like subtitling for audible questions, the platform creates a fundamental access barrier, filtering out candidates who cannot fully understand the interview questions.</li>
+          <li><strong>Intersectional Disadvantage:</strong> Candidates who are both Indigenous and Deaf, like J.D., face compounded disadvantages when the system's limitations regarding both racial and disability factors combine.</li>
+        </ul>
+        
+        <p>These filter effects mean that even highly qualified candidates like J.D. may be systematically disadvantaged by the TalentVue system, regardless of their actual abilities to perform the job in question.</p>
+
+        <h3>Decision Process and Outcomes</h3>
+        <p>TalentVue's algorithm produces several key outputs that influence hiring decisions:</p>
+        <ul>
+          <li><strong>Transcripts of Responses:</strong> The system generates text transcriptions of candidates' verbal responses, which serve as the foundation for further analysis. For deaf speakers like J.D., these transcripts are likely to be highly inaccurate.</li>
+          <li><strong>Competency Scores:</strong> The platform rates candidates on job-relevant competencies such as communication skills, problem-solving abilities, and management potential.</li>
+          <li><strong>Overall Rankings:</strong> Candidates receive comprehensive scores that compare them to other applicants or to predetermined benchmarks.</li>
+          <li><strong>Automated Feedback:</strong> The system generates feedback on candidates' performance, including perceived strengths and areas for improvement. In J.D.'s case, this feedback focused on communication style, listening skills, and conciseness – factors directly related to her deaf accent.</li>
+          <li><strong>Recommendation Reports:</strong> The platform provides hiring managers with summary reports and recommendations regarding candidates, potentially influencing which candidates advance in the hiring process.</li>
+        </ul>
+
+        <h3>Consequential Impact</h3>
+        <p>The use of TalentVue's platform in AcmeSoft's promotion process had several significant impacts:</p>
+        <ul>
+          <li><strong>Employment Opportunity Denial:</strong> J.D. was denied a promotion for which she was qualified, potentially affecting her career advancement and economic opportunities.</li>
+          <li><strong>Psychological Impact:</strong> Receiving feedback that criticized aspects of her communication directly related to her disability likely had a negative psychological impact on J.D.</li>
+          <li><strong>Perpetuation of Barriers:</strong> The continued use of inaccessible technology reinforces barriers for deaf and Indigenous employees seeking advancement.</li>
+          <li><strong>Legal Liability:</strong> Both AcmeSoft and TalentVue face potential legal liability under anti-discrimination laws, including Colorado's SB24-205.</li>
+          <li><strong>Talent Utilization Failure:</strong> AcmeSoft potentially lost the opportunity to promote a qualified, experienced employee who had demonstrated strong performance.</li>
+          <li><strong>Reputation Risk:</strong> Both companies face potential reputation damage from discrimination allegations and their handling of accessibility concerns.</li>
+        </ul>
+
+        <h3>Compliance Issues Under Colorado AI Act</h3>
+        
+        <h4>Developer Obligations (TalentVue, Inc.)</h4>
+        <p>Under the Colorado AI Act, TalentVue failed to meet several key obligations:</p>
+        <ul>
+          <li><strong>Documentation Requirements:</strong> Failed to adequately document known ASR limitations with deaf users and Indigenous speakers</li>
+          <li><strong>Disclosure Obligations:</strong> Did not properly disclose these limitations to AcmeSoft</li>
+          <li><strong>Accessibility Features:</strong> Platform lacked basic accessibility features such as subtitling for audible content</li>
+          <li><strong>Testing with Diverse Users:</strong> Insufficient testing with deaf and Indigenous users</li>
+        </ul>
+        
+        <h4>Deployer Obligations (AcmeSoft)</h4>
+        <p>As a deployer of the high-risk AI system, AcmeSoft failed to:</p>
+        <ul>
+          <li><strong>Implement Risk Management:</strong> Despite prior knowledge of similar AI system limitations with J.D.'s speech, continued to use TalentVue for promotion decisions</li>
+          <li><strong>Provide Reasonable Accommodations:</strong> Denied J.D.'s request for CART captioning and provided incorrect information about available accommodations</li>
+          <li><strong>Human Review:</strong> No meaningful human review of the automated assessment despite J.D.'s established strong performance record</li>
+          <li><strong>Appeals Process:</strong> No clear process for challenging the decision or correcting potential bias</li>
+        </ul>
+
+        <h3>Best Practices for Compliance</h3>
+        
+        <h4>For Developers (TalentVue, Inc.)</h4>
+        <ul>
+          <li><strong>Comprehensive Documentation:</strong> Create detailed documentation about system limitations, particularly how ASR performs across different demographic groups, including deaf users and speakers of Indigenous dialects.</li>
+          <li><strong>Proactive Disclosure:</strong> Clearly communicate known limitations to deployers, including specific performance disparities that might affect protected groups.</li>
+          <li><strong>Accessibility by Design:</strong> Build accessibility features directly into platforms, including high-quality subtitling for all audible content and compatibility with assistive technologies.</li>
+          <li><strong>Diverse Testing Protocols:</strong> Establish rigorous testing protocols with participants from diverse backgrounds, particularly those with disabilities and from various racial and ethnic groups.</li>
+          <li><strong>Alternative Assessment Methods:</strong> Develop alternative pathways for candidates who might be disadvantaged by speech-based assessments, allowing them to demonstrate qualifications through other means.</li>
+          <li><strong>Regular Bias Audits:</strong> Implement systematic auditing of system outputs to identify potential discriminatory patterns, with particular attention to intersectional impacts.</li>
+          <li><strong>Public Accountability:</strong> Maintain transparent, public-facing documentation about how algorithmic risks are identified and mitigated.</li>
+          <li><strong>Performance Monitoring:</strong> Establish regular monitoring of ASR performance with diverse speaker populations and update models to improve accuracy for underrepresented groups.</li>
+          <li><strong>Incident Response Planning:</strong> Develop clear protocols for responding to discrimination reports, including timely notification to deployers and regulatory authorities.</li>
+          <li><strong>Human Oversight Framework:</strong> Create guidelines for deployers on implementing appropriate human review of algorithmic decisions, especially for candidates from protected groups.</li>
+        </ul>
+        
+        <h4>For Deployers (AcmeSoft)</h4>
+        <ul>
+          <li><strong>Comprehensive Impact Assessment:</strong> Conduct thorough algorithmic impact assessments before implementing AI systems for employment decisions, particularly evaluating potential impacts on protected groups.</li>
+          <li><strong>Effective Accommodations Process:</strong> Establish clear procedures for requesting, evaluating, and implementing accommodations for candidates with disabilities, with verification steps to ensure effectiveness.</li>
+          <li><strong>Human Review Requirements:</strong> Implement mandatory human review of all AI-influenced employment decisions, especially for candidates from protected groups or with known technological limitations.</li>
+          <li><strong>Alternative Assessment Pathways:</strong> Develop alternative evaluation methods when AI systems have known limitations with specific protected groups, allowing candidates to demonstrate qualifications through other means.</li>
+          <li><strong>Cross-Functional Compliance Teams:</strong> Ensure accessibility experts are directly involved in AI procurement and deployment decisions, with authority to raise concerns.</li>
+          <li><strong>Disparate Impact Analysis:</strong> Regularly analyze outcomes of AI-based assessments to identify potential discriminatory patterns and take corrective action.</li>
+          <li><strong>Employee Training:</strong> Train all personnel involved in hiring processes on the limitations of AI systems and their legal obligations regarding algorithmic discrimination.</li>
+          <li><strong>Clear Appeals Process:</strong> Establish transparent procedures for candidates to challenge adverse decisions influenced by AI systems, with meaningful human review.</li>
+          <li><strong>Documentation of Reasonable Care:</strong> Maintain thorough records of all steps taken to prevent algorithmic discrimination, including accommodations provided and alternative assessments offered.</li>
+          <li><strong>Consistent Application:</strong> Apply the same vigilance to potential algorithmic discrimination across all company systems, recognizing when similar technological limitations may affect multiple platforms.</li>
+        </ul>
+      </section>
