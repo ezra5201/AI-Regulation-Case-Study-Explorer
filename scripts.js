@@ -1,107 +1,55 @@
-/**
- * Manages tab switching functionality, including ARIA attributes and keyboard navigation.
- */
-function setupTabs() {
-    const tabContainers = document.querySelectorAll('.tab-container');
+/* Add these new classes to your existing styles.css file */
 
-    tabContainers.forEach(tabContainer => {
-        const tablist = tabContainer.querySelector('.tab-buttons[role="tablist"]');
-        if (!tablist) return;
+/* Base site-main styles remain the same, but we'll add modifier classes */
 
-        const tabs = Array.from(tablist.querySelectorAll('.tab-button[role="tab"]'));
-        const tabPanels = Array.from(tabContainer.querySelectorAll('.tab-content[role="tabpanel"]'));
-        let currentTabIndex = tabs.findIndex(tab => tab.classList.contains('active'));
-
-        if (currentTabIndex === -1 && tabs.length > 0) {
-            // If no tab is active, activate the first one
-            activateTab(tabs[0], false);
-            currentTabIndex = 0;
-        } else if (currentTabIndex !== -1 && tabs.length > 0) {
-            // Ensure initially active tab is correctly set up
-            activateTab(tabs[currentTabIndex], false);
-        }
-
-        function activateTab(selectedTab, setFocus = true) {
-            // Deactivate all other tabs
-            tabs.forEach((tab, index) => {
-                const panel = tabContainer.querySelector(`#${tab.getAttribute('aria-controls')}`);
-                if (tab === selectedTab) {
-                    tab.classList.add('active');
-                    tab.setAttribute('aria-selected', 'true');
-                    tab.setAttribute('tabindex', '0');
-                    if (panel) {
-                        panel.classList.add('active');
-                        panel.style.display = 'block';
-                        panel.setAttribute('aria-hidden', 'false');
-                    }
-                    currentTabIndex = index;
-                    if (setFocus) {
-                        tab.focus();
-                    }
-                } else {
-                    tab.classList.remove('active');
-                    tab.setAttribute('aria-selected', 'false');
-                    tab.setAttribute('tabindex', '-1');
-                    if (panel) {
-                        panel.classList.remove('active');
-                        panel.style.display = 'none';
-                        panel.setAttribute('aria-hidden', 'true');
-                    }
-                }
-            });
-        }
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', (event) => {
-                activateTab(event.currentTarget);
-            });
-
-            tab.addEventListener('keydown', (event) => {
-                let newTabIndex = currentTabIndex;
-                let RLT = false; // Right-to-left language check, default false
-
-                // Basic key navigation (ArrowLeft, ArrowRight, Home, End)
-                if (event.key === (RLT ? 'ArrowRight' : 'ArrowLeft')) {
-                    newTabIndex = (currentTabIndex - 1 + tabs.length) % tabs.length;
-                } else if (event.key === (RLT ? 'ArrowLeft' : 'ArrowRight')) {
-                    newTabIndex = (currentTabIndex + 1) % tabs.length;
-                } else if (event.key === 'Home') {
-                    newTabIndex = 0;
-                } else if (event.key === 'End') {
-                    newTabIndex = tabs.length - 1;
-                } else {
-                    return; // Not a relevant key for tab navigation
-                }
-
-                event.preventDefault();
-                activateTab(tabs[newTabIndex]);
-            });
-        });
-
-        // Initialize the first tab if no active tab is found
-        const activeTabButton = tablist.querySelector('.tab-button.active');
-        if (activeTabButton) {
-            const panelId = activeTabButton.getAttribute('aria-controls');
-            const activePanel = tabContainer.querySelector(`#${panelId}`);
-            if (activePanel) {
-                activePanel.style.display = 'block';
-                activePanel.setAttribute('aria-hidden', 'false');
-            }
-            // Set tabindex for initially active and inactive tabs
-            tabs.forEach(tab => {
-                if (tab === activeTabButton) {
-                    tab.setAttribute('tabindex', '0');
-                } else {
-                    tab.setAttribute('tabindex', '-1');
-                }
-            });
-        } else if (tabs.length > 0) {
-            // If no tab was marked active in HTML, activate the first one by default
-            activateTab(tabs[0], false);
-        }
-    });
+/* Wide layout for table-heavy content */
+.site-main.wide-layout {
+  max-width: 1800px; /* Much wider for tables */
+  width: 95%; /* Use more of the viewport */
+  transition: max-width 0.3s ease, width 0.3s ease; /* Smooth transition */
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    setupTabs();
-});
+/* Standard layout for text-heavy content (default) */
+.site-main.standard-layout {
+  max-width: 1200px; /* Current width for readability */
+  width: 90%; /* Current width */
+  transition: max-width 0.3s ease, width 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive adjustments for wide layout */
+@media (max-width: 1400px) {
+  .site-main.wide-layout {
+    width: 98%; /* Use even more space on smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .site-main.wide-layout {
+    width: 95%; /* Match standard layout on tablets */
+    max-width: 1200px; /* Revert to standard max-width on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .site-main.wide-layout {
+    width: 95%; /* Same as standard on mobile */
+    max-width: none; /* Remove max-width constraint on mobile */
+  }
+}
+
+/* Optional: Enhance table responsiveness in wide layout */
+.wide-layout .table-responsive-wrapper {
+  /* Tables can be even wider in wide layout */
+  margin-left: calc(-1 * var(--spacing-unit));
+  margin-right: calc(-1 * var(--spacing-unit));
+}
+
+.wide-layout .table-responsive-wrapper table {
+  min-width: 1000px; /* Slightly wider minimum for tables in wide layout */
+}
+
+/* Optional: Adjust tab content padding in wide layout */
+.wide-layout .tab-content {
+  padding-left: calc(var(--spacing-unit) * 2);
+  padding-right: calc(var(--spacing-unit) * 2);
+}
