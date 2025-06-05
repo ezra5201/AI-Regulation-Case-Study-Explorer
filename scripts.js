@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const wideLayoutTabs = ['service-blueprint', 'compliance-heatmap', 'developers', 'deployer'];
 
 function showTab(targetTabId) {
-  // Store the tab container's position to maintain scroll consistency
-  const tabContainer = document.querySelector('.tab-container');
-  const tabContainerTop = tabContainer ? tabContainer.getBoundingClientRect().top + window.pageYOffset : 0;
-  
   // Hide all tab contents
   tabContents.forEach(content => {
     content.style.display = 'none';
@@ -51,27 +47,10 @@ function showTab(targetTabId) {
     }
   }
 
-  // Ensure the tab buttons remain visible by scrolling to a consistent position
-  // Use requestAnimationFrame to ensure the layout changes have been applied
-  requestAnimationFrame(() => {
-    // Scroll to keep the tab container at the top of the viewport
-    // Add a small offset to ensure the tabs are clearly visible
-    const offset = 20; // 20px buffer from top
-    const targetScrollPosition = Math.max(0, tabContainerTop - offset);
-    
-    window.scrollTo({
-      top: targetScrollPosition,
-      behavior: 'smooth'
-    });
-
-    // Focus the tab content for accessibility after scrolling
-    if (targetContent) {
-      // Small delay to ensure scroll completes before focusing
-      setTimeout(() => {
-        targetContent.focus();
-      }, 300);
-    }
-  });
+  // Focus the tab content for accessibility
+  if (targetContent) {
+    targetContent.focus();
+  }
 }
 
   // Add click event listeners to all tab buttons
