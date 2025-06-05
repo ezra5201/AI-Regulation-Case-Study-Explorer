@@ -1,55 +1,211 @@
-/* Add these new classes to your existing styles.css file */
+// Tab functionality for the Regulatory Case Study Explorer
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Get all tab buttons and content sections
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+  const siteMain = document.querySelector('.site-main');
 
-/* Base site-main styles remain the same, but we'll add modifier classes */
+  // Tabs that should use wide layout (for tables)
+  const wideLayoutTabs = ['service-blueprint', 'compliance-heatmap', 'developers', 'deployer'];
 
-/* Wide layout for table-heavy content */
-.site-main.wide-layout {
-  max-width: 1800px; /* Much wider for tables */
-  width: 95%; /* Use more of the viewport */
-  transition: max-width 0.3s ease, width 0.3s ease; /* Smooth transition */
-}
+  function showTab(targetTabId) {
+    // Hide all tab contents
+    tabContents.forEach(content => {
+      content.style.display = 'none';
+      content.setAttribute('aria-hidden', 'true');
+    });
 
-/* Standard layout for text-heavy content (default) */
-.site-main.standard-layout {
-  max-width: 1200px; /* Current width for readability */
-  width: 90%; /* Current width */
-  transition: max-width 0.3s ease, width 0.3s ease; /* Smooth transition */
-}
+    // Deactivate all tab buttons
+    tabButtons.forEach(button => {
+      button.classList.remove('active');
+      button.setAttribute('aria-selected', 'false');
+    });
 
-/* Responsive adjustments for wide layout */
-@media (max-width: 1400px) {
-  .site-main.wide-layout {
-    width: 98%; /* Use even more space on smaller screens */
+    // Show the target tab content
+    const targetContent = document.getElementById(targetTabId);
+    if (targetContent) {
+      targetContent.style.display = 'block';
+      targetContent.setAttribute('aria-hidden', 'false');
+      
+      // Focus the tab content for accessibility
+      targetContent.focus();
+    }
+
+    // Activate the corresponding button
+    const targetButton = document.getElementById(`tab-${targetTabId}`);
+    if (targetButton) {
+      targetButton.classList.add('active');
+      targetButton.setAttribute('aria-selected', 'true');
+    }
+
+    // Apply appropriate layout class based on tab type
+    if (siteMain) {
+      if (wideLayoutTabs.includes(targetTabId)) {
+        siteMain.classList.remove('standard-layout');
+        siteMain.classList.add('wide-layout');
+      } else {
+        siteMain.classList.remove('wide-layout');
+        siteMain.classList.add('standard-layout');
+      }
+    }
+  }
+
+  // Add click event listeners to all tab buttons
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Get the target tab ID from the button's controls attribute
+      const targetTabId = this.getAttribute('aria-controls');
+      if (targetTabId) {
+        showTab(targetTabId);
+      }
+    });
+
+    // Add keyboard navigation support
+    button.addEventListener('keydown', function(e) {
+      let targetButton = null;
+      
+      switch(e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          // Move to next tab
+          const nextButton = this.nextElementSibling || tabButtons[0];
+          targetButton = nextButton;
+          break;
+          
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          // Move to previous tab
+          const prevButton = this.previousElementSibling || tabButtons[tabButtons.length - 1];
+          targetButton = prevButton;
+          break;
+          
+        case 'Home':
+          // Move to first tab
+          targetButton = tabButtons[0];
+          break;
+          
+        case 'End':
+          // Move to last tab
+          targetButton = tabButtons[tabButtons.length - 1];
+          break;
+          
+        default:
+          return; // Don't prevent default for other keys
+      }
+      
+      if (targetButton) {
+        e.preventDefault();
+        targetButton.focus();
+        targetButton.click();
+      }
+    });
+  });
+
+  // Initialize the first tab as active on page load
+  if (tabButtons.length > 0) {
+    const firstTabId = tabButtons[0].getAttribute('aria-controls');
+    if (firstTabId) {
+      showTab(firstTabId);
+    }
+  }
+
+  // Handle direct linking to tabs via hash in URL
+  function handleHashChange() {
+    const hash = window.location.hash.substring(1); // Remove the #
+    if (hash && document.getElementById(hash)) {
+      showTab(hash);
+    }
+  }
+
+  // Listen for hash changes (for direct linking support)
+  window.addEventListener('hashchange', handleHashChange);
+  
+  // Check if there's a hash on initial load
+  if (window.location.hash) {
+    handleHashChange();
+  }
+
+  // Optional: Update URL hash when tab changes (for bookmarking)
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const targetTabId = this.getAttribute('aria-controls');
+      if (targetTabId && window.history && window.history.pushState) {
+        // Update URL without triggering a page reload
+        window.history.pushState(null, null, `#${targetTabId}`);
+      }
+    });
+  });
+
+  // Smooth scrolling for internal links (if any)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Table responsive enhancements
+  function enhanceTableAccessibility() {
+    const tables = document.querySelectorAll('table');
+    
+    tables.forEach(table => {
+      // Add role if not present
+      if (!table.getAttribute('role')) {
+        table.setAttribute('role', 'table');
+      }
+      
+      // Ensure table headers have proper scope
+      const headers = table.querySelectorAll('th');
+      headers.forEach(header => {
+        if (!header.getAttribute('scope')) {
+          // Determine if it's a column or row header based on position
+          const isFirstColumn = header.cellIndex === 0;
+          header.setAttribute('scope', isFirstColumn ? 'row' : 'col');
+        }
+      });
+    });
+  }
+
+  // Run table enhancements
+  enhanceTableAccessibility();
+
+  // Re-run table enhancements when tab content changes (in case tables are loaded dynamically)
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        enhanceTableAccessibility();
+      }
+    });
+  });
+
+  // Observe changes to tab content areas
+  tabContents.forEach(content => {
+    observer.observe(content, { childList: true, subtree: true });
+  });
+
+});
+
+// Utility function to programmatically switch to a specific tab (can be called from console or other scripts)
+function switchToTab(tabId) {
+  const event = new CustomEvent('click');
+  const button = document.getElementById(`tab-${tabId}`);
+  if (button) {
+    button.dispatchEvent(event);
   }
 }
 
-@media (max-width: 992px) {
-  .site-main.wide-layout {
-    width: 95%; /* Match standard layout on tablets */
-    max-width: 1200px; /* Revert to standard max-width on tablets */
-  }
-}
-
-@media (max-width: 768px) {
-  .site-main.wide-layout {
-    width: 95%; /* Same as standard on mobile */
-    max-width: none; /* Remove max-width constraint on mobile */
-  }
-}
-
-/* Optional: Enhance table responsiveness in wide layout */
-.wide-layout .table-responsive-wrapper {
-  /* Tables can be even wider in wide layout */
-  margin-left: calc(-1 * var(--spacing-unit));
-  margin-right: calc(-1 * var(--spacing-unit));
-}
-
-.wide-layout .table-responsive-wrapper table {
-  min-width: 1000px; /* Slightly wider minimum for tables in wide layout */
-}
-
-/* Optional: Adjust tab content padding in wide layout */
-.wide-layout .tab-content {
-  padding-left: calc(var(--spacing-unit) * 2);
-  padding-right: calc(var(--spacing-unit) * 2);
+// Export for potential use in other scripts
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { switchToTab };
 }
