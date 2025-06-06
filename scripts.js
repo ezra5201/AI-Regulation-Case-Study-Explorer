@@ -47,9 +47,20 @@ function showTab(targetTabId) {
     }
   }
 
-  // Focus the tab content for accessibility
+  // Smooth scroll to top of tab container when switching tabs
+  const tabContainer = document.querySelector('.tab-container');
+  if (tabContainer) {
+    tabContainer.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  // Focus the tab content for accessibility (after scroll animation)
   if (targetContent) {
-    targetContent.focus();
+    setTimeout(() => {
+      targetContent.focus();
+    }, 300); // Delay to allow smooth scroll to complete
   }
 }
 
