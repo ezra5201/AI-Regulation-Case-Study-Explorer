@@ -134,7 +134,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 100%; /* Allows user to zoom text */
-  scroll-padding-top: 80px; /* Add padding when scrolling to anchors to account for sticky headers */
+  scroll-padding-top: 100px; /* Add padding when scrolling to anchors to account for sticky headers */
 }
 
 body {
