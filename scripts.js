@@ -209,6 +209,54 @@ function showTab(targetTabId) {
 
 });
 
+// End of the main DOMContentLoaded event listner
+
+// Glossary functionality
+const glossaryToggle = document.getElementById('glossary-toggle');
+const glossaryClose = document.getElementById('glossary-close');
+const glossaryPanel = document.getElementById('glossary-panel');
+const glossaryOverlay = document.getElementById('glossary-overlay');
+
+function openGlossary() {
+  glossaryPanel.classList.add('open');
+  glossaryPanel.setAttribute('aria-hidden', 'false');
+  glossaryOverlay.classList.add('open');
+  glossaryOverlay.setAttribute('aria-hidden', 'false');
+  
+  // Focus management for accessibility
+  glossaryClose.focus();
+  
+  // Prevent body scroll when glossary is open
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGlossary() {
+  glossaryPanel.classList.remove('open');
+  glossaryPanel.setAttribute('aria-hidden', 'true');
+  glossaryOverlay.classList.remove('open');
+  glossaryOverlay.setAttribute('aria-hidden', 'true');
+  
+  // Restore body scroll
+  document.body.style.overflow = '';
+  
+  // Return focus to toggle button
+  glossaryToggle.focus();
+}
+
+// Event listeners
+if (glossaryToggle && glossaryClose && glossaryPanel && glossaryOverlay) {
+  glossaryToggle.addEventListener('click', openGlossary);
+  glossaryClose.addEventListener('click', closeGlossary);
+  glossaryOverlay.addEventListener('click', closeGlossary);
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && glossaryPanel.classList.contains('open')) {
+      closeGlossary();
+    }
+  });
+}
+
 // Utility function to programmatically switch to a specific tab (can be called from console or other scripts)
 function switchToTab(tabId) {
   const event = new CustomEvent('click');
