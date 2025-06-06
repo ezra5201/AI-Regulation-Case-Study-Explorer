@@ -381,6 +381,53 @@ tbody tr:hover {
   background-color: var(--md-sys-color-surface-container-low); /* Hover effect */
 }
 
+/* TOC Styling */
+
+/* Table of Contents Styling */
+.toc {
+  background-color: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-small);
+  padding: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.toc h4 {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  color: var(--md-sys-color-primary);
+}
+
+.toc ul {
+  margin-bottom: 0;
+  padding-left: calc(var(--spacing-unit) * 2.5);
+}
+
+.toc li {
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.toc a {
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+}
+
+.toc a:hover, .toc a:focus {
+  text-decoration: underline;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Ensure smooth scrolling and proper offset for fixed header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Adjust based on your header height */
+}
+
+
+/* End of TOC Styling */
+
 .stakeholder {
   font-weight: var(--md-sys-typescale-label-large-font-weight);
   color: var(--md-sys-color-on-surface);
