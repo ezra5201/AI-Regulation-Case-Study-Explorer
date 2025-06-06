@@ -12,11 +12,40 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="global-nav" aria-label="Global navigation">
-      <div class="global-nav-title">Regulatory Case Study Explorer : <strong>Colorado SB24-205</strong></div>
-    </nav>
-  </header>
+<header class="site-header">
+  <nav class="global-nav" aria-label="Global navigation">
+    <div class="global-nav-title">Regulatory Case Study Explorer : <strong>Colorado SB24-205</strong></div>
+    <!-- Add this glossary button -->
+    <button id="glossary-toggle" class="glossary-button" aria-label="Open glossary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        <path d="M8 7h8"/>
+        <path d="M8 11h8"/>
+        <path d="M8 15h5"/>
+      </svg>
+      <span>Glossary</span>
+    </button>
+  </nav>
+</header>
+
+<!-- glossary panel - after the header, before main -->
+<div id="glossary-panel" class="glossary-panel" aria-hidden="true">
+  <div class="glossary-header">
+    <h3>Glossary</h3>
+    <button id="glossary-close" class="glossary-close" aria-label="Close glossary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="glossary-content">
+    <p>Glossary TBD</p>
+  </div>
+</div>
+
+<div id="glossary-overlay" class="glossary-overlay" aria-hidden="true"></div>
 
   <main class="site-main">
 <div class="page-header">
