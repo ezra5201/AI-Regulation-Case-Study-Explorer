@@ -239,7 +239,7 @@ strong {
 
 .page-header {
   margin-bottom: calc(var(--spacing-unit) * 2);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  border-bottom: none;
   padding-bottom: calc(var(--spacing-unit) * 2);
 }
 
