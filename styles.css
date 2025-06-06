@@ -521,6 +521,44 @@ tbody tr:hover {
   text-align: center;
 }
 
+/* tags in Roadmap tabs */
+    .tag-pill {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      margin: 0.1em 0.2em;
+      font-size: 0.85em;
+      font-weight: 500;
+      color: var(--md-sys-color-on-primary-container, #001E2F);
+      background-color: var(--md-sys-color-primary-container, #D1E4FF);
+      border-radius: 1em;
+      line-height: 1.2;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+    td > strong {
+      display: inline-block;
+      margin-bottom: 0.2em;
+    }
+
+    .tag-review { background-color: lightcoral !important; color: white !important; }
+    .tag-project-initiation-and-planning { background-color: lightblue !important; color: #001E2F !important;}
+    .tag-implementation-and-execution { background-color: lightgreen !important; color: #001E2F !important;}
+    .tag-monitoring { background-color: gold !important; color: #001E2F !important;}
+    .tag-reporting { background-color: lightpink !important; color: #001E2F !important;}
+    .tag-assessment-and-analysis { background-color: lightsalmon !important; color: #001E2F !important;}
+    .tag-training-and-communication { background-color: lightseagreen !important; color: white !important;}
+    .tag-policy-and-procedure-development { background-color: lightsteelblue !important; color: #001E2F !important;}
+
+    .roadmap-activities ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+    }
+    .roadmap-activities li {
+      margin-bottom: 0.3em;
+    }
+
 /* Responsive Adjustments */
 @media (max-width: 992px) { /* Medium screens / Tablets */
   .site-main {
