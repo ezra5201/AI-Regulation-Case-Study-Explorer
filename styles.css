@@ -134,7 +134,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 100%; /* Allows user to zoom text */
-  scroll-padding-top: 100px; /* Add padding when scrolling to anchors to account for sticky headers */
+  scroll-padding-top: 80px; /* Add padding when scrolling to anchors to account for sticky headers */
 }
 
 body {
@@ -246,7 +246,7 @@ strong {
 
 /* Tabs */
 .tab-container {
-  margin-top: calc(var(--spacing-unit) * 12);
+  margin-top: calc(var(--spacing-unit) * 6);
   background-color: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-corner-medium);
   box-shadow: var(--md-sys-elevation-level1);
