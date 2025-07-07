@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const siteMain = document.querySelector('.site-main');
 
   // Tabs that should use wide layout (for tables)
-  const wideLayoutTabs = ['service-blueprint', 'compliance-heatmap', 'developers', 'deployer'];
+  const wideLayoutTabs = ['service-blueprint', 'compliance-heatmap'];
 
 function showTab(targetTabId) {
   // Hide all tab contents
